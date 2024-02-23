@@ -320,7 +320,7 @@ export default function Home() {
       <div className="icon absolute left-[12%] top-[30%] md:left-[50%] md:top-[20%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/water.svg" alt="Water" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute left-[28%] top-[80%] md:left-[36%] md:top-[74%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[28%] bottom-[12%] md:left-[36%] md:bottom-[10%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/scale.svg" alt="Scale" layout="fill" objectFit="contain" />
       </div>
       <div className="icon absolute right-[50%] top-[68%] md:right-[10%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
@@ -392,7 +392,7 @@ export default function Home() {
         </div>
 
         <div className="subscribe z-[0] opacity-0 absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
-          <h1 className="font-bold text-2xl md:text-7xl text-black">$30/mo</h1>
+          <h1 className="font-bold text-4xl md:text-7xl text-black">$30/mo</h1>
           <button className="flex justify-center items-center h-[42px] w-[108px] md:h-[64px] md:w-[160px] bg-red-800 rounded-[32px] shadow-2xl mt-4 md:mt-12">
             <p className="text-[1rem] md:text-[1.3rem] text-gray-800 font-semibold text-white">
               Subscribe
