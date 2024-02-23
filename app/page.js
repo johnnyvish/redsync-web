@@ -356,7 +356,7 @@ export default function Home() {
       <div className="purple-container min-h-screen relative flex justify-center items-center w-[98%] self-center mt-40 md:mt-48 rounded-[32px]">
         <div className="z-[45] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-purple-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
-            src="/smart-ring.png"
+            src="/tape-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
