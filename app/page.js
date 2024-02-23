@@ -66,17 +66,32 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    gsap.to(".info-box", {
-      y: 500,
-      scale: 1.3,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".info-box",
-        start: "top center",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
+    // Check if the viewport width is greater than 768 pixels
+    if (window.innerWidth > 768) {
+      gsap.to(".info-box", {
+        y: 500,
+        scale: 1.3, // Apply scaling only for non-mobile devices
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".info-box",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    } else {
+      // For mobile devices, apply the animation without scaling
+      gsap.to(".info-box", {
+        y: 500,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".info-box",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
@@ -156,6 +171,22 @@ export default function Home() {
         top: "28%",
         scale: 1,
         duration: 3,
+      })
+      .to(".bg-black", { duration: 0.5, zIndex: 104 })
+      .to(".bg-black", { scale: 2.5, duration: 5 })
+      .to(".bg-black", {
+        left: "10%",
+        top: "50%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-purple-400", { duration: 0.5, zIndex: 105 })
+      .to(".bg-purple-400", { scale: 2.5, duration: 5 })
+      .to(".bg-purple-400", {
+        right: "10%",
+        top: "50%",
+        scale: 1,
+        duration: 3,
       });
 
     return () => {
@@ -230,7 +261,7 @@ export default function Home() {
 
   return (
     <main className="main-container flex flex-col w-full bg-[#fcf0f4]">
-      <div className="fixed top-8 left-8 flex text-3xl font-bold z-[1000] bg-white rounded-[2rem] pt-2 pb-2 pl-4 pr-4">
+      <div className="invisible md:visible fixed top-8 left-8 flex text-3xl font-bold z-[1000] bg-white rounded-[2rem] pt-2 pb-2 pl-4 pr-4">
         <h1 className="text-red-800">Red</h1>
         <h1 className="text-gray-800">Sync</h1>
       </div>
@@ -274,12 +305,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Replace <img> with <Image> from next/image */}
-      <div className="icon absolute left-[16%] md:left-[10%] top-[60%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[16%] top-[64%] md:left-[10%] md:top-[72%]  -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/heart.svg" alt="Heart" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute left-[24%] md:left-[12%] top-[24%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[50%] md:left-[12%] top-[24%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image
           src="/blood-pressure.svg"
           alt="Blood Pressure"
@@ -287,22 +316,22 @@ export default function Home() {
           objectFit="contain"
         />
       </div>
-      <div className="icon absolute left-[12%] md:left-[20%] top-[30%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[12%] top-[30%] md:left-[50%] md:top-[24%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/water.svg" alt="Water" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute left-[28%] md:left-[24%] top-[80%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[28%] top-[80%] md:left-[36%] md:top-[74%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/scale.svg" alt="Scale" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute right-[12%] md:right-[10%] top-[60%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
+      <div className="icon absolute right-[50%] top-[68%] md:right-[10%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
         <Image src="/food.svg" alt="Food" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute right-[16%] md:right-[20%] top-[30%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
+      <div className="icon absolute right-[16%] top-[30%] md:right-[20%]  translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
         <Image src="/tape.svg" alt="Tape" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute right-[14%] md:right-[24%] top-[80%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
+      <div className="icon absolute right-[24%] top-[80%] md:right-[42%] md:top-[76%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
         <Image src="/blood.svg" alt="Blood" layout="fill" objectFit="contain" />
       </div>
-      <div className="icon absolute right-[10%] md:right-[5%] top-[70%] md:top-[80%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
+      <div className="icon absolute right-[10%] top-[70%] md:right-[24%] md:top-[76%] translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 rotate-12">
         <Image src="/sleep.svg" alt="Sleep" layout="fill" objectFit="contain" />
       </div>
 
@@ -322,8 +351,20 @@ export default function Home() {
           </h3>
         </div>
       </div>
-      <div className="section-2 min-h-screen relative flex justify-center items-center w-[98%] self-center mt-40 md:mt-48 rounded-[32px]"></div>
+      <div className="section-2 h-screen relative flex justify-center items-center w-[98%] self-center rounded-[32px]"></div>
       <div className="purple-container min-h-screen relative flex justify-center items-center w-[98%] self-center mt-40 md:mt-48 rounded-[32px]">
+        <div className="z-[45] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-purple-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/smart-ring.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[46] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-black h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/smart-ring.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
         <div className="z-[47] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-yellow-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/blood-pressure-monitor.png"
@@ -348,8 +389,9 @@ export default function Home() {
             className="self-center rounded-[2rem] p-4"
           />
         </div>
+
         <div className="z-[0] absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
-          <h1 className="font-bold text-7xl text-black">$30/mo</h1>
+          <h1 className="font-bold text-2xl md:text-7xl text-black">$30/mo</h1>
           <button className="flex justify-center items-center h-[42px] w-[108px] md:h-[64px] md:w-[160px] bg-red-800 rounded-[32px] shadow-2xl mt-4 md:mt-12">
             <p className="text-[1rem] md:text-[1.3rem] text-gray-800 font-semibold text-white">
               Subscribe
