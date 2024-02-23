@@ -8,6 +8,108 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const diseases = [
+    "heart disease",
+    "diabetes",
+    "alzheimers",
+    "dementia",
+    "hypertension",
+    "obesity",
+    // Add more diseases as needed
+  ];
+
+  let currentDiseaseIndex = 0;
+
+  useEffect(() => {
+    let currentDiseaseIndex = 0;
+
+    const cycleDiseases = () => {
+      const diseaseElement = document.querySelector(".disease");
+      if (!diseaseElement) return;
+
+      // Update text with the next disease without immediately showing it
+      diseaseElement.textContent = diseases[currentDiseaseIndex];
+
+      // Animation to slide in from the bottom
+      gsap.fromTo(
+        diseaseElement,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          onComplete: () => {
+            // Wait for a moment before sliding out and fading
+            gsap.to(diseaseElement, {
+              y: -30, // Move up to simulate "going out of view"
+              opacity: 0,
+              duration: 1,
+              delay: 2, // Adjust delay as needed
+              onComplete: () => {
+                currentDiseaseIndex =
+                  (currentDiseaseIndex + 1) % diseases.length;
+                cycleDiseases(); // Repeat the cycle with the next disease
+              },
+            });
+          },
+        }
+      );
+    };
+
+    cycleDiseases();
+
+    // Cleanup function to prevent memory leaks
+    return () => {
+      gsap.killTweensOf(".disease");
+    };
+  }, []);
+
+  useEffect(() => {
+    gsap.to(".info-box", {
+      y: 500,
+      scale: 1.3,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".info-box",
+        start: "top center",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
+
+  useEffect(() => {
+    const icons = document.querySelectorAll(".icon");
+    icons.forEach((icon) => {
+      icon.dataset.intensity = 60 + Math.random() * 120;
+    });
+
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      const mouseXRatio = (e.clientX - innerWidth / 2) / innerWidth;
+      const mouseYRatio = (e.clientY - innerHeight / 2) / innerHeight;
+
+      icons.forEach((icon) => {
+        const intensity = parseFloat(icon.dataset.intensity);
+        gsap.to(icon, {
+          x: mouseXRatio * intensity,
+          y: mouseYRatio * intensity,
+          ease: "none",
+        });
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
   useEffect(() => {
     ScrollTrigger.refresh();
 
@@ -23,14 +125,15 @@ export default function Home() {
       },
     });
 
-    tl.to(".main-container", { backgroundColor: "#ADD8E6", duration: 5 }, 0)
-      .to(".bg-green-400", { scale: 2.5, duration: 5 })
+    tl.to(".main-container", { backgroundColor: "#ADD8E6", duration: 2 }, 0)
+      .to(".bg-green-400", { scale: 2.5, duration: 5, zIndex: 100 })
       .to(".bg-green-400", {
         right: "28%",
         top: "70%",
         scale: 1,
         duration: 3,
       })
+      .to(".bg-red-400", { duration: 0.5, zIndex: 101 })
       .to(".bg-red-400", { scale: 2.5, duration: 5 })
       .to(".bg-red-400", {
         left: "28%",
@@ -38,6 +141,7 @@ export default function Home() {
         scale: 1,
         duration: 3,
       })
+      .to(".bg-blue-400", { duration: 0.5, zIndex: 102 })
       .to(".bg-blue-400", { scale: 2.5, duration: 5 })
       .to(".bg-blue-400", {
         right: "28%",
@@ -45,6 +149,7 @@ export default function Home() {
         scale: 1,
         duration: 3,
       })
+      .to(".bg-yellow-400", { duration: 0.5, zIndex: 103 })
       .to(".bg-yellow-400", { scale: 2.5, duration: 5 })
       .to(".bg-yellow-400", {
         left: "28%",
@@ -57,6 +162,72 @@ export default function Home() {
       ScrollTrigger.getAll().forEach((instance) => instance.kill());
     };
   }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".icon",
+      {
+        scale: 0,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        ease: "back.out(1.7)",
+        stagger: 0.2,
+        duration: 0.5,
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".main-container",
+        start: "top+=400 top",
+        end: () => `+=${document.querySelector(".section-2").offsetHeight}`, // Example of dynamic end value
+        scrub: 1,
+      },
+    });
+
+    tl.fromTo(
+      ".info-point-1",
+      { y: 30, opacity: 0 }, // Starting state: slightly down and transparent
+      {
+        y: 0, // End state: original position
+        opacity: 1, // Fully visible
+        duration: 0.5, // Duration of the animation
+        ease: "power1.out", // Easing function
+      }
+    )
+      .fromTo(
+        ".info-point-2",
+        { y: 30, opacity: 0 }, // Starting state: slightly down and transparent
+        {
+          y: 0, // End state: original position
+          opacity: 1, // Fully visible
+          duration: 0.5, // Duration of the animation
+          ease: "power1.out", // Easing function
+        }
+      )
+      .fromTo(
+        ".info-point-3",
+        { y: 30, opacity: 0 }, // Starting state: slightly down and transparent
+        {
+          y: 0, // End state: original position
+          opacity: 1, // Fully visible
+          duration: 0.5, // Duration of the animation
+          ease: "power1.out", // Easing function
+        }
+      );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((instance) => instance.kill());
+    };
+  }, []);
+
   return (
     <main className="main-container flex flex-col w-full bg-[#fcf0f4]">
       <div className="fixed top-8 left-8 flex text-3xl font-bold z-[1000] bg-white rounded-[2rem] pt-2 pb-2 pl-4 pr-4">
@@ -153,31 +324,31 @@ export default function Home() {
       </div>
       <div className="section-2 min-h-screen relative flex justify-center items-center w-[98%] self-center mt-40 md:mt-48 rounded-[32px]"></div>
       <div className="purple-container min-h-screen relative flex justify-center items-center w-[98%] self-center mt-40 md:mt-48 rounded-[32px]">
-        <div className="z-[995] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-yellow-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[47] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-yellow-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/blood-pressure-monitor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[996] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-blue-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[48] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-blue-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/glucose-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[997] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[49] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/scale-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[998] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-green-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[50] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-green-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/smart-ring.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
+        <div className="z-[0] absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
           <h1 className="font-bold text-7xl text-black">$30/mo</h1>
           <button className="flex justify-center items-center h-[42px] w-[108px] md:h-[64px] md:w-[160px] bg-red-800 rounded-[32px] shadow-2xl mt-4 md:mt-12">
             <p className="text-[1rem] md:text-[1.3rem] text-gray-800 font-semibold text-white">
@@ -186,7 +357,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="main-container flex justify-center items-center w-[100%] self-center mt-28 h-[800vh] bg-[#f3f3e9] rounded-[32px]"></div>
+      <div className="main-container flex justify-center items-center w-[100%] self-center mt-28 h-[800vh] bg-[#fcf0f4] rounded-[32px]"></div>
       <footer className="w-full bg-gray-800 py-4 mt-8">
         <div className="max-w-screen-lg mx-auto text-center">
           <p className="text-sm text-gray-300">
