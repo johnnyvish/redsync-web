@@ -132,7 +132,7 @@ export default function Home() {
         <h2 className="font-bold p-8 md:p-12 text-4xl lg:text-6xl text-center">
           One subscription, 15 measurements:
         </h2>
-        <div className="grid grid-rows-7 grid-cols-2 lg:grid-rows-5 lg:grid-cols-3 gap-x-4 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-8">
+        <div className="grid grid-rows-7 grid-cols-2 lg:grid-rows-5 lg:grid-cols-3 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-8">
           <div className="flex justify-center items-center space-x-4">
             <Image
               src="/nutrition.svg"
@@ -140,7 +140,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Nutrition</h2>
+            <h2 className="text-md font-bold">Nutrition</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -151,7 +151,7 @@ export default function Home() {
               alt="Picture of the author"
             />
 
-            <h2 className="text-xl font-bold">Heart Rate Variability</h2>
+            <h2 className="text-md font-bold">Heart Rate Variability</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -161,7 +161,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Blood Pressure</h2>
+            <h2 className="text-md font-bold">Blood Pressure</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -171,7 +171,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Movement</h2>
+            <h2 className="text-md font-bold">Movement</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -181,7 +181,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Exercise</h2>
+            <h2 className="text-md font-bold">Exercise</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -191,7 +191,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Blood Oxygen</h2>
+            <h2 className="text-md font-bold">Blood Oxygen</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -201,7 +201,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Sleep</h2>
+            <h2 className="text-md font-bold">Sleep</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -211,7 +211,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Temperature</h2>
+            <h2 className="text-md font-bold">Temperature</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -221,7 +221,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Weight</h2>
+            <h2 className="text-md font-bold">Weight</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -231,7 +231,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Fat Distribution</h2>
+            <h2 className="text-md font-bold">Fat Distribution</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -241,7 +241,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Blood Cholesterol</h2>
+            <h2 className="text-md font-bold">Blood Cholesterol</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -251,7 +251,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Blood Sugar</h2>
+            <h2 className="text-md font-bold">Blood Sugar</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -261,7 +261,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Waist Circumference</h2>
+            <h2 className="text-md font-bold">Waist Circumference</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -271,7 +271,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Water Intake</h2>
+            <h2 className="text-md font-bold">Water Intake</h2>
           </div>
 
           <div className="flex justify-center items-center space-x-4">
@@ -281,7 +281,7 @@ export default function Home() {
               height={64}
               alt="Picture of the author"
             />
-            <h2 className="text-xl font-bold">Drug Intake</h2>
+            <h2 className="text-md font-bold">Drug Intake</h2>
           </div>
         </div>
 
