@@ -94,7 +94,7 @@ export default function Home() {
         <div className="flex justify-center items-center md:w-[800px]">
           <div className="sync flex flex-col space-y-4 justify-center items-center opacity-1">
             <h2 className="text-black text-3xl md:text-6xl self-center text-center">
-              Don't treat health symptoms.
+              Don&apos;t treat health symptoms.
             </h2>
             <h2 className="text-black text-3xl md:text-6xl self-center text-center">
               Prevent{" "}
