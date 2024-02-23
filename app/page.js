@@ -182,6 +182,7 @@ export default function Home() {
       })
       .to(".bg-purple-400", { duration: 0.5, zIndex: 105 })
       .to(".bg-purple-400", { scale: 2.5, duration: 5 })
+      .to(".subscribe", { duration: 0.5, autoAlpha: 1 })
       .to(".bg-purple-400", {
         right: "10%",
         top: "50%",
@@ -295,10 +296,10 @@ export default function Home() {
       <div className="min-h-screen flex flex-col justify-center items-center text-4xl md:text-8xl font-bold text-gray-800">
         <div className="flex justify-center items-center md:w-[800px]">
           <div className="sync flex flex-col space-y-4 justify-center items-center opacity-1">
-            <h2 className="text-black text-3xl md:text-6xl self-center text-center">
+            <h2 className="text-black text-3xl md:text-5xl lg:text-6xl self-center text-center">
               Don&apos;t treat health symptoms.
             </h2>
-            <h2 className="text-black text-3xl md:text-6xl self-center text-center">
+            <h2 className="text-black text-3xl md:text-5xl lg:text-6xl self-center text-center">
               Prevent{" "}
               <span className="disease text-red-800">heart disease</span>.
             </h2>
@@ -316,7 +317,7 @@ export default function Home() {
           objectFit="contain"
         />
       </div>
-      <div className="icon absolute left-[12%] top-[30%] md:left-[50%] md:top-[24%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[12%] top-[30%] md:left-[50%] md:top-[20%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/water.svg" alt="Water" layout="fill" objectFit="contain" />
       </div>
       <div className="icon absolute left-[28%] top-[80%] md:left-[36%] md:top-[74%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
@@ -335,18 +336,18 @@ export default function Home() {
         <Image src="/sleep.svg" alt="Sleep" layout="fill" objectFit="contain" />
       </div>
 
-      <div className="info-box absolute flex justify-center items-center h-[340px] w-[92%] md:w-[480px] bg-blue-200 rounded-[32px] left-1/2 top-[928px] md:top-[892px] -translate-x-1/2 -translate-y-1/2 shadow-2xl">
+      <div className="info-box absolute flex justify-center items-center h-[340px] w-[92%] md:w-[480px] bg-red-200 rounded-[32px] left-1/2 top-[928px] md:top-[892px] -translate-x-1/2 -translate-y-1/2 shadow-2xl">
         <div className="flex flex-col items-center space-y-8 text-center text-md md:text-xl p-4 text-black">
           <h2 className="text-3xl md:text-4xl font-bold text-center">
             How does it work?
           </h2>
-          <h3 className="info-point-1">
+          <h3 className="info-point-1 font-semibold">
             1. We send you medical-grade sensors. 📦🔬
           </h3>
-          <h3 className="info-point-2">
+          <h3 className="info-point-2 font-semibold">
             2. You take daily and weekly measurements of your body. 📆📏
           </h3>
-          <h3 className="info-point-3">
+          <h3 className="info-point-3 font-semibold">
             3. Red provide you insights and keep you accountable for action.📈🔴
           </h3>
         </div>
@@ -390,7 +391,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="z-[0] absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
+        <div className="subscribe z-[0] opacity-0 absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
           <h1 className="font-bold text-2xl md:text-7xl text-black">$30/mo</h1>
           <button className="flex justify-center items-center h-[42px] w-[108px] md:h-[64px] md:w-[160px] bg-red-800 rounded-[32px] shadow-2xl mt-4 md:mt-12">
             <p className="text-[1rem] md:text-[1.3rem] text-gray-800 font-semibold text-white">
