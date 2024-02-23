@@ -306,7 +306,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="icon absolute left-[16%] top-[64%] md:left-[10%] md:top-[72%]  -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
+      <div className="icon absolute left-[16%] bottom-[24%] md:left-[10%] md:bottom-[18%]  -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
         <Image src="/heart.svg" alt="Heart" layout="fill" objectFit="contain" />
       </div>
       <div className="icon absolute left-[50%] md:left-[12%] top-[24%] -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-28 md:w-28 -rotate-12">
