@@ -34,49 +34,49 @@ export default function Home() {
       },
     });
 
-    tl.to(".bg-green-400", { scale: 2.5, duration: 5, zIndex: 100 })
-      .to(".bg-green-400", {
+    tl.to(".green-sensor", { scale: 2.5, duration: 5, zIndex: 100 })
+      .to(".green-sensor", {
         right: "28%",
         top: "70%",
         scale: 1,
         duration: 3,
       })
-      .to(".bg-red-400", { duration: 0.5, zIndex: 101 })
-      .to(".bg-red-400", { scale: 2.5, duration: 5 })
-      .to(".bg-red-400", {
+      .to(".red-sensor", { duration: 0.5, zIndex: 101 })
+      .to(".red-sensor", { scale: 2.5, duration: 5 })
+      .to(".red-sensor", {
         left: "28%",
         top: "70%",
         scale: 1,
         duration: 3,
       })
-      .to(".bg-blue-400", { duration: 0.5, zIndex: 102 })
-      .to(".bg-blue-400", { scale: 2.5, duration: 5 })
-      .to(".bg-blue-400", {
+      .to(".blue-sensor", { duration: 0.5, zIndex: 102 })
+      .to(".blue-sensor", { scale: 2.5, duration: 5 })
+      .to(".blue-sensor", {
         right: "28%",
         top: "28%",
         scale: 1,
         duration: 3,
       })
-      .to(".bg-yellow-400", { duration: 0.5, zIndex: 103 })
-      .to(".bg-yellow-400", { scale: 2.5, duration: 5 })
-      .to(".bg-yellow-400", {
+      .to(".yellow-sensor", { duration: 0.5, zIndex: 103 })
+      .to(".yellow-sensor", { scale: 2.5, duration: 5 })
+      .to(".yellow-sensor", {
         left: "28%",
         top: "28%",
         scale: 1,
         duration: 3,
       })
-      .to(".bg-black", { duration: 0.5, zIndex: 104 })
-      .to(".bg-black", { scale: 2.5, duration: 5 })
-      .to(".bg-black", {
+      .to(".black-sensor", { duration: 0.5, zIndex: 104 })
+      .to(".black-sensor", { scale: 2.5, duration: 5 })
+      .to(".black-sensor", {
         left: "10%",
         top: "50%",
         scale: 1,
         duration: 3,
       })
-      .to(".bg-purple-400", { duration: 0.5, zIndex: 105 })
-      .to(".bg-purple-400", { scale: 2.5, duration: 5 })
+      .to(".purple-sensor", { duration: 0.5, zIndex: 105 })
+      .to(".purple-sensor", { scale: 2.5, duration: 5 })
       .to(".subscribe", { duration: 0.5, autoAlpha: 1 })
-      .to(".bg-purple-400", {
+      .to(".purple-sensor", {
         right: "10%",
         top: "50%",
         scale: 1,
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] bg-yellow-400 rounded-full"></div>
+            <div className="w-[8px] h-[8px] yellow-sensor rounded-full"></div>
             <button>Who</button>
           </div>
         </div>
@@ -360,37 +360,37 @@ export default function Home() {
       </div>
 
       <div className="purple-container min-h-screen relative flex justify-center items-center w-[98%] self-center mt-[500px] rounded-[32px]">
-        <div className="z-[45] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-purple-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[45] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 purple-sensor bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/tape-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[46] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-black h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[46] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 black-sensor bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/smart-ring.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[47] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-yellow-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[47] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 yellow-sensor bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/blood-pressure-monitor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[48] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-blue-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[48] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 blue-sensor bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/glucose-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[49] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[49] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 red-sensor bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img
             src="/scale-sensor.png"
             className="self-center rounded-[2rem] p-4"
           />
         </div>
-        <div className="z-[50] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-green-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+        <div className="z-[50] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-red-400 green-sensor h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
           <img src="/nfc.png" className="self-center rounded-[2rem] p-4" />
         </div>
 
