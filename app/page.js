@@ -3,9 +3,11 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 
 gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const diseases = [
@@ -16,6 +18,75 @@ export default function Home() {
     "hypertension.",
     "obesity.",
   ];
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".purple-container",
+        start: "top top",
+        end: () =>
+          `+=${document.querySelector(".purple-container").offsetHeight * 8}`,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+
+    tl.to(".bg-green-400", { scale: 2.5, duration: 5, zIndex: 100 })
+      .to(".bg-green-400", {
+        right: "28%",
+        top: "70%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-red-400", { duration: 0.5, zIndex: 101 })
+      .to(".bg-red-400", { scale: 2.5, duration: 5 })
+      .to(".bg-red-400", {
+        left: "28%",
+        top: "70%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-blue-400", { duration: 0.5, zIndex: 102 })
+      .to(".bg-blue-400", { scale: 2.5, duration: 5 })
+      .to(".bg-blue-400", {
+        right: "28%",
+        top: "28%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-yellow-400", { duration: 0.5, zIndex: 103 })
+      .to(".bg-yellow-400", { scale: 2.5, duration: 5 })
+      .to(".bg-yellow-400", {
+        left: "28%",
+        top: "28%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-black", { duration: 0.5, zIndex: 104 })
+      .to(".bg-black", { scale: 2.5, duration: 5 })
+      .to(".bg-black", {
+        left: "10%",
+        top: "50%",
+        scale: 1,
+        duration: 3,
+      })
+      .to(".bg-purple-400", { duration: 0.5, zIndex: 105 })
+      .to(".bg-purple-400", { scale: 2.5, duration: 5 })
+      .to(".subscribe", { duration: 0.5, autoAlpha: 1 })
+      .to(".bg-purple-400", {
+        right: "10%",
+        top: "50%",
+        scale: 1,
+        duration: 3,
+      });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((instance) => instance.kill());
+    };
+  }, []);
 
   useEffect(() => {
     let tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
@@ -36,7 +107,7 @@ export default function Home() {
 
         <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
           <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] bg-red-400 rounded-full"></div>
+            <div className="w-[8px] h-[8px] bg-red-500 rounded-full"></div>
             <button>What</button>
           </div>
 
@@ -55,7 +126,7 @@ export default function Home() {
             <div className="w-[8px] h-[8px] rounded-full"></div>
           </div>
         </div>
-        <button className="text-xl font-bold bg-red-400 pt-2 pb-2 pl-4 pr-4 rounded-[32px] font-semibold text-white">
+        <button className="text-xl font-bold bg-red-500 pt-2 pb-2 pl-4 pr-4 rounded-[32px] font-semibold text-white">
           Start Now
         </button>
       </nav>
@@ -288,7 +359,51 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center space-y-8 text-inline"></div>
       </div>
 
-      <section className="min-h-screen w-full"></section>
+      <div className="purple-container min-h-screen relative flex justify-center items-center w-[98%] self-center mt-[500px] rounded-[32px]">
+        <div className="z-[45] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-purple-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/tape-sensor.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[46] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-black h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/smart-ring.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[47] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-yellow-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/blood-pressure-monitor.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[48] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-blue-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/glucose-sensor.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[49] absolute flex flex-col space-y-4 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 bg-red-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img
+            src="/scale-sensor.png"
+            className="self-center rounded-[2rem] p-4"
+          />
+        </div>
+        <div className="z-[50] absolute flex flex-col space-y-4 justify-center items-center right-[50%] top-[50%] translate-x-1/2 -translate-y-1/2 bg-green-400 h-[100px] w-[100px] md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-[2rem] shadow-2xl floating">
+          <img src="/nfc.png" className="self-center rounded-[2rem] p-4" />
+        </div>
+
+        <div className="subscribe z-[0] opacity-0 absolute flex flex-col space-y-8 justify-center items-center left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2  rounded-[2rem]">
+          <h1 className="font-bold text-4xl md:text-7xl text-black">$30/mo</h1>
+          <button className="flex justify-center items-center h-[42px] w-[108px] md:h-[64px] md:w-[160px] bg-white rounded-[32px] shadow-2xl mt-4 md:mt-12 border-4 border-red-500">
+            <p className="text-[1rem] md:text-[1.3rem] text-gray-800 font-semibold text-red-500">
+              Subscribe
+            </p>
+          </button>
+        </div>
+      </div>
+      <div className="main-container flex justify-center items-center w-[100%] self-center mt-28 h-[800vh] bg-white rounded-[32px]"></div>
     </main>
   );
 }
