@@ -117,7 +117,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] yellow-sensor rounded-full"></div>
+            <div className="w-[8px] h-[8px] bg-yellow-400 rounded-full"></div>
             <button>Who</button>
           </div>
         </div>
