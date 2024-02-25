@@ -124,7 +124,7 @@ export default function Home() {
             </div>
           </div>
           <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
-            Start Now
+            Sign Up
           </button>
         </nav>
         <div className="flex flex-col justify-center items-center w-full bg-white">
