@@ -76,12 +76,12 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".bullet-1", { opacity: 1 })
-        .from(".bullet-1", { y: 36 }, "<")
-        .to(".bullet-2", { opacity: 1 }) // "<" means start at the same time as the previous animation
-        .from(".bullet-2", { y: 36 }, "<")
-        .to(".bullet-3", { opacity: 1 })
-        .from(".bullet-3", { y: 36 }, "<");
+        .to(".will-change-auto bullet-1", { opacity: 1 })
+        .from(".will-change-auto bullet-1", { y: 36 }, "<")
+        .to(".will-change-auto bullet-2", { opacity: 1 }) // "<" means start at the same time as the previous animation
+        .from(".will-change-auto bullet-2", { y: 36 }, "<")
+        .to(".will-change-auto bullet-3", { opacity: 1 })
+        .from(".will-change-auto bullet-3", { y: 36 }, "<");
     }, app.current);
 
     return () => ctx.revert();
@@ -158,7 +158,7 @@ export default function Home() {
                 How it works
               </h2>
               <div className="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
-                <div className="bullet-1 opacity-0 flex space-x-4 items-start">
+                <div className="will-change-auto bullet-1 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-1.png"
@@ -172,7 +172,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bullet-2 opacity-0 flex space-x-4 items-start">
+                <div className="will-change-auto bullet-2 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-2.png"
@@ -186,7 +186,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bullet-3 opacity-0 flex space-x-4 items-start">
+                <div className="will-change-auto bullet-3 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-3.png"
@@ -211,7 +211,7 @@ export default function Home() {
             </h2>
 
             <div className="measurements grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <img
                   src="/nutrition.svg"
                   width={64}
@@ -220,7 +220,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Nutrition</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/water.svg"
                   width={64}
@@ -229,7 +229,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Water Intake</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/drug.svg"
                   width={64}
@@ -238,7 +238,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Drug Intake</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/movement.svg"
                   width={64}
@@ -247,7 +247,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Daily Movement</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/exercise.svg"
                   width={64}
@@ -256,7 +256,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Exercise</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/weight.svg"
                   width={64}
@@ -265,7 +265,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Weight</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/fat.svg"
                   width={64}
@@ -276,7 +276,7 @@ export default function Home() {
                   Fat + Muscle Distribution
                 </h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/waist.svg"
                   width={64}
@@ -285,7 +285,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Waist Circumference</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/blood-sugar.svg"
                   width={64}
@@ -294,7 +294,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Sugar</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/blood-cholesterol.svg"
                   width={64}
@@ -303,7 +303,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Cholesterol</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/blood-pressure.svg"
                   width={64}
@@ -312,7 +312,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Pressure</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/blood-oxygen.svg"
                   width={64}
@@ -321,7 +321,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Oxygen</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/heart.svg"
                   width={64}
@@ -333,7 +333,7 @@ export default function Home() {
                   Heart Rate Variability
                 </h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/vo2.svg"
                   width={64}
@@ -342,7 +342,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Vo2 Max</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/stress.svg"
                   width={64}
@@ -351,7 +351,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Physiological Stress</h2>
               </div>
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/respiratory.svg"
                   width={64}
@@ -361,7 +361,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Respiratory Rate</h2>
               </div>
 
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/mental-health.svg"
                   width={64}
@@ -371,7 +371,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Mental Health</h2>
               </div>
 
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/temperature.svg"
                   width={64}
@@ -381,7 +381,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Body Temperature</h2>
               </div>
 
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/sleep.svg"
                   width={64}
@@ -391,7 +391,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Sleep</h2>
               </div>
 
-              <div className="icon flex justify-center items-center space-x-4">
+              <div className="icon flex will-change:auto justify-center items-center space-x-4">
                 <Image
                   src="/menstrual.svg"
                   width={64}
