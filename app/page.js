@@ -93,7 +93,7 @@ export default function Home() {
         .timeline({
           scrollTrigger: {
             trigger: ".measurements",
-            start: "top center",
+            start: "top-=200 center",
             end: "center center",
             scrub: 1,
           },
@@ -102,6 +102,35 @@ export default function Home() {
     }, app.current);
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    // Dummy object for animating the number
+    const counter = { value: 0 };
+
+    // Target the element you want to update
+    const numberElement = document.querySelector(".counter-measurements");
+
+    // Create a GSAP timeline
+    const tl = gsap.timeline({
+      repeat: -1, // Repeat the timeline infinitely
+      onRepeat: () => {
+        counter.value = 0; // Reset counter value on each repeat
+      },
+    });
+
+    // First part: animate the number from 0 to 20
+    tl.to(counter, {
+      value: 20,
+      duration: 4, // Duration of the animation to go from 0 to 20
+      ease: "power1", // Choose an easing function
+      onUpdate: () => {
+        // Update the text content during the animation
+        numberElement.textContent = Math.floor(counter.value) + "+";
+      },
+    })
+      // Second part: add a pause
+      .call(() => {}, [], "+=5"); // Pause for 5 seconds
   }, []);
 
   return (
@@ -207,7 +236,10 @@ export default function Home() {
           <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')]">
             <h2 className="how-it-works text-4xl lg:text-6xl font-bold text-black text-center mt-24">
               One subscription, <br></br>
-              <span className="text-red-700">20+</span> measurements:
+              <span className="counter-measurements text-red-700">
+                20+
+              </span>{" "}
+              measurements:
             </h2>
 
             <div className="measurements grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
