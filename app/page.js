@@ -152,7 +152,7 @@ export default function Home() {
                     <h3 className="text-2xl md:text-3xl font-bold text-center">
                       Subscribe & Receive Sensors
                     </h3>
-                    <h3 className="text-4xl font-semibold">📦</h3>
+                    <h3 className="text-5xl font-semibold">📦</h3>
                   </div>
                 </div>
 
@@ -166,7 +166,7 @@ export default function Home() {
                     <h3 className="text-2xl md:text-3xl font-bold text-center">
                       Measure Your Body Weekly
                     </h3>
-                    <h3 className="text-4xl font-semibold">📆</h3>
+                    <h3 className="text-5xl font-semibold">📆</h3>
                   </div>
                 </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
                       Receive Insights & Improve Health
                     </h3>
                     <div>
-                      <h3 className="text-4xl font-semibold">📈</h3>
+                      <h3 className="text-5xl font-semibold">📈</h3>
                     </div>
                   </div>
                 </div>
