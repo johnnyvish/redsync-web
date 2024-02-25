@@ -243,7 +243,7 @@ export default function Home() {
               measurements:
             </h2>
 
-            <div className="measurements grid grid-rows-10 grid-cols-2 md:grid-rows-5 md:grid-cols-4 gap-y-8 mt-24 w-[90%] md:w-[80%} lg:w-[64%]">
+            <div className="measurements grid grid-rows-10 grid-cols-2 md:grid-rows-5 md:grid-cols-4 gap-y-8 mt-12 w-[90%] md:w-[80%} lg:w-[64%]">
               <div className="icon flex justify-center items-center space-x-4">
                 <img
                   src="/nutrition.svg"
