@@ -41,38 +41,16 @@ export default function Home() {
     startAnimation();
   }, []);
 
-  // useEffect(() => {
-  //   // Create a timeline with ScrollTrigger configuration
-  //   let tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: ".sensors-section", // Shared trigger element for all animations
-  //       start: "center center", // Animation starts when the trigger element is in the center of the viewport
-  //       end: "bottom top", // Animation ends when the bottom of the trigger element reaches the top of the viewport
-  //       pin: true, // Pin the trigger element while the animation is active
-  //       scrub: 1, // Smooth scrubbing effect for the animation
-  //       markers: true, // Display markers for debugging
-  //     },
-  //   });
-
-  //   tl.to(".scale-sensor", { left: 200 })
-  //     .to(".tape-sensor", { left: 0 }, "<") // "<" means start at the same time as the previous animation
-  //     .to(".blood-pressure-sensor", { left: 0 }, "<")
-  //     .to(".smart-ring-sensor", { left: 0 }, "<")
-  //     .to(".glucose-sensor", { left: 0 }, "<")
-  //     .to(".nfc-sensor", { left: 0 }, "<");
-  // }, []);
-
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // Create a timeline and attach it to the ScrollTrigger
       tl.current = gsap
         .timeline({
           scrollTrigger: {
-            trigger: ".sensors-section", // Shared trigger element for all animations
-            start: "center center", // Animation starts when the trigger element is in the center of the viewport
-            end: "bottom top", // Animation ends when the bottom of the trigger element reaches the top of the viewport
-            pin: true, // Pin the trigger element while the animation is active
-            scrub: 1, // Smooth scrubbing effect for the animation
+            trigger: ".sensors-section",
+            start: "center center",
+            end: "bottom top",
+            pin: true,
+            scrub: 1,
           },
         })
         .to(".scale-sensor", { left: "25%", bottom: "25%" })
@@ -84,8 +62,47 @@ export default function Home() {
         .to(".pricing", { opacity: 1 }, "<");
     }, app.current);
 
-    return () => ctx.revert(); // Cleanup the context when the component unmounts
-  }, []); // Empty dependency array means this effect runs once on mount
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".how-it-works",
+            start: "top center",
+            end: "center center",
+            scrub: 1,
+          },
+        })
+        .to(".bullet-1", { opacity: 1 })
+        .from(".bullet-1", { y: 36 }, "<")
+        .to(".bullet-2", { opacity: 1 }) // "<" means start at the same time as the previous animation
+        .from(".bullet-2", { y: 36 }, "<")
+        .to(".bullet-3", { opacity: 1 })
+        .from(".bullet-3", { y: 36 }, "<");
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".measurements",
+            start: "top center",
+            end: "center center",
+            scrub: 1,
+          },
+        })
+        .from(".icon", { scale: 0, stagger: 0.2 });
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <ReactLenis root>
@@ -136,12 +153,12 @@ export default function Home() {
               <h2>prevent</h2>
               <h2 className="text-red-400 disease">heart attacks.</h2>
             </div>
-            <div className="flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
+            <div className="how-it-works flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
               <h2 className="text-5xl md:text-7xl font-bold text-center">
                 How it works
               </h2>
               <div className="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
-                <div className="flex space-x-4 items-start">
+                <div className="bullet-1 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-1.png"
@@ -155,7 +172,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex space-x-4 items-start">
+                <div className="bullet-2 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-2.png"
@@ -169,7 +186,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex space-x-4 items-start">
+                <div className="bullet-3 opacity-0 flex space-x-4 items-start">
                   <img
                     className="w-10 h-10"
                     src="/number-3.png"
@@ -193,8 +210,8 @@ export default function Home() {
               <span className="text-red-700">20+</span> measurements:
             </h2>
 
-            <div className="grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
-              <div className="flex justify-center items-center space-x-4">
+            <div className="measurements grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
+              <div className="icon flex justify-center items-center space-x-4">
                 <img
                   src="/nutrition.svg"
                   width={64}
@@ -203,7 +220,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Nutrition</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/water.svg"
                   width={64}
@@ -212,7 +229,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Water Intake</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/drug.svg"
                   width={64}
@@ -221,7 +238,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Drug Intake</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/movement.svg"
                   width={64}
@@ -230,7 +247,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Daily Movement</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/exercise.svg"
                   width={64}
@@ -239,7 +256,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Exercise</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/weight.svg"
                   width={64}
@@ -248,7 +265,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Weight</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/fat.svg"
                   width={64}
@@ -259,7 +276,7 @@ export default function Home() {
                   Fat + Muscle Distribution
                 </h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/waist.svg"
                   width={64}
@@ -268,7 +285,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Waist Circumference</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-sugar.svg"
                   width={64}
@@ -277,7 +294,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Sugar</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-cholesterol.svg"
                   width={64}
@@ -286,7 +303,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Cholesterol</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-pressure.svg"
                   width={64}
@@ -295,7 +312,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Pressure</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-oxygen.svg"
                   width={64}
@@ -304,7 +321,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Blood Oxygen</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/heart.svg"
                   width={64}
@@ -316,7 +333,7 @@ export default function Home() {
                   Heart Rate Variability
                 </h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/vo2.svg"
                   width={64}
@@ -325,7 +342,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Vo2 Max</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/stress.svg"
                   width={64}
@@ -334,7 +351,7 @@ export default function Home() {
                 />
                 <h2 className="text-md font-bold w-32">Physiological Stress</h2>
               </div>
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/respiratory.svg"
                   width={64}
@@ -344,7 +361,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Respiratory Rate</h2>
               </div>
 
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/mental-health.svg"
                   width={64}
@@ -354,7 +371,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Mental Health</h2>
               </div>
 
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/temperature.svg"
                   width={64}
@@ -364,7 +381,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Body Temperature</h2>
               </div>
 
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/sleep.svg"
                   width={64}
@@ -374,7 +391,7 @@ export default function Home() {
                 <h2 className="text-md font-bold w-32">Sleep</h2>
               </div>
 
-              <div className="flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/menstrual.svg"
                   width={64}
@@ -385,7 +402,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-full bg-[url('/noise.svg')]">
+          <div className="sensors-section relative min-h-screen w-full bg-gradient-to-b from-white via-red-400 to-red-400">
             <img
               className="z-[5] scale-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/scale-sensor.png"
@@ -411,10 +428,10 @@ export default function Home() {
               src="/nfc-sensor.png"
             ></img>
             <div className="pricing opacity-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-8">
-              <h1 className="font-bold text-4xl md:text-7xl text-black">
+              <h1 className="font-bold text-4xl md:text-7xl text-white">
                 $30/mo
               </h1>
-              <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
+              <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px] shadow-2xl">
                 Start Now
               </button>
             </div>
