@@ -77,8 +77,9 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <div className="flex flex-col justify-center items-center space-y-12 mt-48 font-semibold text-center">
             <h1 className="text-black text-5xl md:text-6xl lg:text-8xl">
-              Don&apos;t just wait for the symptoms.
+              Don&apos;t Die Early.
             </h1>
+            {/* A/B TEST "Don't Die Early" and "Live Longer" */}
             <div className="flex justify-center items-center space-x-4 text-2xl md:text-5xl">
               <h2>prevent</h2>
               <h2 className="text-red-400 disease">heart attacks.</h2>
@@ -86,8 +87,8 @@ export default function Home() {
           </div>
 
           <section className="section-1 w-[90%] flex flex-col items-center h-full bg-red-400 rounded-[32px] text-white pl-8 pr-8 pt-12 pb-12 md:p-12 mt-48">
-            <h2 className="text-white font-bold text-4xl lg:text-6xl">
-              How it works
+            <h2 className="text-white text-center font-bold text-8xl lg:text-8xl">
+              How it works:
             </h2>
 
             <div className="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32  mt-12">
@@ -98,13 +99,12 @@ export default function Home() {
                   height={42}
                   alt="Picture of the author"
                 />
-                <div className="flex flex-col justify-center items-center space-y-4">
+                <div className="flex flex-col justify-center items-center space-y-8">
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
-                    Subscribe & Receive Sensors
+                    Subscribe & Receive Sensors 
                   </h2>
-                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
-                    Get 6 medical-grade sensors delivered right to your
-                    doorstep.
+                  <h2 className="text-4xl self-center font-semibold text-inline lg:w-[200px]">
+                  📦 🔬
                   </h2>
                 </div>
               </div>
@@ -116,12 +116,12 @@ export default function Home() {
                   height={42}
                   alt="Picture of the author"
                 />
-                <div className="flex flex-col justify-center items-center space-y-4">
+                <div className="flex flex-col justify-center items-center space-y-8">
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
                     Measure Your Body Weekly
                   </h2>
-                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
-                    Measure at home, with data synced automatically to our app.
+                  <h2 className="text-4xl self-center font-semibold text-inline lg:w-[200px]">
+                  📆 📏
                   </h2>
                 </div>
               </div>
@@ -133,14 +133,18 @@ export default function Home() {
                   height={42}
                   alt="Picture of the author"
                 />
-                <div className="flex flex-col justify-center items-center space-y-4">
+                <div className="flex flex-col justify-center items-center space-y-8">
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
-                    Get Personalized Insights
+                    Get Insights & Improve
                   </h2>
-                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
-                    Get actionable advice on what you can do to improve your
-                    health.
-                  </h2>
+                  <div>
+                    <h2 className="text-4xl self-center font-semibold text-inline lg:w-[200px]">
+                    📈 📊
+                    </h2>
+                  </div>
+                  {/* <h2 className="text-4xl self-center font-semibold text-inline lg:w-[200px]">
+                  📈 📊
+                  </h2> */}
                 </div>
               </div>
             </div>
