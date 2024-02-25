@@ -40,7 +40,13 @@ export default function Home() {
     <ReactLenis root>
       <main className="flex min-h-screen flex-col items-center overflow-hidden bg-[url('/noise.svg')]">
         <nav className="fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
-          <h1 className="text-2xl text-red-500 font-bold p-8">redsync</h1>
+          <div className="flex justify-center items-center space-x-4 p-8">
+            <img src="/logo.png" className="w-[32px] h-[32px]"></img>
+            <div className="flex justify-center items-center">
+              <h1 className="text-2xl text-red-700 font-bold">red</h1>
+              <h1 className="text-2xl text-black font-bold">sync</h1>
+            </div>
+          </div>
 
           <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
             <div className="flex justify-center items-center space-x-4">
@@ -96,7 +102,7 @@ export default function Home() {
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
                     Subscribe & Receive Sensors
                   </h2>
-                  <h2 className="text-xl font-semibold text-inline lg:w-[200px]">
+                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
                     Get 6 medical-grade sensors delivered right to your
                     doorstep.
                   </h2>
@@ -114,7 +120,7 @@ export default function Home() {
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
                     Measure Your Body Weekly
                   </h2>
-                  <h2 className="text-xl font-semibold text-inline lg:w-[200px]">
+                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
                     Measure at home, with data synced automatically to our app.
                   </h2>
                 </div>
@@ -131,7 +137,7 @@ export default function Home() {
                   <h2 className="text-2xl md:text-3xl font-bold lg:w-[200px]">
                     Get Personalized Insights
                   </h2>
-                  <h2 className="text-xl font-semibold text-inline lg:w-[200px]">
+                  <h2 className="text-md font-semibold text-inline lg:w-[200px] text-gray-300">
                     Get actionable advice on what you can do to improve your
                     health.
                   </h2>
@@ -185,7 +191,7 @@ export default function Home() {
                   height={64}
                   alt="Picture of the author"
                 />
-                <h2 className="text-md font-bold w-32">Movement</h2>
+                <h2 className="text-md font-bold w-32">Daily Movement</h2>
               </div>
 
               <div className="flex justify-center items-center space-x-4">
@@ -225,7 +231,7 @@ export default function Home() {
                   height={64}
                   alt="Picture of the author"
                 />
-                <h2 className="text-md font-bold w-32">Temperature</h2>
+                <h2 className="text-md font-bold w-32">Body Temperature</h2>
               </div>
 
               <div className="flex justify-center items-center space-x-4">
@@ -245,7 +251,9 @@ export default function Home() {
                   height={64}
                   alt="Picture of the author"
                 />
-                <h2 className="text-md font-bold w-32">Fat Distribution</h2>
+                <h2 className="text-md font-bold w-32">
+                  Fat + Muscle Distribution
+                </h2>
               </div>
 
               <div className="flex justify-center items-center space-x-4">

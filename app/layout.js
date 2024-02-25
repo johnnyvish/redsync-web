@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "The RedSync",
+  title: "The Red Sync",
   description: "Using sensors to be healthier",
 };
 
