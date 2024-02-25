@@ -73,7 +73,6 @@ export default function Home() {
             end: "bottom top", // Animation ends when the bottom of the trigger element reaches the top of the viewport
             pin: true, // Pin the trigger element while the animation is active
             scrub: 1, // Smooth scrubbing effect for the animation
-            markers: true, // Display markers for debugging
           },
         })
         .to(".scale-sensor", { left: "25%", bottom: "25%" })
