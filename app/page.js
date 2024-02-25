@@ -54,42 +54,39 @@ export default function Home() {
   //     },
   //   });
 
-  //   // Add animations to the timeline
   //   tl.to(".scale-sensor", { left: 200 })
-  //     .to(".tape-sensor", { left: 200 }, "<") // "<" means start at the same time as the previous animation
-  //     .to(".blood-pressure-sensor", { left: 300 }, "<")
-  //     .to(".smart-ring-sensor", { left: 300 }, "<")
-  //     .to(".glucose-sensor", { left: 400 }, "<")
-  //     .to(".nfc-sensor", { left: 400 }, "<");
-  //   // .to(".element-2", { x: 100 }, "<"); // You can add more animations as needed
-
-  //   // Assuming `app.current` is a reference to an element, there's no need to pass it to the timeline
-  //   // If you need to revert ScrollTrigger effects, you should use ScrollTrigger's methods for cleanup
-
-  //   return () => {
-  //     // Properly clean up the ScrollTrigger instances
-  //     ScrollTrigger.getAll().forEach((instance) => instance.kill());
-  //   };
+  //     .to(".tape-sensor", { left: 0 }, "<") // "<" means start at the same time as the previous animation
+  //     .to(".blood-pressure-sensor", { left: 0 }, "<")
+  //     .to(".smart-ring-sensor", { left: 0 }, "<")
+  //     .to(".glucose-sensor", { left: 0 }, "<")
+  //     .to(".nfc-sensor", { left: 0 }, "<");
   // }, []);
 
-  // useEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     // Create a timeline and attach it to the ScrollTrigger
-  //     tl.current = gsap
-  //       .timeline({
-  //         scrollTrigger: {
-  //           trigger: ".how-it-works", // Element that triggers the animation
-  //           start: "top center", // When the top of the trigger hits the center of the viewport
-  //           end: "bottom top", // When the bottom of the trigger passes the top of the viewport
-  //           scrub: 1, // Smooth scrubbing, ties the progress of the animation to the scroll position
-  //           markers: true,
-  //         },
-  //       })
-  //       .to(".how-it-works", { rotate: 360 }); // The animation itself
-  //   }, app.current);
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Create a timeline and attach it to the ScrollTrigger
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".sensors-section", // Shared trigger element for all animations
+            start: "center center", // Animation starts when the trigger element is in the center of the viewport
+            end: "bottom top", // Animation ends when the bottom of the trigger element reaches the top of the viewport
+            pin: true, // Pin the trigger element while the animation is active
+            scrub: 1, // Smooth scrubbing effect for the animation
+            markers: true, // Display markers for debugging
+          },
+        })
+        .to(".scale-sensor", { left: "25%", bottom: "25%" })
+        .to(".tape-sensor", { right: "25%", bottom: "25%" }, "<") // "<" means start at the same time as the previous animation
+        .to(".blood-pressure-sensor", { left: "25%", top: "25%" }, "<")
+        .to(".smart-ring-sensor", { right: "25%", top: "25%" }, "<")
+        .to(".glucose-sensor", { left: "10%" }, "<")
+        .to(".nfc-sensor", { right: "10%" }, "<")
+        .to(".pricing", { opacity: 1 }, "<");
+    }, app.current);
 
-  //   return () => ctx.revert(); // Cleanup the context when the component unmounts
-  // }, []); // Empty dependency array means this effect runs once on mount
+    return () => ctx.revert(); // Cleanup the context when the component unmounts
+  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     <ReactLenis root>
@@ -389,33 +386,41 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div className="sensors-section relative min-h-screen w-full bg-red-100">
+          <div className="sensors-section relative min-h-screen w-full bg-[url('/noise.svg')]">
             <img
-              className="z-[5] scale-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[5] scale-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/scale-sensor.png"
             ></img>
             <img
-              className="z-[4] tape-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[4] tape-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/tape-sensor.png"
             ></img>
             <img
-              className="z-[3] blood-pressure-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[3] blood-pressure-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/blood-pressure-sensor.png"
             ></img>
             <img
-              className="z-[2]smart-ring-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[2] smart-ring-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/smart-ring-sensor.png"
             ></img>
             <img
-              className="z-[1] glucose-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[1] glucose-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/glucose-sensor.png"
             ></img>
             <img
-              className="z-[0] nfc-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[0] nfc-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/nfc-sensor.png"
             ></img>
+            <div className="pricing opacity-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-8">
+              <h1 className="font-bold text-4xl md:text-7xl text-black">
+                $30/mo
+              </h1>
+              <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
+                Start Now
+              </button>
+            </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-full"></div> */}
+          <div className="sensors-section relative min-h-screen w-full"></div>
         </div>
       </main>
     </ReactLenis>
