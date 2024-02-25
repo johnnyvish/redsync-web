@@ -96,10 +96,7 @@ export default function Home() {
       >
         <nav className="fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
           <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-            <img
-              src="/logo.png"
-              className="w-[32px] h-[32px] hidden md:flex"
-            ></img>
+            <img src="/logo.png" className="w-[32px] h-[32px]"></img>
             <div className="flex justify-center items-center">
               <h1 className="text-2xl text-red-700 font-bold">red</h1>
               <h1 className="text-2xl text-black font-bold">sync</h1>
@@ -141,7 +138,7 @@ export default function Home() {
               <h2 className="text-red-400 disease">heart attacks.</h2>
             </div>
             <div className="flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center">
+              <h2 className="text-5xl md:text-7xl font-bold text-center">
                 How it works
               </h2>
               <div className="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
