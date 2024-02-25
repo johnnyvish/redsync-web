@@ -190,7 +190,8 @@ export default function Home() {
           </div>
           <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-white">
             <h2 className="how-it-works text-4xl lg:text-6xl font-bold text-black text-center mt-24">
-              One subscription, <br></br>20 measurements:
+              One subscription, <br></br>
+              <span className="text-red-700">20+</span> measurements:
             </h2>
 
             <div className="grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
