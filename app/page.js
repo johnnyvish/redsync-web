@@ -92,10 +92,10 @@ export default function Home() {
     <ReactLenis root>
       <main
         ref={app}
-        className="flex min-h-screen flex-col items-center overflow-hidden bg-[url('/noise.svg')]"
+        className="flex min-h-screen flex-col items-center overflow-hidden bg-[url('/noise.svg')] z-[1001]"
       >
         <nav className="fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
-          <div className="flex justify-center items-center space-x-4 p-8 w-[160px]">
+          <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
             <img
               src="/logo.png"
               className="w-[32px] h-[32px] hidden md:flex"
@@ -136,11 +136,11 @@ export default function Home() {
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
               Don&apos;t Die Early.
             </h1>
-            <div className="flex justify-center items-center space-x-4 text-3xl md:text-4xl lg:text-5xl mt-8">
+            <div className="flex justify-center items-center space-x-2 text-3xl md:text-4xl lg:text-5xl mt-8">
               <h2>prevent</h2>
               <h2 className="text-red-400 disease">heart attacks.</h2>
             </div>
-            <div className="flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-60 md:mt-40 text-white">
+            <div className="flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center">
                 How it works
               </h2>
@@ -155,7 +155,7 @@ export default function Home() {
                     <h3 className="text-2xl md:text-3xl font-bold text-center">
                       Subscribe & Receive Sensors
                     </h3>
-                    <h3 className="text-4xl font-semibold">📦 🔬</h3>
+                    <h3 className="text-4xl font-semibold">📦</h3>
                   </div>
                 </div>
 
@@ -169,7 +169,7 @@ export default function Home() {
                     <h3 className="text-2xl md:text-3xl font-bold text-center">
                       Measure Your Body Weekly
                     </h3>
-                    <h3 className="text-4xl font-semibold">📆 📏</h3>
+                    <h3 className="text-4xl font-semibold">📆</h3>
                   </div>
                 </div>
 
@@ -184,7 +184,7 @@ export default function Home() {
                       Receive Insights & Improve Health
                     </h3>
                     <div>
-                      <h3 className="text-4xl font-semibold">📈 📊</h3>
+                      <h3 className="text-4xl font-semibold">📈</h3>
                     </div>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function Home() {
           </div>
           <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-white">
             <h2 className="how-it-works text-4xl lg:text-6xl font-bold text-black text-center mt-24">
-              One subscription, 20 measurements:
+              One subscription, <br></br>20 measurements:
             </h2>
 
             <div className="grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
