@@ -134,7 +134,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center w-full bg-blue-400">
           <div className="hero-section flex flex-col items-center min-h-screen w-full bg-white pt-80 pb-24">
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
-              Don't Die Early.
+              Don&apos;t Die Early.
             </h1>
             <div className="flex justify-center items-center space-x-4 text-3xl md:text-4xl lg:text-5xl mt-8">
               <h2>prevent</h2>
@@ -388,12 +388,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-full bg-purple-100">
+          {/* <div className="sensors-section relative min-h-screen w-full bg-purple-100">
             <img
               className="absolute w-[100px] h-[100px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px]"
               src="/scale-sensor.png"
             ></img>
-          </div>
+          </div> */}
         </div>
       </main>
     </ReactLenis>
