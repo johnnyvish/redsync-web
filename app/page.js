@@ -122,8 +122,8 @@ export default function Home() {
     // First part: animate the number from 0 to 20
     tl.to(counter, {
       value: 20,
-      duration: 4, // Duration of the animation to go from 0 to 20
-      ease: "power1", // Choose an easing function
+      duration: 2, // Duration of the animation to go from 0 to 20
+      ease: "none", // Choose an easing function
       onUpdate: () => {
         // Update the text content during the animation
         numberElement.textContent = Math.floor(counter.value) + "+";
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
           </div>
           <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
-            Sign Up
+            Start Now
           </button>
         </nav>
         <div className="flex flex-col justify-center items-center w-full bg-white">
@@ -434,7 +434,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-full bg-gradient-to-b from-white via-red-400 to-red-400">
+          <div className="sensors-section relative min-h-screen w-full bg-red-400">
             <img
               className="z-[5] scale-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/scale-sensor.png"
