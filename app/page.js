@@ -71,7 +71,7 @@ export default function Home() {
         .timeline({
           scrollTrigger: {
             trigger: ".how-it-works",
-            start: "top center",
+            start: "top-=200 center",
             end: "center center",
             scrub: 1,
           },
@@ -93,7 +93,7 @@ export default function Home() {
         .timeline({
           scrollTrigger: {
             trigger: ".measurements",
-            start: "top-=200 center",
+            start: "top-=500 center",
             end: "center center",
             scrub: 1,
           },
@@ -182,59 +182,60 @@ export default function Home() {
               <h2>prevent</h2>
               <h2 className="text-red-400 disease">heart attacks.</h2>
             </div>
-            <div className="how-it-works flex flex-col items-center w-[90%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
-              <h2 className="text-5xl md:text-7xl font-bold text-center">
+            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 How it works
               </h2>
-              <div className="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
-                <div className="bullet-1 will-change-auto opacity-0 flex space-x-4 items-start">
-                  <img
-                    className="w-10 h-10"
-                    src="/number-1.png"
-                    alt="Picture of the author"
-                  />
-                  <div className="flex flex-col justify-center items-center space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center">
+              <div className="grid grid-rows-3 grid-cols-1 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
+                <div className="bullet-1 opacity-0 flex flex-col justify-center items-center space-y-8">
+                  <div className="flex space-x-4 items-start">
+                    <img
+                      className="w-10 h-10"
+                      src="/number-1.png"
+                      alt="Picture of the author"
+                    />
+
+                    <h3 className="text-2xl md:text-3xl font-bold">
                       Subscribe & Receive Sensors
                     </h3>
-                    <h3 className="text-5xl font-semibold">📦</h3>
                   </div>
+                  <h3 className="text-5xl font-semibold">📦</h3>
                 </div>
 
-                <div className="bullet-2 will-change-auto opacity-0 flex space-x-4 items-start">
-                  <img
-                    className="w-10 h-10"
-                    src="/number-2.png"
-                    alt="Picture of the author"
-                  />
-                  <div className="flex flex-col justify-center items-center space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center">
+                <div className="bullet-2 opacity-0  flex flex-col justify-center items-center space-y-8">
+                  <div className="flex space-x-4 items-start">
+                    <img
+                      className="w-10 h-10"
+                      src="/number-2.png"
+                      alt="Picture of the author"
+                    />
+
+                    <h3 className="text-2xl md:text-3xl font-bold">
                       Measure Your Body Weekly
                     </h3>
-                    <h3 className="text-5xl font-semibold">📆</h3>
                   </div>
+                  <h3 className="text-5xl font-semibold">📆</h3>
                 </div>
 
-                <div className="bullet-3 will-change-auto opacity-0 flex space-x-4 items-start">
-                  <img
-                    className="w-10 h-10"
-                    src="/number-3.png"
-                    alt="Picture of the author"
-                  />
-                  <div className="flex flex-col justify-center items-center space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-center">
+                <div className="bullet-3 opacity-0 flex flex-col justify-center items-center space-y-8">
+                  <div className="flex space-x-4 items-start">
+                    <img
+                      className="w-10 h-10"
+                      src="/number-3.png"
+                      alt="Picture of the author"
+                    />
+
+                    <h3 className="text-2xl md:text-3xl font-bold">
                       Receive Insights & Improve Health
                     </h3>
-                    <div>
-                      <h3 className="text-5xl font-semibold">📈</h3>
-                    </div>
                   </div>
+                  <h3 className="text-5xl font-semibold">📈</h3>
                 </div>
               </div>
             </div>
           </div>
-          <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')]">
-            <h2 className="how-it-works text-4xl lg:text-6xl font-bold text-black text-center mt-24">
+          <div className="measurements-section flex flex-col items-center w-full bg-[url('/noise.svg')] pb-24">
+            <h2 className="text-4xl lg:text-6xl font-bold text-black text-center">
               One subscription, <br></br>
               <span className="counter-measurements text-red-700">
                 20+
@@ -242,122 +243,122 @@ export default function Home() {
               measurements:
             </h2>
 
-            <div className="measurements grid grid-rows-10 grid-cols-2 lg:grid-rows-5 lg:grid-cols-4 gap-x-8 md:gap-x-16 lg:gap-x-48 gap-y-16 mt-24 w-[90%] pb-24">
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+            <div className="measurements grid grid-rows-10 grid-cols-2 md:grid-rows-5 md:grid-cols-4 gap-y-8 mt-24 w-[90%] md:w-[80%} lg:w-[64%] pb-24">
+              <div className="icon flex justify-center items-center space-x-4">
                 <img
                   src="/nutrition.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Nutrition</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/water.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Water Intake</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/drug.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Drug Intake</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/movement.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Daily Movement</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/exercise.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Exercise</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/weight.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Weight</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/fat.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">
                   Fat + Muscle Distribution
                 </h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/waist.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Waist Circumference</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-sugar.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Blood Sugar</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-cholesterol.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Blood Cholesterol</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-pressure.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Blood Pressure</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/blood-oxygen.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Blood Oxygen</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/heart.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
 
@@ -365,76 +366,76 @@ export default function Home() {
                   Heart Rate Variability
                 </h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/vo2.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Vo2 Max</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/stress.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Physiological Stress</h2>
               </div>
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/respiratory.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Respiratory Rate</h2>
               </div>
 
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/mental-health.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Mental Health</h2>
               </div>
 
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/temperature.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Body Temperature</h2>
               </div>
 
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/sleep.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Sleep</h2>
               </div>
 
-              <div className="icon will-change-auto flex justify-center items-center space-x-4">
+              <div className="icon flex justify-center items-center space-x-4">
                 <Image
                   src="/menstrual.svg"
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                   alt="Picture of the author"
                 />
                 <h2 className="text-md font-bold w-32">Menstrual Cycle</h2>
               </div>
             </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-full bg-red-400">
+          <div className="sensors-section relative h-[600px] w-[90%] rounded-[32px] bg-red-400">
             <img
               className="z-[5] scale-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/scale-sensor.png"
@@ -467,6 +468,9 @@ export default function Home() {
                 Start Now
               </button>
             </div>
+            <h1 className="absolute left-1/2 top-[8%] md:top-[16%] -translate-x-1/2 -translate-y-1/2 font-bold text-4xl md:text-5xl text-white ">
+              Pricing
+            </h1>
           </div>
           <div className="sensors-section relative min-h-screen w-full"></div>
         </div>
