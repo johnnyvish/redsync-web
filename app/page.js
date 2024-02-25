@@ -43,6 +43,34 @@ export default function Home() {
 
   // useEffect(() => {
   //   let ctx = gsap.context(() => {
+  //     // Define a shared ScrollTrigger configuration
+  //     const sharedScrollTrigger = {
+  //       trigger: ".shared-trigger", // Shared trigger element
+  //       start: "top center", // Shared start condition
+  //       end: "bottom top", // Shared end condition
+  //       scrub: 1, // Shared smooth scrubbing
+  //       markers: true, // Shared markers for debugging
+  //     };
+
+  //     // Apply the shared ScrollTrigger to multiple animations
+  //     gsap.to(".element-1", {
+  //       rotate: 360,
+  //       scrollTrigger: sharedScrollTrigger,
+  //     });
+
+  //     gsap.to(".element-2", {
+  //       x: 100,
+  //       scrollTrigger: sharedScrollTrigger,
+  //     });
+
+  //     // You can add as many gsap.to/fromTo calls as needed, all using the shared ScrollTrigger
+  //   }, app.current);
+
+  //   return () => ctx.revert(); // Cleanup the context when the component unmounts
+  // }, []); // Empty dependency array means this effect runs once on mount
+
+  // useEffect(() => {
+  //   let ctx = gsap.context(() => {
   //     // Create a timeline and attach it to the ScrollTrigger
   //     tl.current = gsap
   //       .timeline({
@@ -360,7 +388,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div className="sensors-section flex flex-col items-center min-h-screen w-full bg-purple-100"></div> */}
+          <div className="sensors-section relative min-h-screen w-full bg-purple-100">
+            <img
+              className="absolute w-[100px] h-[100px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px]"
+              src="/scale-sensor.png"
+            ></img>
+          </div>
         </div>
       </main>
     </ReactLenis>

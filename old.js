@@ -311,7 +311,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="min-h-screen w-full bg-gradient-to-b from-white to-teal-300"></section>
+          <section className="sensors-section min-h-screen w-full bg-gradient-to-b from-white to-teal-300"></section>
         </div>
       </main>
     </ReactLenis>
