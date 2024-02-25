@@ -42,32 +42,35 @@ export default function Home() {
   }, []);
 
   // useEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     // Define a shared ScrollTrigger configuration
-  //     const sharedScrollTrigger = {
-  //       trigger: ".shared-trigger", // Shared trigger element
-  //       start: "top center", // Shared start condition
-  //       end: "bottom top", // Shared end condition
-  //       scrub: 1, // Shared smooth scrubbing
-  //       markers: true, // Shared markers for debugging
-  //     };
+  //   // Create a timeline with ScrollTrigger configuration
+  //   let tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".sensors-section", // Shared trigger element for all animations
+  //       start: "center center", // Animation starts when the trigger element is in the center of the viewport
+  //       end: "bottom top", // Animation ends when the bottom of the trigger element reaches the top of the viewport
+  //       pin: true, // Pin the trigger element while the animation is active
+  //       scrub: 1, // Smooth scrubbing effect for the animation
+  //       markers: true, // Display markers for debugging
+  //     },
+  //   });
 
-  //     // Apply the shared ScrollTrigger to multiple animations
-  //     gsap.to(".element-1", {
-  //       rotate: 360,
-  //       scrollTrigger: sharedScrollTrigger,
-  //     });
+  //   // Add animations to the timeline
+  //   tl.to(".scale-sensor", { left: 200 })
+  //     .to(".tape-sensor", { left: 200 }, "<") // "<" means start at the same time as the previous animation
+  //     .to(".blood-pressure-sensor", { left: 300 }, "<")
+  //     .to(".smart-ring-sensor", { left: 300 }, "<")
+  //     .to(".glucose-sensor", { left: 400 }, "<")
+  //     .to(".nfc-sensor", { left: 400 }, "<");
+  //   // .to(".element-2", { x: 100 }, "<"); // You can add more animations as needed
 
-  //     gsap.to(".element-2", {
-  //       x: 100,
-  //       scrollTrigger: sharedScrollTrigger,
-  //     });
+  //   // Assuming `app.current` is a reference to an element, there's no need to pass it to the timeline
+  //   // If you need to revert ScrollTrigger effects, you should use ScrollTrigger's methods for cleanup
 
-  //     // You can add as many gsap.to/fromTo calls as needed, all using the shared ScrollTrigger
-  //   }, app.current);
-
-  //   return () => ctx.revert(); // Cleanup the context when the component unmounts
-  // }, []); // Empty dependency array means this effect runs once on mount
+  //   return () => {
+  //     // Properly clean up the ScrollTrigger instances
+  //     ScrollTrigger.getAll().forEach((instance) => instance.kill());
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   let ctx = gsap.context(() => {
@@ -92,7 +95,7 @@ export default function Home() {
     <ReactLenis root>
       <main
         ref={app}
-        className="flex min-h-screen flex-col items-center overflow-hidden bg-[url('/noise.svg')] z-[1001]"
+        className="flex min-h-screen flex-col items-center overflow-hidden bg-blue-400"
       >
         <nav className="fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
           <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
@@ -128,12 +131,12 @@ export default function Home() {
             Start Now
           </button>
         </nav>
-        <div className="flex flex-col justify-center items-center w-full bg-blue-400">
-          <div className="hero-section flex flex-col items-center min-h-screen w-full bg-white pt-80 pb-24">
+        <div className="flex flex-col justify-center items-center w-full bg-white">
+          <div className="hero-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')] pt-80 pb-24">
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
               Don&apos;t Die Early.
             </h1>
-            <div className="flex justify-center items-center space-x-2 text-3xl md:text-4xl lg:text-5xl mt-8">
+            <div className="flex justify-center items-center space-x-2 sm:space-x-4 text-3xl md:text-4xl lg:text-5xl mt-8">
               <h2>prevent</h2>
               <h2 className="text-red-400 disease">heart attacks.</h2>
             </div>
@@ -188,7 +191,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-white">
+          <div className="measurements-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')]">
             <h2 className="how-it-works text-4xl lg:text-6xl font-bold text-black text-center mt-24">
               One subscription, <br></br>
               <span className="text-red-700">20+</span> measurements:
@@ -386,12 +389,33 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div className="sensors-section relative min-h-screen w-full bg-purple-100">
+          {/* <div className="sensors-section relative min-h-screen w-full bg-red-100">
             <img
-              className="absolute w-[100px] h-[100px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px]"
+              className="z-[5] scale-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
               src="/scale-sensor.png"
             ></img>
-          </div> */}
+            <img
+              className="z-[4] tape-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              src="/tape-sensor.png"
+            ></img>
+            <img
+              className="z-[3] blood-pressure-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              src="/blood-pressure-sensor.png"
+            ></img>
+            <img
+              className="z-[2]smart-ring-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              src="/smart-ring-sensor.png"
+            ></img>
+            <img
+              className="z-[1] glucose-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              src="/glucose-sensor.png"
+            ></img>
+            <img
+              className="z-[0] nfc-sensor absolute w-[160px] h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              src="/nfc-sensor.png"
+            ></img>
+          </div>
+          <div className="sensors-section relative min-h-screen w-full"></div> */}
         </div>
       </main>
     </ReactLenis>
