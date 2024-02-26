@@ -1,6 +1,6 @@
 export default function Pricing() {
   return (
-    <main className="flex min-h-screen flex-col items-center overflow-hidden bg-white">
+    <main className="flex h-screen flex-col items-center overflow-hidden bg-white">
       <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
         <a href="/">
           <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">

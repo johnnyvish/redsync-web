@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <main className="flex min-h-screen flex-col items-center overflow-hidden bg-red">
+    <main className="flex h-screen flex-col items-center overflow-hidden bg-red">
       <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
         <a href="/">
           <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
@@ -40,11 +40,12 @@ export default function About() {
         </button>
       </nav>
       <section className="flex flex-col justify-center items-center min-h-screen">
-        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-black mt-24">
-          Interested?
+        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-black mt-24 text-center">
+          Interested? <br />{" "}
+          <span className="text-3xl md:text-4xl">Contact Akshaj.</span>
         </h1>
         <div className="flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row bg-gradient-to-b from-yellow-300 via-orange-400 to-red-400 mt-[30px] p-[28px] md:p-[40px] rounded-[48px] justify-center items-center">
+          <div className="flex flex-col lg:flex-row bg-gradient-to-b from-yellow-300 via-orange-400 to-red-400 mt-[32px] p-[28px] md:p-[40px] rounded-[48px] justify-center items-center">
             <div className="h-[400px] w-[300px] bg-gray-100 rounded-[32px] flex flex-col justify-center">
               <div className="space-y-[16px]">
                 <div className="flex flex-col items-center">
