@@ -53,11 +53,11 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".scale-sensor", { left: "45%", bottom: "45%" })
+        .to(".blood-pressure-sensor", { left: "45%", bottom: "45%" })
         .to(".tape-sensor", { right: "45%", bottom: "45%" }, "<")
-        .to(".blood-pressure-sensor", { left: "45%", top: "45%" }, "<")
+        .to(".scale-sensor", { left: "45%", top: "45%" }, "<")
         .to(".nfc-sensor", { right: "45%" }, "<")
-        .to(".scale-sensor", { left: "25%", bottom: "27%" })
+        .to(".blood-pressure-sensor", { left: "25%", bottom: "27%" })
         .to(".tape-sensor", { right: "24%", bottom: "20%" }, "<") // "<" means start at the same time as the previous animation
         .to(".blood-pressure-sensor", { left: "28%", top: "18%" }, "<")
         .to(".smart-ring-sensor", { right: "24%", top: "25%" }, "<")
