@@ -53,13 +53,35 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".scale-sensor", { left: "25%", bottom: "25%" })
-        .to(".tape-sensor", { right: "25%", bottom: "25%" }, "<") // "<" means start at the same time as the previous animation
-        .to(".blood-pressure-sensor", { left: "25%", top: "25%" }, "<")
-        .to(".smart-ring-sensor", { right: "25%", top: "25%" }, "<")
-        .to(".glucose-sensor", { left: "10%" }, "<")
-        .to(".nfc-sensor", { right: "10%" }, "<")
-        .to(".pricing", { opacity: 1 }, "<");
+        .to(".scale-sensor", { left: "45%", bottom: "45%" })
+        .to(".tape-sensor", { right: "45%", bottom: "45%" }, "<")
+        .to(".blood-pressure-sensor", { left: "45%", top: "45%" }, "<")
+        .to(".nfc-sensor", { right: "45%" }, "<")
+        .to(".scale-sensor", { left: "25%", bottom: "27%" })
+        .to(".tape-sensor", { right: "24%", bottom: "20%" }, "<") // "<" means start at the same time as the previous animation
+        .to(".blood-pressure-sensor", { left: "28%", top: "18%" }, "<")
+        .to(".smart-ring-sensor", { right: "24%", top: "25%" }, "<")
+        .to(".glucose-sensor", { left: "8%", top: "44%" }, "<")
+        .to(".nfc-sensor", { right: "4%", bottom: "44%" }, "<")
+        .from(".pricing", { opacity: 0, scale: 0 }, "<");
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".sensors-section",
+            start: "center-=500 center",
+            end: "bottom top",
+            scrub: 1,
+          },
+        })
+        .to(".landing-page", { background: "#f87171" })
+        .to(".navbar", { y: -100 }, "<");
     }, app.current);
 
     return () => ctx.revert();
@@ -137,31 +159,35 @@ export default function Home() {
     <ReactLenis root>
       <main
         ref={app}
-        className="flex min-h-screen flex-col items-center overflow-hidden bg-blue-400"
+        className="flex min-h-screen flex-col items-center overflow-hidden"
       >
-        <nav className="fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
-          <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-            <img src="/logo.png" className="w-[32px] h-[32px]"></img>
-            <div className="flex justify-center items-center">
-              <h1 className="text-2xl text-red-700 font-bold">red</h1>
-              <h1 className="text-2xl text-black font-bold">sync</h1>
+        <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
+          <a href="/">
+            <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
+              <img src="/logo.png" className="w-[32px] h-[32px]"></img>
+              <div className="flex justify-center items-center">
+                <h1 className="text-2xl text-red-700 font-bold">red</h1>
+                <h1 className="text-2xl text-black font-bold">sync</h1>
+              </div>
             </div>
-          </div>
+          </a>
 
           <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
             <div className="flex justify-center items-center space-x-4">
               <div className="w-[8px] h-[8px] bg-red-500 rounded-full"></div>
-              <button>Home</button>
+              <button>
+                <a href="/">Home</a>
+              </button>
             </div>
 
             <div className="flex justify-center items-center space-x-4">
               <div className="w-[8px] h-[8px] bg-orange-400 rounded-full"></div>
-              <button>About</button>
+              <a href="/about">About</a>
             </div>
 
             <div className="flex justify-center items-center space-x-4">
               <div className="w-[8px] h-[8px] bg-yellow-400 rounded-full"></div>
-              <button>Pricing</button>
+              <a href="/pricing">Pricing</a>
             </div>
           </div>
           <div className="md:hidden flex justify-center items-center space-x-4 text-xl font-semibold">
@@ -169,11 +195,12 @@ export default function Home() {
               <div className="w-[8px] h-[8px] rounded-full"></div>
             </div>
           </div>
+
           <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
-            Start Now
+            <a href="/contact"> Start Now</a>
           </button>
         </nav>
-        <div className="flex flex-col justify-center items-center w-full bg-white">
+        <div className="landing-page flex flex-col justify-center items-center w-full bg-white">
           <div className="hero-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')] pt-80 pb-24">
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
               Don&apos;t Die Early.
@@ -234,7 +261,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="measurements-section flex flex-col items-center w-full bg-[url('/noise.svg')] pb-24">
+          <div className="measurements-section flex flex-col items-center w-full pb-24">
             <h2 className="text-4xl lg:text-6xl font-bold text-black text-center">
               One subscription, <br></br>
               <span className="counter-measurements text-red-700">
@@ -435,44 +462,49 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="sensors-section relative h-[600px] w-[90%] rounded-[32px] bg-red-400">
+          <div className="sensors-section relative min-h-screen w-[100%]">
             <img
-              className="z-[5] scale-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
-              src="/scale-sensor.png"
-            ></img>
-            <img
-              className="z-[4] tape-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[32px] shadow-2xl"
-              src="/tape-sensor.png"
-            ></img>
-            <img
-              className="z-[3] blood-pressure-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
-              src="/blood-pressure-sensor.png"
-            ></img>
-            <img
-              className="z-[2] smart-ring-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[5] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
               src="/smart-ring-sensor.png"
             ></img>
             <img
-              className="z-[1] glucose-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[4] blood-pressure-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/blood-pressure-sensor.png"
+            ></img>
+            <img
+              className="z-[3] glucose-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
               src="/glucose-sensor.png"
             ></img>
             <img
-              className="z-[0] nfc-sensor absolute w-[120px] h-[120px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[32px] shadow-2xl"
+              className="z-[2] tape-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/tape-sensor.png"
+            ></img>
+            <img
+              className="z-[1] nfc-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
               src="/nfc-sensor.png"
             ></img>
-            <div className="pricing opacity-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-8">
-              <h1 className="font-bold text-4xl md:text-7xl text-white">
+            <img
+              className="z-[0] scale-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/scale-sensor.png"
+            ></img>
+
+            <div class="pricing absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-4 md:space-y-8">
+              <h2 class="font-bold text-4xl md:text-6xl text-white text-center">
+                Starting at
+                <br />
                 $30/mo
-              </h1>
-              <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px] shadow-2xl">
-                Start Now
+              </h2>
+              <h3 class="w-[100%] md:w-[64%] text-md md:text-2xl text-white font-semibold text-center">
+                Get 6 sensors and 20+ measurements plus tailored action plans,
+                all in one monthly subscription.
+              </h3>
+
+              <button className="text-xl font-bold bg-orange-400 p-2 rounded-[32px] font-semibold text-white w-[160px] shadow-2xl">
+                <a href="/contact"> Start Now</a>
               </button>
             </div>
-            <h1 className="absolute left-1/2 top-[8%] md:top-[16%] -translate-x-1/2 -translate-y-1/2 font-bold text-4xl md:text-5xl text-white ">
-              Pricing
-            </h1>
           </div>
-          <div className="sensors-section relative min-h-screen w-full"></div>
+          <div className="relative min-h-screen w-full"></div>
         </div>
       </main>
     </ReactLenis>
