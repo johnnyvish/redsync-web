@@ -53,11 +53,11 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".blood-pressure-sensor", { left: "45%", bottom: "45%" })
+        .to(".scale-sensor", { left: "45%", bottom: "45%" }) // blood
         .to(".tape-sensor", { right: "45%", bottom: "45%" }, "<")
-        .to(".scale-sensor", { left: "45%", top: "45%" }, "<")
+        .to(".blood-pressure-sensor", { left: "45%", top: "45%" }, "<")
         .to(".nfc-sensor", { right: "45%" }, "<")
-        .to(".blood-pressure-sensor", { left: "25%", bottom: "27%" })
+        .to(".scale-sensor", { left: "25%", bottom: "27%" }) // blood
         .to(".tape-sensor", { right: "24%", bottom: "20%" }, "<") // "<" means start at the same time as the previous animation
         .to(".blood-pressure-sensor", { left: "28%", top: "18%" }, "<")
         .to(".smart-ring-sensor", { right: "24%", top: "25%" }, "<")
@@ -501,7 +501,7 @@ export default function Home() {
               </h3>
 
               <button className="text-2xl font-bold bg-red-600 p-4 rounded-[32px] font-semibold text-white w-[180px]">
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">Start Now</a>
               </button>
             </div>
           </div>
