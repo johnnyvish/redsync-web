@@ -63,7 +63,8 @@ export default function Home() {
         .to(".smart-ring-sensor", { right: "24%", top: "25%" }, "<")
         .to(".glucose-sensor", { left: "8%", top: "44%" }, "<")
         .to(".nfc-sensor", { right: "4%", bottom: "44%" }, "<")
-        .from(".pricing", { opacity: 0, scale: 0 }, "<");
+        .from(".pricing", { opacity: 0, scale: 0 }, "<")
+        .to(".buffer", { height: 0, autoAlpha: 0 }, "<");
     }, app.current);
 
     return () => ctx.revert();
@@ -499,12 +500,12 @@ export default function Home() {
                 all in one monthly subscription.
               </h3>
 
-              <button className="text-xl font-bold bg-orange-400 p-2 rounded-[32px] font-semibold text-white w-[160px] shadow-2xl">
-                <a href="/contact"> Start Now</a>
+              <button className="text-2xl font-bold bg-red-600 p-4 rounded-[32px] font-semibold text-white w-[180px]">
+                <a href="/contact">Contact Us</a>
               </button>
             </div>
           </div>
-          <div className="relative min-h-screen w-full"></div>
+          <div className="buffer relative min-h-screen w-full"></div>
         </div>
       </main>
     </ReactLenis>
