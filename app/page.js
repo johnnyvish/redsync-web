@@ -53,18 +53,16 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".scale-sensor", { left: "45%", bottom: "45%" }) // blood
-        .to(".tape-sensor", { right: "45%", bottom: "45%" }, "<")
-        .to(".blood-pressure-sensor", { left: "45%", top: "45%" }, "<")
+        .to(".smart-ring-sensor", { right: "45%", bottom: "45%" }, "<")
+        .to(".scale-sensor", { left: "45%", top: "45%" }, "<")
         .to(".nfc-sensor", { right: "45%" }, "<")
-        .to(".scale-sensor", { left: "25%", bottom: "27%" }) // blood
-        .to(".tape-sensor", { right: "24%", bottom: "20%" }, "<") // "<" means start at the same time as the previous animation
-        .to(".blood-pressure-sensor", { left: "28%", top: "18%" }, "<")
-        .to(".smart-ring-sensor", { right: "24%", top: "25%" }, "<")
+        .to(".blood-pressure-sensor", { left: "25%", bottom: "20%" })
+        .to(".smart-ring-sensor", { right: "24%", bottom: "20%" }, "<") // "<" means start at the same time as the previous animation
+        .to(".scale-sensor", { left: "28%", top: "18%" }, "<")
+        .to(".tape-sensor", { right: "19%", top: "19%" }, "<")
         .to(".glucose-sensor", { left: "8%", top: "44%" }, "<")
         .to(".nfc-sensor", { right: "4%", bottom: "44%" }, "<")
-        .from(".pricing", { opacity: 0, scale: 0 }, "<")
-        .to(".buffer", { height: 0, autoAlpha: 0 }, "<");
+        .from(".pricing", { opacity: 0, scale: 0 }, "<");
     }, app.current);
 
     return () => ctx.revert();
@@ -463,30 +461,30 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="sensors-section relative min-h-screen w-[100%]">
+          <div className="z-[1000] sensors-section relative min-h-screen w-[100%]">
             <img
-              className="z-[5] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/smart-ring-sensor.png"
+              className="z-[6] blood-pressure-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/blood-pressure-sensor.png"
             ></img>
             <img
-              className="z-[4] blood-pressure-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/blood-pressure-sensor.png"
+              className="z-[5] tape-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px]  right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/tape-sensor.png"
+            ></img>
+            <img
+              className="z-[4] scale-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/scale-sensor.png"
             ></img>
             <img
               className="z-[3] glucose-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
               src="/glucose-sensor.png"
             ></img>
             <img
-              className="z-[2] tape-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/tape-sensor.png"
+              className="z-[2] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/smart-ring-sensor.png"
             ></img>
             <img
               className="z-[1] nfc-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
               src="/nfc-sensor.png"
-            ></img>
-            <img
-              className="z-[0] scale-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/scale-sensor.png"
             ></img>
 
             <div class="pricing absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-4 md:space-y-8">
@@ -500,12 +498,12 @@ export default function Home() {
                 all in one monthly subscription.
               </h3>
 
-              <button className="text-2xl font-bold bg-red-600 p-4 rounded-[32px] font-semibold text-white w-[180px]">
+              <button className="text-md md:text-2xl font-bold bg-red-600 p-2 md:p-4 rounded-[32px] font-semibold text-white w-[120px] md:w-[180px]">
                 <a href="/contact">Start Now</a>
               </button>
             </div>
           </div>
-          <div className="buffer relative min-h-screen w-full"></div>
+          <div className="relative min-h-screen w-full z-0"></div>
         </div>
       </main>
     </ReactLenis>

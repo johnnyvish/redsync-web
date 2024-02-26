@@ -40,8 +40,11 @@ export default function About() {
         </button>
       </nav>
       <section className="flex flex-col justify-center items-center min-h-screen">
+        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-black mt-24">
+          Interested?
+        </h1>
         <div className="flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row bg-gradient-to-b from-red-300 via-red-400 to-red-500 mt-[30px] p-[28px] md:p-[40px] rounded-[48px] justify-center items-center">
+          <div className="flex flex-col lg:flex-row bg-gradient-to-b from-yellow-300 via-orange-400 to-red-400 mt-[30px] p-[28px] md:p-[40px] rounded-[48px] justify-center items-center">
             <div className="h-[400px] w-[300px] bg-gray-100 rounded-[32px] flex flex-col justify-center">
               <div className="space-y-[16px]">
                 <div className="flex flex-col items-center">
@@ -67,9 +70,23 @@ export default function About() {
                     <p className="ml-[-176px] text-[12.8px] font-semibold">
                       Email
                     </p>
-                    <a href="mailto:ak@chataudio.com">
+                    <a href="mailto:akshajtyagi1@gmail.com">
                       <p className="text-[16px] text-blue-600 cursor-pointer transition-transform ease-in-out duration-300 md:hover:scale-105">
-                        ak@chataudio.com
+                        akshajtyagi1@gmail.com
+                      </p>
+                    </a>
+                  </div>
+                  <div className="mt-[32px] flex flex-col justify-center items-center w-[240px] h-[56px] bg-white rounded-[16px]">
+                    <p className="ml-[-160px] text-[12.8px] font-semibold">
+                      LinkedIn
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/in/akshaj-tyagi-6843341b6/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <p className="text-[16px] text-blue-600 cursor-pointer transition-transform ease-in-out duration-300 md:hover:scale-105">
+                        Akshaj Tyagi
                       </p>
                     </a>
                   </div>
