@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>RedSync</title>
       </head>
-      <body>
+      <body className={inter.className}>
         {children}
         <Analytics />
       </body>
