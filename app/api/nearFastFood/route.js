@@ -4,7 +4,7 @@ async function findNearestFastFood(latitude, longitude) {
   return 150;
 }
 
-export async function GET(request) {
+export async function POST(request) {
   try {
     const req = await request.json();
     const latitude = req.latitude;
