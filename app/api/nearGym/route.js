@@ -23,29 +23,43 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 
 async function findNearestGym(latitude, longitude) {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
-  const radius = 5000;
+  const radius = 5000; // You may adjust this value based on your requirements
   const type = "gym";
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&key=${apiKey}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    const nearestGym = data.results[0];
 
-    const distance = calculateDistance(
-      latitude,
-      longitude,
-      nearestGym.geometry.location.lat,
-      nearestGym.geometry.location.lng
-    );
+    let nearestGym = null;
+    let shortestDistance = Infinity; // Initialize with a very large number
 
-    // const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestGym.geometry.location.lat},${nearestGym.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+    // Iterate over each gym found and calculate the distance
+    for (const gym of data.results) {
+      const distance = calculateDistance(
+        latitude,
+        longitude,
+        gym.geometry.location.lat,
+        gym.geometry.location.lng
+      );
 
-    return {
-      distance,
-      name: nearestGym.name,
-      address: nearestGym.vicinity,
-    };
+      // Update the nearestGym if this gym is closer than previous ones
+      if (distance < shortestDistance) {
+        shortestDistance = distance;
+        nearestGym = gym;
+      }
+    }
+
+    // Return details of the nearest gym, if one is found
+    if (nearestGym) {
+      return {
+        distance: shortestDistance,
+        name: nearestGym.name,
+        address: nearestGym.vicinity,
+      };
+    } else {
+      throw new Error("No gym found within the specified radius.");
+    }
   } catch (error) {
     console.error("Failed to find nearest gym:", error);
     throw new Error("Failed to find nearest gym");

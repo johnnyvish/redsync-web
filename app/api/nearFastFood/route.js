@@ -23,7 +23,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 
 async function findNearestFastFood(latitude, longitude) {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
-  const radius = 1000;
+  const radius = 1000; // This limits the search to within 1 kilometer
   const type = "restaurant";
   const keyword = "fast food";
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&keyword=${encodeURIComponent(
@@ -33,25 +33,42 @@ async function findNearestFastFood(latitude, longitude) {
   try {
     const response = await fetch(url);
     const data = await response.json();
+
     if (data.results.length === 0) {
       throw new Error("No fast food restaurants found nearby");
     }
-    const nearestFastFood = data.results[0];
 
-    const distance = calculateDistance(
-      latitude,
-      longitude,
-      nearestFastFood.geometry.location.lat,
-      nearestFastFood.geometry.location.lng
-    );
+    let nearestFastFood = null;
+    let shortestDistance = Infinity; // Initialize with a very large number
 
-    // const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestFastFood.geometry.location.lat},${nearestFastFood.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+    // Iterate over each fast food restaurant found and calculate the distance
+    for (const fastFood of data.results) {
+      const distance = calculateDistance(
+        latitude,
+        longitude,
+        fastFood.geometry.location.lat,
+        fastFood.geometry.location.lng
+      );
 
-    return {
-      distance,
-      name: nearestFastFood.name,
-      address: nearestFastFood.vicinity,
-    };
+      // Update the nearestFastFood if this restaurant is closer than previous ones
+      if (distance < shortestDistance) {
+        shortestDistance = distance;
+        nearestFastFood = fastFood;
+      }
+    }
+
+    // Return details of the nearest fast food restaurant, if one is found
+    if (nearestFastFood) {
+      return {
+        distance: shortestDistance,
+        name: nearestFastFood.name,
+        address: nearestFastFood.vicinity,
+      };
+    } else {
+      throw new Error(
+        "No fast food restaurants found within the specified radius."
+      );
+    }
   } catch (error) {
     console.error("Failed to find nearest fast food:", error);
     throw new Error("Failed to find nearest fast food");
