@@ -29,12 +29,18 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 async function findNearestFastFood(latitude, longitude) {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY; // Accessing the API key
   const radius = 1000; // Search within a 1-kilometer radius
-  const type = "fast_food"; // Type set to fast food for relevant results
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&key=${apiKey}`;
+  const type = "restaurant"; // Using 'restaurant' type for broader results
+  const keyword = "fast food"; // Keyword to narrow down to fast food restaurants
+  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&keyword=${encodeURIComponent(
+    keyword
+  )}&key=${apiKey}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
+    if (data.results.length === 0) {
+      throw new Error("No fast food restaurants found nearby");
+    }
     const nearestFastFood = data.results[0]; // Assuming the first result is the nearest
 
     const distance = calculateDistance(
