@@ -1,17 +1,13 @@
 import { NextResponse } from "next/server";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-  // Convert degrees to radians
   const rad = (deg) => deg * (Math.PI / 180);
 
-  // Radius of the Earth in kilometers
   const R = 6371;
 
-  // Difference in coordinates
   const dLat = rad(lat2 - lat1);
   const dLon = rad(lon2 - lon1);
 
-  // Apply Haversine formula
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(rad(lat1)) *
@@ -20,17 +16,16 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  // Distance in kilometers
   const distance = R * c;
 
-  return distance * 1000; // Return distance in meters
+  return distance * 1000;
 }
 
 async function findNearestFastFood(latitude, longitude) {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY; // Accessing the API key
-  const radius = 1000; // Search within a 1-kilometer radius
-  const type = "restaurant"; // Using 'restaurant' type for broader results
-  const keyword = "fast food"; // Keyword to narrow down to fast food restaurants
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const radius = 1000;
+  const type = "restaurant";
+  const keyword = "fast food";
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&keyword=${encodeURIComponent(
     keyword
   )}&key=${apiKey}`;
@@ -41,7 +36,7 @@ async function findNearestFastFood(latitude, longitude) {
     if (data.results.length === 0) {
       throw new Error("No fast food restaurants found nearby");
     }
-    const nearestFastFood = data.results[0]; // Assuming the first result is the nearest
+    const nearestFastFood = data.results[0];
 
     const distance = calculateDistance(
       latitude,
@@ -50,11 +45,13 @@ async function findNearestFastFood(latitude, longitude) {
       nearestFastFood.geometry.location.lng
     );
 
-    // Including fast food name and address
+    const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestFastFood.geometry.location.lat},${nearestFastFood.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+
     return {
-      distance, // Distance in meters
-      name: nearestFastFood.name, // Fast food name
-      address: nearestFastFood.vicinity, // Fast food address
+      distance,
+      name: nearestFastFood.name,
+      address: nearestFastFood.vicinity,
+      earthImageUrl,
     };
   } catch (error) {
     console.error("Failed to find nearest fast food:", error);

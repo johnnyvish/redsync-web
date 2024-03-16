@@ -1,17 +1,13 @@
 import { NextResponse } from "next/server";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-  // Convert degrees to radians
   const rad = (deg) => deg * (Math.PI / 180);
 
-  // Radius of the Earth in kilometers
   const R = 6371;
 
-  // Difference in coordinates
   const dLat = rad(lat2 - lat1);
   const dLon = rad(lon2 - lon1);
 
-  // Apply Haversine formula
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(rad(lat1)) *
@@ -20,22 +16,21 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  // Distance in kilometers
   const distance = R * c;
 
   return distance * 1000;
 }
 
 async function findNearestGym(latitude, longitude) {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY; // Accessing the API key
-  const radius = 1000; // Search within a 5-kilometer radius
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const radius = 5000;
   const type = "gym";
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=${type}&key=${apiKey}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    const nearestGym = data.results[0]; // Taking the first result as the nearest
+    const nearestGym = data.results[0];
 
     const distance = calculateDistance(
       latitude,
@@ -44,11 +39,13 @@ async function findNearestGym(latitude, longitude) {
       nearestGym.geometry.location.lng
     );
 
-    // Including gym name and address
+    const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestGym.geometry.location.lat},${nearestGym.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+
     return {
-      distance, // Distance in meters
-      name: nearestGym.name, // Gym name
-      address: nearestGym.vicinity, // Gym address
+      distance,
+      name: nearestGym.name,
+      address: nearestGym.vicinity,
+      earthImageUrl,
     };
   } catch (error) {
     console.error("Failed to find nearest gym:", error);
