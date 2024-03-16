@@ -45,13 +45,12 @@ async function findNearestFastFood(latitude, longitude) {
       nearestFastFood.geometry.location.lng
     );
 
-    const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestFastFood.geometry.location.lat},${nearestFastFood.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+    // const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestFastFood.geometry.location.lat},${nearestFastFood.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
 
     return {
       distance,
       name: nearestFastFood.name,
       address: nearestFastFood.vicinity,
-      earthImageUrl,
     };
   } catch (error) {
     console.error("Failed to find nearest fast food:", error);

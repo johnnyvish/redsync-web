@@ -39,13 +39,12 @@ async function findNearestGym(latitude, longitude) {
       nearestGym.geometry.location.lng
     );
 
-    const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestGym.geometry.location.lat},${nearestGym.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
+    // const earthImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${nearestGym.geometry.location.lat},${nearestGym.geometry.location.lng}&zoom=18&size=600x300&maptype=satellite&key=${apiKey}`;
 
     return {
       distance,
       name: nearestGym.name,
       address: nearestGym.vicinity,
-      earthImageUrl,
     };
   } catch (error) {
     console.error("Failed to find nearest gym:", error);
