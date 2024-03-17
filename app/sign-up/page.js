@@ -54,13 +54,15 @@ export default function SignUp() {
   };
 
   return (
-    <main className="flex justify-center items-center bg-red-200  min-h-screen">
+    <main className="flex justify-center items-center  min-h-screen">
       <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[520px] bg-white rounded-2xl">
-        <div className="relative hidden md:flex justify-center items-center w-[40%] h-full">
-          <div className="absolute left-0 top-0 flex p-8">
-            <h1 className="text-2xl text-[#FF2D55] font-bold">red</h1>
-            <h1 className="text-2xl text-black font-bold">sync</h1>
-          </div>
+        <div className="hidden md:flex justify-center items-center w-[40%] h-full">
+          <img src="/logo.png" className="w-[80%] ml-12"></img>
+
+          {/* <img
+            className="rounded-2xl self-center mt-12 ml-12 w-[90%]"
+            src="https://media.discordapp.net/attachments/1143722023214911530/1219021076290474054/DALLE_2024-03-17_16.33.45_-_Create_an_image_of_a_modern_minimalistic_logo_for_a_tech_company_named_redsync._The_logo_should_be_simple_and_consist_of_the_companys_name_with_a_.webp?ex=6609c8d8&is=65f753d8&hm=b5bb7ced7f5ed804432d0940b80ba0fcdd38a588f6cf87ef312b46a8fe98e8ac&=&format=webp&width=1064&height=1064"
+          ></img> */}
         </div>
 
         <form
@@ -68,7 +70,7 @@ export default function SignUp() {
           className="flex flex-col items-center w-full md:w-[60%] h-full"
         >
           <h1 className="text-4xl font-bold mt-12">Sign Up</h1>
-          <div className="flex flex-col mt-8 space-y-2 w-[64%]">
+          <div className="flex flex-col mt-8 space-y-2 w-[80%]">
             <label
               className="block text-gray-700 text-sm font-bold"
               htmlFor="Email"
@@ -85,7 +87,7 @@ export default function SignUp() {
               required
             />
           </div>
-          <div className="flex flex-col mt-6 space-y-2 w-[64%]">
+          <div className="flex flex-col mt-6 space-y-2 w-[80%]">
             <label
               className="block text-gray-700 text-sm font-bold"
               htmlFor="Password"
@@ -102,7 +104,7 @@ export default function SignUp() {
               required
             />
           </div>
-          <div className="flex flex-col mt-6 space-y-2 w-[64%]">
+          <div className="flex flex-col mt-6 space-y-2 w-[80%]">
             <label
               className="block text-gray-700 text-sm font-bold"
               htmlFor="ConfirmPassword"
@@ -121,7 +123,7 @@ export default function SignUp() {
           </div>
           <button
             type="submit"
-            className="mt-8 px-4 w-[64%] py-2 bg-[#FF2D55] text-white font-bold rounded-lg"
+            className="mt-8 px-4 w-[80%] py-2 bg-red-600 text-white font-bold rounded-lg"
           >
             Sign Up
           </button>

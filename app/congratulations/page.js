@@ -1,9 +1,24 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
+
 import Confetti from "react-confetti";
 
 export default function Congratulations() {
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+  const [isClient, setClient] = useState(false);
+  useEffect(() => {
+    const { innerWidth: width, innerHeight: height } = window;
+    setDimensions({
+      width,
+      height,
+    });
+    setClient(true);
+  }, []);
+
   const handleSignIn = () => {
     if (typeof window !== "undefined") {
       const deepLinkURLiOS = "myapp://";
@@ -31,18 +46,26 @@ export default function Congratulations() {
   return (
     <main className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col justify-center items-center w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[520px] bg-white rounded-2xl">
-        <Confetti recycle={false} />
+        {isClient && (
+          <Confetti
+            width={dimensions.width}
+            height={dimensions.height}
+            recycle={false}
+          />
+        )}
 
-        <h1 className="text-2xl md:text-4xl font-bold text-center w-[50%]">
-          🎉 Congratulations 🎉 <br /> on taking your first step to better
-          health!
-        </h1>
-        <button
-          className="mt-8 bg-[#FF2D55] rounded-2xl w-[120px] h-[60px]"
-          onClick={handleSignIn}
-        >
-          <p className="text-white p-2 text-2xl font-bold">Sign In</p>
-        </button>
+        <div className="flex flex-col justify-center items-center space-y-20">
+          <h1 className="text-3xl md:text-4xl font-bold text-center w-[80%]">
+            Congratulations on taking your first step to better health!
+          </h1>
+          <h1 className="text-8xl">🎉</h1>
+          <button
+            className="mt-8 bg-red-600 rounded-2xl w-[160px] h-[60px]"
+            onClick={handleSignIn}
+          >
+            <p className="text-white p-2 text-2xl font-bold">Sign In</p>
+          </button>
+        </div>
       </div>
     </main>
   );
