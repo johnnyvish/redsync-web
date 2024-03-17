@@ -1,29 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 
 export default function Congratulations() {
-  const handleSignIn = () => {
-    const deepLinkURLiOS = "myapp://";
-    const deepLinkURLAndroid = "myapp://";
-    const fallbackURL = "https://theredsync.com";
+  // State to manage the trigger for signIn
+  const [attemptSignIn, setAttemptSignIn] = useState(false);
 
-    const userAgent = navigator.userAgent || window.navigator.userAgent;
+  useEffect(() => {
+    // Only proceed if attemptSignIn is true
+    if (attemptSignIn) {
+      const deepLinkURLiOS = "myapp://";
+      const deepLinkURLAndroid = "myapp://";
+      const fallbackURL = "https://theredsync.com";
 
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.location.href = deepLinkURLiOS;
-    } else if (/android/i.test(userAgent)) {
-      window.location.href = deepLinkURLAndroid;
-    } else {
-      window.location.href = fallbackURL;
-    }
+      const userAgent = navigator.userAgent || window.navigator.userAgent;
 
-    setTimeout(() => {
-      if (!document.hidden) {
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = deepLinkURLiOS;
+      } else if (/android/i.test(userAgent)) {
+        window.location.href = deepLinkURLAndroid;
+      } else {
         window.location.href = fallbackURL;
       }
-    }, 2500);
+
+      setTimeout(() => {
+        if (!document.hidden) {
+          window.location.href = fallbackURL;
+        }
+      }, 2500);
+    }
+  }, [attemptSignIn]); // This effect depends on attemptSignIn
+
+  // Function to trigger sign in attempt
+  const handleSignInClick = () => {
+    setAttemptSignIn(true);
   };
 
   return (
@@ -41,7 +52,7 @@ export default function Congratulations() {
         </h1>
         <button
           className="mt-8 bg-[#FF2D55] rounded-2xl w-[120px] h-[60px]"
-          onClick={handleSignIn}
+          onClick={handleSignInClick} // Use the trigger function here
         >
           <p className="text-white p-2 text-2xl font-bold">Sign In</p>
         </button>
