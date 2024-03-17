@@ -31,11 +31,7 @@ export default function Congratulations() {
   return (
     <main className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col justify-center items-center w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[520px] bg-white rounded-2xl">
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          recycle={false}
-        />
+        <Confetti recycle={false} />
 
         <h1 className="text-2xl md:text-4xl font-bold text-center w-[50%]">
           🎉 Congratulations 🎉 <br /> on taking your first step to better
