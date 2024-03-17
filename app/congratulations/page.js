@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Confetti from "react-confetti";
 
 export default function Congratulations() {
-  // State to manage the trigger for signIn
-  const [attemptSignIn, setAttemptSignIn] = useState(false);
-
-  useEffect(() => {
-    // Only proceed if attemptSignIn is true
-    if (attemptSignIn) {
+  const handleSignIn = () => {
+    if (typeof window !== "undefined") {
       const deepLinkURLiOS = "myapp://";
       const deepLinkURLAndroid = "myapp://";
       const fallbackURL = "https://theredsync.com";
@@ -30,11 +26,6 @@ export default function Congratulations() {
         }
       }, 2500);
     }
-  }, [attemptSignIn]); // This effect depends on attemptSignIn
-
-  // Function to trigger sign in attempt
-  const handleSignInClick = () => {
-    setAttemptSignIn(true);
   };
 
   return (
@@ -52,7 +43,7 @@ export default function Congratulations() {
         </h1>
         <button
           className="mt-8 bg-[#FF2D55] rounded-2xl w-[120px] h-[60px]"
-          onClick={handleSignInClick} // Use the trigger function here
+          onClick={handleSignIn}
         >
           <p className="text-white p-2 text-2xl font-bold">Sign In</p>
         </button>
