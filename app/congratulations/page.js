@@ -63,7 +63,7 @@ export default function Congratulations() {
             className="mt-8 bg-red-600 rounded-2xl w-[160px] h-[60px]"
             onClick={handleSignIn}
           >
-            <p className="text-white p-2 text-2xl font-bold">Sign In</p>
+            <p className="text-white p-2 text-2xl font-bold">Login</p>
           </button>
         </div>
       </div>
