@@ -21,8 +21,8 @@ export default function Congratulations() {
 
   const handleSignIn = () => {
     if (typeof window !== "undefined") {
-      const deepLinkURLiOS = "myapp://";
-      const deepLinkURLAndroid = "myapp://";
+      const deepLinkURLiOS = "redsync://";
+      const deepLinkURLAndroid = "redsync://";
       const fallbackURL = "https://theredsync.com";
 
       const userAgent = navigator.userAgent || window.navigator.userAgent;
