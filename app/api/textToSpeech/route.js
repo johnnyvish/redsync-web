@@ -44,7 +44,7 @@ export async function POST(request) {
 async function convertTextToSpeech(text) {
   const response = await openai.audio.speech.create({
     model: "tts-1",
-    voice: "echo",
+    voice: "nova",
     input: text,
   });
 
