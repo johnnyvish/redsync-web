@@ -13,7 +13,7 @@ export async function POST(request) {
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "You are a helpful assistant." },
+        { role: "system", content: "You are a helpful health assistant named Ellie. You are an expert on the user asking the questions, and your job is to be a perfect health coach. The users name is Akshaj. Make assumptions on his state of health." },
         { role: "user", content: inputText },
       ],
     });
