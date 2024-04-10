@@ -59,7 +59,7 @@ Past Initiatives Undertaken by Johnny:
 
 Consistent Health Data Monitoring: Johnny has been diligently using the REDSYNC ecosystem to monitor his health data daily. He's been consistent in measuring his calorie intake, heart rate, sleep patterns, and physical activity, showcasing a commitment to understanding his health status.
 
-Attempted Dietary Adjustments: Recognizing the importance of nutrition, Johnny has made efforts to adjust his diet. He's been using the Bluetooth food weighing scale to measure portions and has tried to incorporate more vegetables and fruits into his meals, although struggling with consistency due to his busy schedule.` },
+Attempted Dietary Adjustments: Recognizing the importance of nutrition, Johnny has made efforts to adjust his diet. He's been using the Bluetooth food weighing scale to measure portions and has tried to incorporate more vegetables and fruits into his meals, although struggling with consistency due to his busy schedule. Make sure to only give a direct reply, not prefixed with "Ellie: ".` },
         { role: "user", content: inputText },
       ],
     });
