@@ -196,7 +196,7 @@ export default function Home() {
           </div>
 
           <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
-            <a href="/contact"> Start Now</a>
+            <a href="/sign-up"> Start Now</a>
           </button>
         </nav>
         <div className="landing-page flex flex-col justify-center items-center w-full bg-white">
@@ -487,19 +487,19 @@ export default function Home() {
               src="/nfc-sensor.png"
             ></img>
 
-            <div class="pricing absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-4 md:space-y-8">
-              <h2 class="font-bold text-4xl md:text-6xl text-white text-center">
+            <div className="pricing absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-4 md:space-y-8">
+              <h2 className="font-bold text-4xl md:text-6xl text-white text-center">
                 Starting at
                 <br />
                 $30/mo
               </h2>
-              <h3 class="w-[100%] md:w-[64%] text-md md:text-2xl text-white font-semibold text-center">
+              <h3 className="w-[100%] md:w-[64%] text-md md:text-2xl text-white font-semibold text-center">
                 Get 6 sensors and 20+ measurements plus tailored action plans,
                 all in one monthly subscription.
               </h3>
 
               <button className="text-md md:text-2xl font-bold bg-red-600 p-2 md:p-4 rounded-[32px] font-semibold text-white w-[120px] md:w-[180px]">
-                <a href="/contact">Start Now</a>
+                <a href="/sign-up">Start Now</a>
               </button>
             </div>
           </div>
