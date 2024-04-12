@@ -79,7 +79,7 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".landing-page", { background: "#f87171" })
+        .to(".landing-page", { background: "#FF2D55" })
         .to(".navbar", { y: -100 }, "<");
     }, app.current);
 
@@ -173,7 +173,7 @@ export default function Home() {
 
           <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
             <div className="flex justify-center items-center space-x-4">
-              <div className="w-[8px] h-[8px] bg-red-500 rounded-full"></div>
+              <div className="w-[8px] h-[8px] bg-[#FF2D55] rounded-full"></div>
               <button>
                 <a href="/">Home</a>
               </button>
@@ -195,7 +195,7 @@ export default function Home() {
             </div>
           </div>
 
-          <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
+          <button className="text-xl font-bold bg-[#FF2D55] p-2 rounded-[32px] font-semibold text-white w-[160px]">
             <a href="/sign-up"> Start Now</a>
           </button>
         </nav>
@@ -206,9 +206,9 @@ export default function Home() {
             </h1>
             <div className="flex justify-center items-center space-x-2 sm:space-x-4 text-3xl md:text-4xl lg:text-5xl mt-8">
               <h2>prevent</h2>
-              <h2 className="text-red-400 disease">heart attacks.</h2>
+              <h2 className="text-[#FF2D55] disease">heart attacks.</h2>
             </div>
-            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-red-400 rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
+            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-[#FF2D55] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 How it works
               </h2>
@@ -263,7 +263,7 @@ export default function Home() {
           <div className="measurements-section flex flex-col items-center w-full pb-24">
             <h2 className="text-4xl lg:text-6xl font-bold text-black text-center">
               One subscription, <br></br>
-              <span className="counter-measurements text-red-700">
+              <span className="counter-measurements text-[#FF2D55]">
                 20+
               </span>{" "}
               measurements:
@@ -498,7 +498,7 @@ export default function Home() {
                 all in one monthly subscription.
               </h3>
 
-              <button className="text-md md:text-2xl font-bold bg-red-600 p-2 md:p-4 rounded-[32px] font-semibold text-white w-[120px] md:w-[180px]">
+              <button className="text-md md:text-2xl font-bold bg-white p-2 md:p-4 rounded-[32px] font-semibold text-[#FF2D55] w-[120px] md:w-[180px]">
                 <a href="/sign-up">Start Now</a>
               </button>
             </div>

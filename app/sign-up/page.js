@@ -67,10 +67,10 @@ export default function SignUp() {
   };
 
   return (
-    <main className="flex justify-center items-center  min-h-screen">
+    <main className="flex justify-center items-center  min-h-screen bg-[#FF2D55]">
       <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[600px] bg-white rounded-2xl">
         <div className="hidden md:flex justify-center items-center w-[40%] h-full">
-          <img src="/logo.png" className="w-[80%] ml-12"></img>
+          <img src="/EllieBody.png" className="w-[80%] ml-12"></img>
         </div>
 
         <form
@@ -148,7 +148,7 @@ export default function SignUp() {
           </div>
           <button
             type="submit"
-            className="mt-8 px-4 w-[80%] py-2 bg-red-600 text-white font-bold rounded-lg"
+            className="mt-8 px-4 w-[80%] py-2 bg-[#FF2D55] text-white font-bold rounded-lg"
           >
             Sign Up
           </button>
