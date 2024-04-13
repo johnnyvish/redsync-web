@@ -67,7 +67,7 @@ export default function SignUp() {
   };
 
   return (
-    <main className="flex justify-center items-center  min-h-screen bg-[#FF2D55]">
+    <main className="flex justify-center items-center  min-h-screen bg-red-200">
       <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[600px] bg-white rounded-2xl">
         <div className="hidden md:flex justify-center items-center w-[40%] h-full">
           <img src="/EllieBody.png" className="w-[80%] ml-12"></img>
