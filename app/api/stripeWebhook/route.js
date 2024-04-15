@@ -34,7 +34,7 @@ export async function POST(request) {
 
         // Assuming checkoutSession.customer is the ID of the Stripe Customer
         const user = await User.findOne({
-          stripeCustomerId: checkoutSession.customer,
+          email: checkoutSession.customer_details.email,
         });
         if (user) {
           user.stripeSubscriptionId = checkoutSession.subscription; // Update with new subscription ID
