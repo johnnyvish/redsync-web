@@ -19,9 +19,32 @@ const healthDataSchema = new Schema({
     type: String,
     required: true,
   },
-  data: {
-    type: String,
-    required: true,
+  calorieIntake: {
+    dailyAverage: Number,
+    mealIrregularity: Boolean,
+  },
+  heartRate: {
+    resting: Number,
+  },
+  bloodOxygen: {
+    averageSpO2: Number,
+  },
+  dailySteps: Number,
+  sleepData: {
+    averageDurationHours: Number,
+    frequentAwakenings: Boolean,
+  },
+  eveningBodyTemperature: Number,
+  waistCircumference: Number,
+  bloodPressure: {
+    systolic: Number,
+    diastolic: Number,
+  },
+  bodyWeight: Number,
+  bodyMassIndex: Number,
+  waterIntake: Number,
+  caffeineIntake: {
+    cupsOfCoffee: Number,
   },
 });
 
