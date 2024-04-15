@@ -8,7 +8,7 @@ async function fetchHealthDataBySyncCode(syncCode) {
 }
 
 // API endpoint to fetch user health data
-export async function GET(req) {
+export async function POST(req) {
   try {
     await connectDB();
     const { syncCode } = await req.json(); // Assuming the syncCode is sent in the request body
