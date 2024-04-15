@@ -1,6 +1,6 @@
 import HealthData from "@/models/healthData";
 import connectDB from "@/lib/mongodb";
-import { faker } from "@faker-js/faker"; // Make sure to install @faker-js/faker package
+import { faker } from "@faker-js/faker";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -10,36 +10,36 @@ export async function POST(req) {
     const fakeEntries = [];
     for (let i = 0; i < 10; i++) {
       fakeEntries.push({
-        userId: mongoose.Types.ObjectId(), // Generate a fake MongoDB ObjectId
-        syncCode: faker.datatype.uuid(),   // Using UUIDs for sync codes
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
+        userId: new mongoose.Types.ObjectId(),
+        syncCode: faker.datatype.uuid(),
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
         calorieIntake: {
-          dailyAverage: faker.datatype.number({ min: 1500, max: 3000 }),
+          dailyAverage: faker.number.int({ min: 1200, max: 3500 }),
           mealIrregularity: faker.datatype.boolean(),
         },
         heartRate: {
-          resting: faker.datatype.number({ min: 60, max: 100 }),
+          resting: faker.number.int({ min: 60, max: 100 }),
         },
         bloodOxygen: {
-          averageSpO2: faker.datatype.number({ min: 90, max: 100 }),
+          averageSpO2: faker.number.int({ min: 90, max: 100 }),
         },
-        dailySteps: faker.datatype.number({ min: 1000, max: 15000 }),
+        dailySteps: faker.number.int({ min: 0, max: 20000 }),
         sleepData: {
-          averageDurationHours: faker.datatype.number({ min: 4, max: 12 }),
+          averageDurationHours: faker.number.int({ min: 4, max: 12 }),
           frequentAwakenings: faker.datatype.boolean(),
         },
-        eveningBodyTemperature: faker.datatype.float({ min: 36.5, max: 37.5 }),
-        waistCircumference: faker.datatype.number({ min: 60, max: 120 }),
+        eveningBodyTemperature: faker.number.float({ min: 97, max: 99 }),
+        waistCircumference: faker.number.float({ min: 20, max: 40 }),
         bloodPressure: {
-          systolic: faker.datatype.number({ min: 110, max: 140 }),
-          diastolic: faker.datatype.number({ min: 70, max: 90 }),
+          systolic: faker.number.int({ min: 100, max: 140 }),
+          diastolic: faker.number.int({ min: 60, max: 90 }),
         },
-        bodyWeight: faker.datatype.number({ min: 50, max: 120 }),
-        bodyMassIndex: faker.datatype.float({ min: 18.5, max: 30 }),
-        waterIntake: faker.datatype.number({ min: 1000, max: 3000 }), // in milliliters
+        bodyWeight: faker.number.float({ min: 100, max: 300 }),
+        bodyMassIndex: faker.number.float({ min: 15, max: 40 }),
+        waterIntake: faker.number.int({ min: 1000, max: 4000 }), // in milliliters
         caffeineIntake: {
-          cupsOfCoffee: faker.datatype.number({ min: 0, max: 5 }),
+          cupsOfCoffee: faker.number.int({ min: 0, max: 5 }),
         },
       });
     }
@@ -49,7 +49,7 @@ export async function POST(req) {
     return NextResponse.json({
       status: 200,
       message: "Health data populated successfully",
-      entries: fakeEntries, // Optionally return the created entries for confirmation
+      entries: fakeEntries,
     });
   } catch (error) {
     console.error("Error populating health data:", error);
