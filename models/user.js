@@ -13,10 +13,6 @@ const userSchema = new Schema({
     type: String,
     default: "",
   },
-  stripeCurrentPeriodEnd: {
-    type: Date,
-    default: null,
-  },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

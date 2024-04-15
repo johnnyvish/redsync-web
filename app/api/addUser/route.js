@@ -31,21 +31,6 @@ export async function POST(req) {
       password: hashedPassword,
     });
 
-    // const existingHealthData = await HealthData.findOne({ syncCode });
-
-    // if (existingHealthData) {
-    //   existingHealthData.userId = newUser._id;
-    //   await existingHealthData.save();
-    // } else {
-    //   await HealthData.create({
-    //     userId: newUser._id,
-    //     syncCode,
-    //     firstName: "",
-    //     lastName: "",
-    //     data: "",
-    //   });
-    // }
-
     return NextResponse.json({
       status: 200,
       message: "User created successfully",
