@@ -13,7 +13,7 @@ export async function POST(req) {
   try {
     await connectDB();
 
-    const { email, password, syncCode } = await req.json();
+    const { email, password } = await req.json();
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -31,20 +31,20 @@ export async function POST(req) {
       password: hashedPassword,
     });
 
-    const existingHealthData = await HealthData.findOne({ syncCode });
+    // const existingHealthData = await HealthData.findOne({ syncCode });
 
-    if (existingHealthData) {
-      existingHealthData.userId = newUser._id;
-      await existingHealthData.save();
-    } else {
-      await HealthData.create({
-        userId: newUser._id,
-        syncCode,
-        firstName: "",
-        lastName: "",
-        data: "",
-      });
-    }
+    // if (existingHealthData) {
+    //   existingHealthData.userId = newUser._id;
+    //   await existingHealthData.save();
+    // } else {
+    //   await HealthData.create({
+    //     userId: newUser._id,
+    //     syncCode,
+    //     firstName: "",
+    //     lastName: "",
+    //     data: "",
+    //   });
+    // }
 
     return NextResponse.json({
       status: 200,

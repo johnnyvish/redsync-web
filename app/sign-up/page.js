@@ -7,36 +7,16 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [syncCode, setSyncCode] = useState("");
   const router = useRouter();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
-  const handleSyncCodeChange = (e) => setSyncCode(e.target.value);
-
-  const validateSyncCode = async (code) => {
-    const response = await fetch("/api/isValidSyncCode", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ syncCode: code }),
-    });
-    const data = await response.json();
-    return data.isValid;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
-      return;
-    }
-
-    const isValidCode = await validateSyncCode(syncCode);
-    if (!isValidCode) {
-      alert("Invalid Access Code.");
       return;
     }
 
@@ -49,15 +29,13 @@ export default function SignUp() {
         body: JSON.stringify({
           email: email,
           password: password,
-          syncCode: syncCode,
         }),
       });
 
       const data = await response.json();
 
       if (data.status === 200) {
-        console.log("Signup successful", data);
-        router.push("/congratulations");
+        router.push("/payment");
       } else {
         throw new Error(data.message || "An error occurred during signup.");
       }
@@ -68,7 +46,7 @@ export default function SignUp() {
 
   return (
     <main className="flex justify-center items-center  min-h-screen bg-red-200">
-      <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[600px] bg-white rounded-2xl">
+      <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[520px] bg-white rounded-2xl">
         <div className="hidden md:flex justify-center items-center w-[40%] h-full">
           <img src="/EllieBody.png" className="w-[80%] ml-12"></img>
         </div>
@@ -126,23 +104,6 @@ export default function SignUp() {
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
-              required
-            />
-          </div>
-          <div className="flex flex-col mt-6 space-y-2 w-[80%]">
-            <label
-              className="block text-gray-700 text-sm font-bold"
-              htmlFor="SyncCode"
-            >
-              Sync Code
-            </label>
-            <input
-              className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="SyncCode"
-              type="text"
-              placeholder="Sync Code"
-              value={syncCode}
-              onChange={handleSyncCodeChange}
               required
             />
           </div>
