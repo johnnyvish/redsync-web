@@ -1,49 +1,48 @@
-"use client";
-
-import { useEffect } from "react";
-
-const useStripeScript = (src) => {
-  useEffect(() => {
-    // Check if the script is already present in the document
-    if (document.querySelector(`script[src="${src}"]`)) {
-      return;
-    }
-
-    // Create a new script element
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = true;
-
-    // Append the script to the document's head
-    document.head.appendChild(script);
-
-    // Cleanup function to remove the script
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [src]);
-};
-
-const StripeBuyButton = ({ buyButtonId, publishableKey }) => {
-  // Use the custom hook to load the Stripe script
-  useStripeScript("https://js.stripe.com/v3/buy-button.js");
-
-  return (
-    <stripe-buy-button
-      buy-button-id={buyButtonId}
-      publishable-key={publishableKey}
-    ></stripe-buy-button>
-  );
-};
+import Link from "next/link";
 
 export default function Payment() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#ff2d55]">
-      <div className="flex justify-center items-center p-20  rounded-[32px] bg-[#ff2d55]">
-        <StripeBuyButton
-          buyButtonId="buy_btn_1P5wlpJ6NbSgV0UTQf8q6aXE"
-          publishableKey="pk_test_51P5wGHJ6NbSgV0UT74B4TmamwSXZQOysAVZU7Igw5mtnCuujzmUdwMLs9QHHXxXPiEInoydIqJDiwGV905q9idPN00zfgKhcNs"
-        />
+      <div className="flex flex-col justify-center items-center text-white space-y-8">
+        <div className="flex flex-col justify-center items-center space-y-4">
+          <h2 className="text-5xl font-bold">RedSync</h2>
+          <div className="flex justify-center items-center space-x-2 font-semibold">
+            <h2 className="text-7xl">$30</h2>
+            <h2 className="leading-12 text-2xl">
+              per <br /> month
+            </h2>
+          </div>
+        </div>
+        <Link href="https://buy.stripe.com/test_7sIeVw84ObZSeU85kl">
+          <button className="bg-white rounded-[32px] px-24 py-4">
+            <h2 className="text-2xl text-gray-600">Subscribe</h2>
+          </button>
+        </Link>
+        <div className="flex flex-col justify-center items-center space-y-4">
+          <h3 className="text-xl font-semibold">Payment Methods</h3>
+          <div className="flex justify-center items-center space-x-4">
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/amex-b933c9009eeaf8cfd07e789c549b8c57.svg"
+              alt="amex"
+              className="h-6"
+            />
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/mastercard-86e9a2b929496a34918767093c470935.svg"
+              alt="MasterCard"
+              className="h-6"
+            />
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/visa-fb36094822f73d7bc581f6c0bad1c201.svg"
+              alt="visa"
+              className="h-6"
+            />
+            <img
+              src="https://js.stripe.com/v3/fingerprinted/img/apple_pay-ab270d32249c6d7660ac5ac394ed62ac.svg"
+              alt="apple pay"
+              className="h-6"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

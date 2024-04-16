@@ -163,9 +163,9 @@ export default function Home() {
         <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
           <a href="/">
             <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-              <img src="/logo.png" className="w-[32px] h-[32px]"></img>
+              <img src="/logo.svg" className="w-[32px] h-[32px]"></img>
               <div className="flex justify-center items-center">
-                <h1 className="text-2xl text-red-700 font-bold">red</h1>
+                <h1 className="text-2xl text-[#ff2d55] font-bold">red</h1>
                 <h1 className="text-2xl text-black font-bold">sync</h1>
               </div>
             </div>
@@ -215,11 +215,9 @@ export default function Home() {
               <div className="grid grid-rows-3 grid-cols-1 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
                 <div className="bullet-1 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    <img
-                      className="w-10 h-10"
-                      src="/number-1.png"
-                      alt="Picture of the author"
-                    />
+                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-[#FF2D55]">1</p>
+                    </div>
 
                     <h3 className="text-2xl md:text-3xl font-bold">
                       Subscribe & Receive Sensors
@@ -230,12 +228,9 @@ export default function Home() {
 
                 <div className="bullet-2 opacity-0  flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    <img
-                      className="w-10 h-10"
-                      src="/number-2.png"
-                      alt="Picture of the author"
-                    />
-
+                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-[#FF2D55]">2</p>
+                    </div>
                     <h3 className="text-2xl md:text-3xl font-bold">
                       Measure Your Body Weekly
                     </h3>
@@ -245,11 +240,15 @@ export default function Home() {
 
                 <div className="bullet-3 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    <img
+                    {/* <img
                       className="w-10 h-10"
                       src="/number-3.png"
                       alt="Picture of the author"
-                    />
+                    /> */}
+
+                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-[#FF2D55]">3</p>
+                    </div>
 
                     <h3 className="text-2xl md:text-3xl font-bold">
                       Receive Insights & Improve Health
