@@ -215,7 +215,7 @@ export default function Home() {
               <div className="grid grid-rows-3 grid-cols-1 gap-y-8 sm:gap-y-16 md:gap-x-0 lg:gap-x-32 mt-12">
                 <div className="bullet-1 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
                       <p className="text-xl font-bold text-[#FF2D55]">1</p>
                     </div>
 
@@ -226,9 +226,9 @@ export default function Home() {
                   <h3 className="text-5xl font-semibold">📦</h3>
                 </div>
 
-                <div className="bullet-2 opacity-0  flex flex-col justify-center items-center space-y-8">
+                <div className="bullet-2 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
                       <p className="text-xl font-bold text-[#FF2D55]">2</p>
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold">
@@ -246,7 +246,7 @@ export default function Home() {
                       alt="Picture of the author"
                     /> */}
 
-                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
                       <p className="text-xl font-bold text-[#FF2D55]">3</p>
                     </div>
 

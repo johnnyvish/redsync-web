@@ -1,17 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import { SignOut } from "@/components/sign-out";
-import { auth } from "@/auth";
 
-export default async function Profile() {
-  const session = await auth();
+export default function Profile() {
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
 
-  if (!session) return null;
+  if (loading) return <p>Loading...</p>;
+  if (!session) return <p>Access Denied</p>;
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <img src={session.user.img} alt="User Avatar" />
+      <img src={session.user.image} alt="User Avatar" />
       <h1>{session.user.email}</h1>
       <h1>{session.user.name}</h1>
-      <SignOut></SignOut>
+      <SignOut />
     </div>
   );
 }

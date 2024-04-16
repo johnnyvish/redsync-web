@@ -1,14 +1,9 @@
-import { signIn } from "@/auth.js";
+import { signIn } from "next-auth/react";
 
 export function SignIn() {
   return (
-    <form
-      action={async () => {
-        "use server";
-        await signIn("google", { redirectTo: "/profile" });
-      }}
-    >
-      <button type="submit">Signin with Google</button>
-    </form>
+    <button onClick={() => signIn("google", { callbackUrl: "/profile" })}>
+      Sign In
+    </button>
   );
 }
