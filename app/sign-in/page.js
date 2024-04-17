@@ -22,13 +22,13 @@ export default function SignUp() {
       redirect: false,
       email,
       password,
-      callbackUrl: "/profile",
+      callbackUrl: "/settings",
     });
 
     if (result?.error) {
       alert("Incorrect password");
     } else {
-      router.push(result.url || "/profile");
+      router.push(result.url || "/settings");
     }
   };
 
@@ -100,7 +100,7 @@ export default function SignUp() {
           <h2 className="text-xl font-semibold mt-4">or</h2>
           <div className="flex flex-col justify-center items-center w-full">
             <button
-              onClick={() => signIn("google", { callbackUrl: "/profile" })}
+              onClick={() => signIn("google", { callbackUrl: "/settings" })}
               className="mt-4 mb-8 px-4 w-[80%] py-2 border-2 border-[#FF2D55] text-[#FF2D55] font-bold rounded-lg "
             >
               Sign In with Google

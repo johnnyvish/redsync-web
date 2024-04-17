@@ -18,9 +18,8 @@ async function createUser(email) {
 async function authenticateUser(email, password) {
   const user = await findUser(email);
   if (user && (await bcrypt.compare(password, user.password))) {
-    return user; // Authentication successful
+    return user;
   } else if (!user) {
-    // User not found, create new user with hashed password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = await User.create({
@@ -67,6 +66,11 @@ const handler = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/sign-up",
+    signOut: "/settings",
+    error: "/",
+  },
   callbacks: {
     signIn: async ({ user, account, profile, email, credentials }) => {
       if (account.provider === "google") {
