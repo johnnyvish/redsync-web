@@ -19,7 +19,7 @@ export async function POST(req) {
     if (existingUser) {
       console.log("existing user");
       return NextResponse.json({
-        status: 409,
+        status: 400,
         message: "An account with this email already exists.",
       });
     }

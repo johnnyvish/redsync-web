@@ -1,7 +1,7 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { SessionProvider } from "next-auth/react";
+import ClientSessionProvider from "@/components/ClientSessionProvider";
 
 const inter = Nunito({ subsets: ["latin"] });
 
@@ -11,16 +11,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children, pageProps }) {
-  // Include pageProps as a prop
   return (
     <html lang="en">
       <head>
         <title>RedSync</title>
       </head>
       <body className={inter.className}>
-        <SessionProvider session={pageProps?.session}>
+        <ClientSessionProvider session={pageProps?.session}>
           {children}
-        </SessionProvider>
+        </ClientSessionProvider>
         <Analytics />
       </body>
     </html>
