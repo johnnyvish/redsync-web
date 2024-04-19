@@ -13,7 +13,7 @@ export default function Payment() {
             </h2>
           </div>
         </div>
-        <Link href="https://buy.stripe.com/test_7sIeVw84ObZSeU85kl">
+        <Link href="https://buy.stripe.com/3cs9E37JZ2m4ati9AA">
           <button className="bg-white rounded-[32px] px-24 py-4">
             <h2 className="text-2xl text-gray-600">Subscribe</h2>
           </button>
