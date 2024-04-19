@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@react-native-community/datetimepicker": "^7.7.0",
     "@studio-freight/react-lenis": "^0.0.45",
     "@vercel/analytics": "^1.2.2",
     "bcrypt": "^5.1.1",

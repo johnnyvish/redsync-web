@@ -15,6 +15,7 @@ export async function POST(req) {
 
     // Fetch health data
     const healthData = await fetchHealthDataBySyncCode(syncCode);
+
     if (!healthData) {
       return NextResponse.json({
         status: 404,

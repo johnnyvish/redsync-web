@@ -1,5 +1,17 @@
 import mongoose, { Schema } from "mongoose";
 
+const dataPointSchema = new Schema(
+  {
+    value: Schema.Types.Mixed, // Allows for storing different types of data
+    unit: String,
+    date: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { _id: false }
+);
+
 const healthDataSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -8,44 +20,46 @@ const healthDataSchema = new Schema({
   },
   syncCode: {
     type: String,
-    required: true,
-    unique: true,
   },
+  isActivated: { type: Boolean, default: false },
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
-    required: true,
   },
-  calorieIntake: {
-    dailyAverage: Number,
-    mealIrregularity: Boolean,
+  prePrompt: {
+    type: String,
   },
-  heartRate: {
-    resting: Number,
-  },
-  bloodOxygen: {
-    averageSpO2: Number,
-  },
-  dailySteps: Number,
-  sleepData: {
-    averageDurationHours: Number,
-    frequentAwakenings: Boolean,
-  },
-  eveningBodyTemperature: Number,
-  waistCircumference: Number,
-  bloodPressure: {
-    systolic: Number,
-    diastolic: Number,
-  },
-  bodyWeight: Number,
-  bodyMassIndex: Number,
-  waterIntake: Number,
-  caffeineIntake: {
-    cupsOfCoffee: Number,
-  },
+
+  calorieIntake: [dataPointSchema],
+  heartRate: [dataPointSchema],
+  bloodOxygen: [dataPointSchema],
+  dailySteps: [dataPointSchema],
+  sleepData: [
+    {
+      averageDurationHours: dataPointSchema,
+      frequentAwakenings: {
+        value: Boolean,
+        date: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    },
+  ],
+  eveningBodyTemperature: [dataPointSchema],
+  waistCircumference: [dataPointSchema],
+  bloodPressure: [
+    {
+      systolic: dataPointSchema,
+      diastolic: dataPointSchema,
+    },
+  ],
+  bodyWeight: [dataPointSchema],
+  bodyMassIndex: [dataPointSchema],
+  waterIntake: [dataPointSchema],
+  caffeineIntake: [dataPointSchema],
 });
 
 const HealthData =

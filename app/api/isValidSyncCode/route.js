@@ -24,7 +24,7 @@ export async function POST(req) {
       JSON.stringify({
         isValid: true,
         message: "Sync code is valid.",
-        healthDataId: healthData._id, // Optional: Return the ID of the HealthData record
+        healthDataId: healthData._id,
       }),
       {
         status: 200,

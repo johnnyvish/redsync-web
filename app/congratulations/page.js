@@ -60,10 +60,10 @@ export default function Congratulations() {
           </h1>
           <h1 className="text-8xl">🎉</h1>
           <button
-            className="mt-8 bg-red-600 rounded-2xl w-[160px] h-[60px]"
+            className="mt-8 bg-[#FF2D55] rounded-2xl w-[160px] h-[60px]"
             onClick={handleSignIn}
           >
-            <p className="text-white p-2 text-2xl font-bold">Login</p>
+            <p className="text-white p-2 text-2xl font-bold">My Profile</p>
           </button>
         </div>
       </div>
