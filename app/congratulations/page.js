@@ -23,7 +23,7 @@ export default function Congratulations() {
     if (typeof window !== "undefined") {
       const deepLinkURLiOS = "redsync:///(app)/(pages)/SignIn";
       const deepLinkURLAndroid = "redsync:///(app)/(pages)/SignIn";
-      const fallbackURL = "https://theredsync.com";
+      const fallbackURL = "https://theredsync.com/settings";
 
       const userAgent = navigator.userAgent || window.navigator.userAgent;
 
