@@ -7,9 +7,12 @@ export async function POST(request) {
     const req = await request.json();
     const query = req.query;
 
+    const countries = "United States";
     const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(
       query
-    )}&search_simple=1&action=process&json=1`;
+    )}&search_simple=1&action=process&countries=${encodeURIComponent(
+      countries
+    )}&json=1`;
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -17,7 +20,6 @@ export async function POST(request) {
     }
 
     const data = await response.json();
-
     const results = data.products;
 
     return NextResponse.json({ result: results }, { status: 200 });
