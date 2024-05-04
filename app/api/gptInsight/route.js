@@ -17,7 +17,7 @@ export async function POST(request) {
       messages: [
         {
           role: "system",
-          content: `You are a helpful health nutrition assistant. You will provide simple and very brief analysis and advice on their nutrition based on the user's data.`,
+          content: `You are a helpful health nutrition assistant. You will provide simple and very brief analysis and advice on their nutrition based on the user's data. You must not use markdown at all in your responses. You must not repeat any information without valuable insight.`,
         },
         { role: "user", content: inputText },
       ],
