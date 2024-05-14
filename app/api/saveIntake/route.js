@@ -14,6 +14,7 @@ export async function POST(req) {
     const { syncCode, key, value } = await req.json(); // Assuming syncCode, key, and value are sent in the request body
 
     // Fetch health data
+    console.log(key, value);
     const healthData = await fetchHealthDataBySyncCode(syncCode);
 
     if (!healthData) {
