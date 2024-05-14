@@ -10,15 +10,21 @@ async function fetchHealthDataBySyncCode(syncCode) {
 // API endpoint to save intake data
 export async function POST(req) {
   try {
-    console.log("save Intake api reached");
-    await connectDB();
-    const { syncCode, key, value } = await req.json(); // Assuming syncCode, key, and value are sent in the request body
+    console.log("saveIntake API reached");
 
-    console.log(syncCode, key, value);
+    await connectDB();
+    console.log("Database connected");
+
+    const { syncCode, key, value } = await req.json(); // Assuming syncCode, key, and value are sent in the request body
+    console.log(
+      `Request data received - syncCode: ${syncCode}, key: ${key}, value: ${value}`
+    );
 
     const healthData = await fetchHealthDataBySyncCode(syncCode);
+    console.log("Fetched health data:", healthData);
 
     if (!healthData) {
+      console.log("Health data not found for syncCode:", syncCode);
       return NextResponse.json({
         status: 404,
         message: "Health data not found",
@@ -30,14 +36,17 @@ export async function POST(req) {
       { syncCode },
       { $set: { [`Intake.${key}`]: value } }
     );
+    console.log("Update result:", updateResult);
 
     if (updateResult.nModified === 0) {
+      console.log("Failed to update intake data for syncCode:", syncCode);
       return NextResponse.json({
         status: 400,
         message: "Failed to update intake data",
       });
     }
 
+    console.log("Intake data saved successfully for syncCode:", syncCode);
     // Return success response
     return NextResponse.json({
       status: 200,
