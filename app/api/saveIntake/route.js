@@ -10,11 +10,12 @@ async function fetchHealthDataBySyncCode(syncCode) {
 // API endpoint to save intake data
 export async function POST(req) {
   try {
+    console.log("save Intake api reached");
     await connectDB();
     const { syncCode, key, value } = await req.json(); // Assuming syncCode, key, and value are sent in the request body
 
-    // Fetch health data
-    console.log(key, value);
+    console.log(syncCode, key, value);
+
     const healthData = await fetchHealthDataBySyncCode(syncCode);
 
     if (!healthData) {

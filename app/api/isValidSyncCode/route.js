@@ -3,6 +3,7 @@ import connectDB from "@/lib/mongodb";
 
 export async function POST(req) {
   try {
+    console.log("isValidSyncCode api reached");
     await connectDB();
 
     const { syncCode } = await req.json();
