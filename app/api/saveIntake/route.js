@@ -17,7 +17,9 @@ export async function POST(req) {
 
     const { syncCode, key, value } = await req.json(); // Assuming syncCode, key, and value are sent in the request body
     console.log(
-      `Request data received - syncCode: ${syncCode}, key: ${key}, value: ${value}`
+      `Request data received - syncCode: ${syncCode}, key: ${key}, value: ${JSON.stringify(
+        value
+      )}`
     );
 
     const healthData = await fetchHealthDataBySyncCode(syncCode);
@@ -34,7 +36,7 @@ export async function POST(req) {
     // Update the intake data
     const updateResult = await HealthData.updateOne(
       { syncCode },
-      { $set: { [`Intake.${key}`]: value } }
+      { $set: { [`Intake.${key}`]: JSON.stringify(value) } }
     );
     console.log("Update result:", updateResult);
 
