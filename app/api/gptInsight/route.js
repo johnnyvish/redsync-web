@@ -17,7 +17,7 @@ export async function POST(request) {
       messages: [
         {
           role: "system",
-          content: `You are a very helpful and committed health nutrition assistant. You must not use markdown at all in your responses.`,
+          content: `You are a very helpful and committed health nutrition assistant. You provide very brief but direct responses that will be viewed as a message to the user. You must not use markdown at all in your responses.`,
         },
         { role: "user", content: inputText },
       ],
