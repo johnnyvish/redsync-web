@@ -13,11 +13,11 @@ export async function POST(request) {
     const inputText = req.text;
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt4-o",
       messages: [
         {
           role: "system",
-          content: `You are a helpful health nutrition assistant. You will provide simple and very brief analysis and advice on their nutrition based on the user's data. You must not use markdown at all in your responses. You must not repeat any information without valuable insight.`,
+          content: `You are a very helpful and committed health nutrition assistant. You must not use markdown at all in your responses.`,
         },
         { role: "user", content: inputText },
       ],
