@@ -21,7 +21,7 @@ export async function POST(request) {
         },
         { role: "user", content: inputText },
       ],
-      seed: 2024,
+      seed: 2002,
     });
 
     const outputText = response.choices[0].message.content;
