@@ -4,12 +4,7 @@ import HealthData from "@/models/healthData";
 
 // Function to fetch health data using syncCode
 async function fetchHealthDataBySyncCode(syncCode) {
-  try {
-    return await HealthData.findOne({ syncCode }).lean(); // Using .lean() for faster read-only results
-  } catch (error) {
-    console.error("Error fetching health data by syncCode:", error);
-    throw new Error("Database query failed");
-  }
+  return HealthData.findOne({ syncCode }).lean(); // Using .lean() for faster read-only results
 }
 
 // API endpoint to fetch user health data
@@ -18,39 +13,35 @@ export async function POST(req) {
     await connectDB();
     const { syncCode } = await req.json(); // Assuming the syncCode is sent in the request body
 
-    if (!syncCode) {
-      return NextResponse.json({
-        status: 400,
-        message: "syncCode is required",
-      });
-    }
+    // Fetch health data
+    const healthData = await fetchHealthDataBySyncCode(syncCode);
+    const globalData = await fetchHealthDataBySyncCode("GLOBAL");
 
-    // Fetch user's health data
-    const userHealthData = await fetchHealthDataBySyncCode(syncCode);
-
-    if (!userHealthData) {
+    if (!healthData) {
       return NextResponse.json({
         status: 404,
-        message: "User health data not found",
+        message: "Health data not found",
       });
     }
 
-    // Fetch global health data
-    const globalHealthData = await fetchHealthDataBySyncCode("GLOBAL");
-
-    if (globalHealthData) {
-      // Append global health data to user's health data
-      userHealthData.data = {
-        ...userHealthData.data,
-        ...globalHealthData.data,
-      };
+    if (!globalData) {
+      return NextResponse.json({
+        status: 404,
+        message: "Global health data not found",
+      });
     }
 
-    // Return the combined health data
+    // Merge the global data with the user data
+    healthData.systemPrompt = globalData.systemPrompt;
+    healthData.fridgePrompt = globalData.fridgePrompt;
+    healthData.labelPrompt = globalData.labelPrompt;
+    healthData.mealPrompt = globalData.mealPrompt;
+
+    // Return the health data
     return NextResponse.json({
       status: 200,
       message: "Health data fetched successfully",
-      data: userHealthData, // Returning the combined data
+      data: healthData, // Directly returning the whole document
     });
   } catch (error) {
     console.error("Error fetching health data:", error);
