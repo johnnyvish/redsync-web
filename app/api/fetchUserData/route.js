@@ -4,7 +4,12 @@ import HealthData from "@/models/healthData";
 
 // Function to fetch health data using syncCode
 async function fetchHealthDataBySyncCode(syncCode) {
-  return HealthData.findOne({ syncCode }).lean(); // Using .lean() for faster read-only results
+  try {
+    return await HealthData.findOne({ syncCode }).lean(); // Using .lean() for faster read-only results
+  } catch (error) {
+    console.error("Error fetching health data by syncCode:", error);
+    throw new Error("Database query failed");
+  }
 }
 
 // API endpoint to fetch user health data
@@ -12,6 +17,13 @@ export async function POST(req) {
   try {
     await connectDB();
     const { syncCode } = await req.json(); // Assuming the syncCode is sent in the request body
+
+    if (!syncCode) {
+      return NextResponse.json({
+        status: 400,
+        message: "syncCode is required",
+      });
+    }
 
     // Fetch user's health data
     const userHealthData = await fetchHealthDataBySyncCode(syncCode);
