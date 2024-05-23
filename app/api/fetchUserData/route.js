@@ -13,21 +13,32 @@ export async function POST(req) {
     await connectDB();
     const { syncCode } = await req.json(); // Assuming the syncCode is sent in the request body
 
-    // Fetch health data
-    const healthData = await fetchHealthDataBySyncCode(syncCode);
+    // Fetch user's health data
+    const userHealthData = await fetchHealthDataBySyncCode(syncCode);
 
-    if (!healthData) {
+    if (!userHealthData) {
       return NextResponse.json({
         status: 404,
-        message: "Health data not found",
+        message: "User health data not found",
       });
     }
 
-    // Return the health data
+    // Fetch global health data
+    const globalHealthData = await fetchHealthDataBySyncCode("GLOBAL");
+
+    if (globalHealthData) {
+      // Append global health data to user's health data
+      userHealthData.data = {
+        ...userHealthData.data,
+        ...globalHealthData.data,
+      };
+    }
+
+    // Return the combined health data
     return NextResponse.json({
       status: 200,
       message: "Health data fetched successfully",
-      data: healthData, // Directly returning the whole document
+      data: userHealthData, // Returning the combined data
     });
   } catch (error) {
     console.error("Error fetching health data:", error);
