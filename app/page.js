@@ -163,10 +163,10 @@ export default function Home() {
         <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
           <a href="/">
             <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-              <img src="/logo.svg" className="w-[32px] h-[32px]"></img>
+              <img src="/Rose.png" className="w-[28px] h-[28px]"></img>
               <div className="flex justify-center items-center">
                 <h1 className="text-2xl text-[#ff2d55] font-bold">red</h1>
-                <h1 className="text-2xl text-black font-bold">sync</h1>
+                <h1 className="text-2xl text-[#063A35] font-bold">sync</h1>
               </div>
             </div>
           </a>
@@ -258,7 +258,23 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-16 md:mt-20 text-white">
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
+                Rose to the Rescue!
+              </h2>
+
+              <div className="grid grid-cols-2 grid-rows-3 gap-8 w-full h-full mt-8">
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
+                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
+              </div>
+            </div>
           </div>
+
           <div className="measurements-section flex flex-col items-center w-full pb-24">
             <h2 className="text-4xl lg:text-6xl font-bold text-black text-center">
               One subscription, <br></br>
@@ -479,7 +495,7 @@ export default function Home() {
             ></img>
             <img
               className="z-[2] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/smart-ring-sensor.png"
+              src="/smart-rings.png"
             ></img>
             <img
               className="z-[1] nfc-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
