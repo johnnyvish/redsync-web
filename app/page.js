@@ -169,7 +169,6 @@ export default function Home() {
             start: "top+=100 bottom",
             end: "center center",
             scrub: 1,
-            markers: true,
           },
         })
         .from(".rose-1", { y: 100, opacity: 0 })
