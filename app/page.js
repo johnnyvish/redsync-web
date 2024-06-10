@@ -365,7 +365,7 @@ export default function Home() {
                   <div className="w-[50%] flex justify-center items-center">
                     <img
                       src="/story-resting-heart.png"
-                      className="rounded-[2rem] w-[60%]"
+                      className="rounded-[1.5rem] w-[60%]"
                     />
                   </div>
                 </div>
@@ -373,7 +373,7 @@ export default function Home() {
                   <div className="w-[50%] flex justify-center items-center">
                     <img
                       src="/story-rose.png"
-                      className="rounded-[2rem] w-[60%]"
+                      className="rounded-[1.5rem] w-[60%]"
                     />
                   </div>
                   <div className="rose-2 w-[50%] justify-center items-center">
