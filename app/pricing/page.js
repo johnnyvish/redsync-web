@@ -1,45 +1,98 @@
+import NavBar from "@/components/NavBar";
+import { FaCheck } from "react-icons/fa";
+
 export default function Pricing() {
   return (
-    <main className="flex h-screen flex-col items-center overflow-hidden bg-white">
-      <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
-        <a href="/">
-          <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-            <img src="/logo.png" className="w-[32px] h-[32px]"></img>
-            <div className="flex justify-center items-center">
-              <h1 className="text-2xl text-red-700 font-bold">red</h1>
-              <h1 className="text-2xl text-black font-bold">sync</h1>
+    <main className="flex min-h-screen flex-col items-center bg-white">
+      <NavBar />
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-36 mb-8">
+        <div className="flex flex-col justify-center gap-16 w-[360px] bg-primaryGreen rounded-[32px] p-12 h-[560px]">
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-semibold text-white">
+              One Time Purchase
+            </h2>
+            <div className="flex justify-start items-end mt-8">
+              <h1 className="text-6xl font-bold text-white ">$399</h1>
+            </div>
+            <div className="flex flex-col gap-8 mt-12">
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#063A35" />
+                </div>
+                <h2 className="text-white text-2xl font-semibold">
+                  5 biosensors
+                </h2>
+              </div>
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#063A35" />
+                </div>
+                <h2 className="text-white text-2xl font-semibold">
+                  Risk scores.
+                </h2>
+              </div>
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#063A35" />
+                </div>
+                <div className="flex flex-col justify-center ">
+                  <h2 className="text-white text-2xl font-semibold">
+                    Rose A.I.
+                  </h2>
+                  <h2 className="text-white text-xl font-semibold">
+                    {"("}for one year{")"}
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
-        </a>
 
-        <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
-          <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] bg-red-500 rounded-full"></div>
-            <button>
-              <a href="/">Home</a>
-            </button>
-          </div>
-
-          <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] bg-orange-400 rounded-full"></div>
-            <a href="/about">About</a>
-          </div>
-
-          <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] bg-yellow-400 rounded-full"></div>
-            <a href="/pricing">Pricing</a>
-          </div>
+          <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold text-white w-[160px]">
+            <a href="/contact" className="text-primaryGreen">
+              Get Started
+            </a>
+          </button>
         </div>
-        <div className="md:hidden flex justify-center items-center space-x-4 text-xl font-semibold">
-          <div className="flex justify-center items-center space-x-4">
-            <div className="w-[8px] h-[8px] rounded-full"></div>
+        <div className="flex flex-col justify-center gap-16 w-[360px] bg-primary rounded-[32px] p-12 h-[560px]">
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-semibold text-white">Subscription</h2>
+            <div className="flex justify-start items-end mt-8 gap-2">
+              <h1 className="text-6xl font-bold text-white ">$35</h1>
+              <h1 className="text-2xl font-semibold text-white">/ month</h1>
+            </div>
+            <div className="flex flex-col gap-8 mt-12">
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#D02F53" />
+                </div>
+                <h2 className="text-white text-2xl font-semibold">
+                  5 biosensors
+                </h2>
+              </div>
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#D02F53" />
+                </div>
+                <h2 className="text-white text-2xl font-semibold">
+                  Get risk scores
+                </h2>
+              </div>
+              <div className="flex gap-4 items-center w-full">
+                <div className="flex justify-center items-center p-3 bg-white rounded-full">
+                  <FaCheck color="#D02F53" />
+                </div>
+                <h2 className="text-white text-2xl font-semibold">Rose A.I</h2>
+              </div>
+            </div>
           </div>
+
+          <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold text-white w-[160px]">
+            <a href="/sign-up" className="text-primary">
+              Get Started
+            </a>
+          </button>
         </div>
-        <button className="text-xl font-bold bg-red-500 p-2 rounded-[32px] font-semibold text-white w-[160px]">
-          <a href="/contact"> Start Now</a>
-        </button>
-      </nav>
-      <h1 className="mt-80 text-8xl font-bold text-black">Coming Soon 😊</h1>
+      </div>
     </main>
   );
 }

@@ -6,6 +6,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import NavBar from "@/components/NavBar";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -79,7 +80,7 @@ export default function Home() {
             scrub: 1,
           },
         })
-        .to(".landing-page", { background: "#FF2D55" })
+        .to(".landing-page", { background: "#D02F53" })
         .to(".navbar", { y: -100 }, "<");
     }, app.current);
 
@@ -160,45 +161,7 @@ export default function Home() {
         ref={app}
         className="flex min-h-screen flex-col items-center overflow-hidden"
       >
-        <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
-          <a href="/">
-            <div className="flex justify-center items-center space-x-2 p-8 w-[160px]">
-              <img src="/Rose.png" className="w-[28px] h-[28px]"></img>
-              <div className="flex justify-center items-center">
-                <h1 className="text-2xl text-[#ff2d55] font-bold">red</h1>
-                <h1 className="text-2xl text-[#063A35] font-bold">sync</h1>
-              </div>
-            </div>
-          </a>
-
-          <div className="hidden md:flex justify-center items-center space-x-4 text-xl font-semibold">
-            <div className="flex justify-center items-center space-x-4">
-              <div className="w-[8px] h-[8px] bg-[#FF2D55] rounded-full"></div>
-              <button>
-                <a href="/">Home</a>
-              </button>
-            </div>
-
-            <div className="flex justify-center items-center space-x-4">
-              <div className="w-[8px] h-[8px] bg-orange-400 rounded-full"></div>
-              <a href="/about">About</a>
-            </div>
-
-            <div className="flex justify-center items-center space-x-4">
-              <div className="w-[8px] h-[8px] bg-yellow-400 rounded-full"></div>
-              <a href="/pricing">Pricing</a>
-            </div>
-          </div>
-          <div className="md:hidden flex justify-center items-center space-x-4 text-xl font-semibold">
-            <div className="flex justify-center items-center space-x-4">
-              <div className="w-[8px] h-[8px] rounded-full"></div>
-            </div>
-          </div>
-
-          <button className="text-xl font-bold bg-[#FF2D55] p-2 rounded-[32px] font-semibold text-white w-[160px]">
-            <a href="/sign-up"> Start Now</a>
-          </button>
-        </nav>
+        <NavBar />
         <div className="landing-page flex flex-col justify-center items-center w-full bg-white">
           <div className="hero-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')] pt-80 pb-24">
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
@@ -206,9 +169,9 @@ export default function Home() {
             </h1>
             <div className="flex justify-center items-center space-x-2 sm:space-x-4 text-3xl md:text-4xl lg:text-5xl mt-8">
               <h2>prevent</h2>
-              <h2 className="text-[#FF2D55] disease">heart attacks.</h2>
+              <h2 className="text-primary disease">heart attacks.</h2>
             </div>
-            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-[#FF2D55] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
+            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-primary rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-36 md:mt-40 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 How it works
               </h2>
@@ -216,7 +179,7 @@ export default function Home() {
                 <div className="bullet-1 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
                     <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-[#FF2D55]">1</p>
+                      <p className="text-xl font-bold text-primary">1</p>
                     </div>
 
                     <h3 className="text-2xl md:text-3xl font-bold">
@@ -229,7 +192,7 @@ export default function Home() {
                 <div className="bullet-2 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
                     <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-[#FF2D55]">2</p>
+                      <p className="text-xl font-bold text-primary">2</p>
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold">
                       Measure Your Body Weekly
@@ -240,18 +203,12 @@ export default function Home() {
 
                 <div className="bullet-3 opacity-0 flex flex-col justify-center items-center space-y-8">
                   <div className="flex space-x-4 items-start">
-                    {/* <img
-                      className="w-10 h-10"
-                      src="/number-3.png"
-                      alt="Picture of the author"
-                    /> */}
-
                     <div className="min-w-10 min-h-10 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-[#FF2D55]">3</p>
+                      <p className="text-xl font-bold text-primary">3</p>
                     </div>
 
                     <h3 className="text-2xl md:text-3xl font-bold">
-                      Receive Insights & Improve Health
+                      Receive Insights, Improve Health
                     </h3>
                   </div>
                   <h3 className="text-5xl font-semibold">📈</h3>
@@ -259,18 +216,85 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-16 md:mt-20 text-white">
+            <div className="flex flex-col items-center bg-transparent mt-28">
+              <h1 className="text-5xl lg:text-[6rem] font-bold text-center text-primary">
+                What Sensors?
+              </h1>
+
+              <div className="flex flex-col justify-center items-center gap-4 mt-8">
+                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                  Smart Ring
+                </h2>
+                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                  Food Scale
+                </h2>
+                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                  Weight Scale
+                </h2>
+                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                  Blood Pressure
+                </h2>
+
+                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                  Waist Circumference
+                </h2>
+              </div>
+            </div>
+
+            <div className="rose-section flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-28 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
-                Rose to the Rescue!
+                Too much data?
               </h2>
 
-              <div className="grid grid-cols-2 grid-rows-3 gap-8 w-full h-full mt-8">
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-white rounded-2xl"></div>
-                <div className="flex justify-center items-center h-[280px] w-[100%] bg-transparent rounded-2xl"></div>
+              <div className="grid grid-cols-2 grid-rows-3 gap-x-8 gap-y-4 w-full h-full mt-12">
+                <div className="flex justify-center items-center w-[100%] md:w-[80%] rounded-[32px]">
+                  <img
+                    src="/story-resting-heart.png"
+                    className="rounded-[20px] md:rounded-[48px]"
+                  />
+                </div>
+                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
+                  <div className="flex w-full justify-center items-center">
+                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-primaryGreen">1</p>
+                    </div>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                    Our AI will analyze your data.
+                  </h2>
+                </div>
+                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
+                  <div className="flex w-full justify-center items-center">
+                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-primaryGreen">2</p>
+                    </div>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                    Get weekly AI coaching.
+                  </h2>
+                </div>
+                <div className="flex justify-center items-center w-[100%] md:w-[80%] bg-transparent rounded-2xl">
+                  <img
+                    src="/story-rose.png"
+                    className="rounded-[20px] md:rounded-[48px]"
+                  />
+                </div>
+                <div className="flex justify-center items-center w-[100%] md:w-[80%] bg-transparent rounded-2xl">
+                  <img
+                    src="/story-disease-scores.png"
+                    className="rounded-[20px] md:rounded-[48px]"
+                  />
+                </div>
+                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
+                  <div className="flex w-full justify-center items-center">
+                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl font-bold text-primaryGreen">3</p>
+                    </div>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                    Live longer.
+                  </h2>
+                </div>
               </div>
             </div>
           </div>
@@ -278,7 +302,7 @@ export default function Home() {
           <div className="measurements-section flex flex-col items-center w-full pb-24">
             <h2 className="text-4xl lg:text-6xl font-bold text-black text-center">
               One subscription, <br></br>
-              <span className="counter-measurements text-[#FF2D55]">
+              <span className="counter-measurements text-primary">
                 20+
               </span>{" "}
               measurements:
@@ -341,7 +365,7 @@ export default function Home() {
               </div>
               <div className="icon flex justify-center items-center space-x-4">
                 <Image
-                  src="/fat.svg"
+                  src="/muscles.svg"
                   width={32}
                   height={32}
                   alt="Picture of the author"
@@ -361,21 +385,21 @@ export default function Home() {
               </div>
               <div className="icon flex justify-center items-center space-x-4">
                 <Image
-                  src="/blood-sugar.svg"
+                  src="/emotional-being.png"
                   width={32}
                   height={32}
                   alt="Picture of the author"
                 />
-                <h2 className="text-md font-bold w-32">Blood Sugar</h2>
+                <h2 className="text-md font-bold w-32">Emotional state</h2>
               </div>
               <div className="icon flex justify-center items-center space-x-4">
                 <Image
-                  src="/blood-cholesterol.svg"
+                  src="/cognitive.svg"
                   width={32}
                   height={32}
                   alt="Picture of the author"
                 />
-                <h2 className="text-md font-bold w-32">Blood Cholesterol</h2>
+                <h2 className="text-md font-bold w-32">Cognitive Function</h2>
               </div>
               <div className="icon flex justify-center items-center space-x-4">
                 <Image
@@ -479,7 +503,7 @@ export default function Home() {
           <div className="z-[1000] sensors-section relative min-h-screen w-[100%]">
             <img
               className="z-[6] blood-pressure-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 bottom-1/2 -translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/blood-pressure-sensor.png"
+              src="/smart-rings.png"
             ></img>
             <img
               className="z-[5] tape-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px]  right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
@@ -487,33 +511,33 @@ export default function Home() {
             ></img>
             <img
               className="z-[4] scale-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/scale-sensor.png"
+              src="/blood-pressure-sensor.png"
             ></img>
             <img
-              className="z-[3] glucose-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/glucose-sensor.png"
+              className="z-[3] glucose-sensor bg-white absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
+              src="/Designer.png"
             ></img>
             <img
               className="z-[2] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/smart-rings.png"
+              src="/scale-sensor.png"
             ></img>
             <img
               className="z-[1] nfc-sensor absolute w-[80px] h-[80px] md:w-[160px] md:h-[160px] right-1/2 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/nfc-sensor.png"
+              src="/food-scale.jpeg"
             ></img>
 
             <div className="pricing absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center space-y-4 md:space-y-8">
               <h2 className="font-bold text-4xl md:text-6xl text-white text-center">
                 Starting at
                 <br />
-                $30/mo
+                $35/mo
               </h2>
               <h3 className="w-[100%] md:w-[64%] text-md md:text-2xl text-white font-semibold text-center">
-                Get 6 sensors and 20+ measurements plus tailored action plans,
-                all in one monthly subscription.
+                Get 5 sensors, 20+ measurements and Rose AI,
+                {"\n"} all in one monthly subscription.
               </h3>
 
-              <button className="text-md md:text-2xl font-bold bg-white p-2 md:p-4 rounded-[32px] font-semibold text-[#FF2D55] w-[120px] md:w-[180px]">
+              <button className="text-md md:text-2xl font-bold bg-white p-2 md:p-4 rounded-[32px] font-semibold text-primary w-[120px] md:w-[180px]">
                 <a href="/sign-up">Start Now</a>
               </button>
             </div>
