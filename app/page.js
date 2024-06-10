@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import NavBar from "@/components/NavBar";
 import Link from "next/link";
+import Confetti from "react-confetti";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -15,6 +16,16 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const app = useRef(null);
   const tl = useRef();
+  const confettiRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isExploding, setIsExploding] = useState(false);
+
+  useEffect(() => {
+    if (confettiRef.current) {
+      const { offsetWidth, offsetHeight } = confettiRef.current;
+      setDimensions({ width: offsetWidth, height: offsetHeight });
+    }
+  }, []);
 
   const diseases = [
     "heart attacks.",
@@ -105,6 +116,89 @@ export default function Home() {
         .from(".bullet-2", { y: 36 }, "<")
         .to(".bullet-3", { opacity: 1 })
         .from(".bullet-3", { y: 36 }, "<");
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".what-sensors",
+            start: "top center",
+            end: "bottom bottom",
+            scrub: 1,
+          },
+        })
+        .from(".sensor-heading", { y: 100, opacity: 0 })
+        .from(".sensor-1", { y: 100, opacity: 0 });
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".what-sensors",
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: 1,
+            pin: true,
+          },
+        })
+        .from(".sensor-2", { y: 100, opacity: 0 })
+        .from(".sensor-3", { y: 100, opacity: 0 })
+        .from(".sensor-4", { y: 100, opacity: 0 })
+        .from(".sensor-5", { y: 100, opacity: 0 });
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".rose-section",
+            start: "top+=100 bottom",
+            end: "center center",
+            scrub: 1,
+            markers: true,
+          },
+        })
+        .from(".rose-1", { y: 100, opacity: 0 })
+        .from(".rose-2", { y: 100, opacity: 0 });
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".rose-result",
+            start: "top-=300 center",
+            end: "center center",
+            scrub: 1,
+          },
+        })
+        .from(".rose-result-header", {
+          y: 100,
+          opacity: 0,
+          onComplete: () => setIsExploding(true),
+        })
+        .from(".rose-result-live-longer", {
+          y: 100,
+          opacity: 0,
+        });
     }, app.current);
 
     return () => ctx.revert();
@@ -217,87 +311,114 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center bg-transparent mt-28">
-              <h1 className="text-5xl lg:text-[6rem] font-bold text-center text-primary">
+            <div className="what-sensors flex flex-col justify-center items-center bg-transparent h-screen w-full">
+              <h1 className="sensor-heading text-5xl lg:text-[6rem] font-bold text-center text-primary">
                 What Sensors?
               </h1>
 
-              <div className="flex flex-col justify-center items-center gap-4 mt-8">
+              <div className="sensor-1 flex flex-col justify-center items-center gap-4 mt-8 w-full">
                 <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Smart Ring
+                  Bio-Ring
                 </h2>
-                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                <h2 className="sensor-2 text-4xl lg:text-8xl font-bold text-primaryGreen">
                   Food Scale
                 </h2>
-                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                <h2 className="sensor-3 text-4xl lg:text-8xl font-bold text-primaryGreen">
                   Weight Scale
                 </h2>
-                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                <h2 className="sensor-4 text-4xl lg:text-8xl font-bold text-primaryGreen">
                   Blood Pressure
                 </h2>
-
-                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
+                <h2 className="sensor-5 text-4xl lg:text-8xl font-bold text-primaryGreen">
                   Waist Circumference
                 </h2>
               </div>
             </div>
 
-            <div className="rose-section flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 mt-28 text-white">
+            <div
+              className="w-full h-screen"
+              // style={{ height: `${whatSensorsHeight}px` }}
+            ></div>
+
+            {/* Rose section */}
+
+            <div className="rose-section flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 Too much data?
               </h2>
 
-              <div className="grid grid-cols-2 grid-rows-3 gap-x-8 gap-y-4 w-full h-full mt-12">
-                <div className="flex justify-center items-center w-[100%] md:w-[80%] rounded-[32px]">
-                  <img
-                    src="/story-resting-heart.png"
-                    className="rounded-[20px] md:rounded-[48px]"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 md:gap-8 justify-center items-center w-[100%] bg-transparent rounded-2xl">
-                  <div className="flex w-full justify-center items-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl md:text-2xl font-bold text-primaryGreen">
-                        1
-                      </p>
+              <div className="flex flex-col w-full h-full mt-12 gap-8">
+                <div className="flex justify-center items-center">
+                  <div className="rose-1 w-[50%] justify-center items-center">
+                    <div className="flex flex-col gap-4 md:gap-8 justify-center items-center p-4">
+                      <div className="flex w-full justify-center items-center">
+                        <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
+                          <p className="text-xl md:text-2xl font-bold text-primaryGreen">
+                            1
+                          </p>
+                        </div>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                        Our AI will analyze your data.
+                      </h2>
                     </div>
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
-                    Our AI will analyze your data.
-                  </h2>
-                </div>
-                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
-                    <p className="text-xl md:text-2xl font-bold text-primaryGreen">
-                      2
-                    </p>
+                  <div className="w-[50%] flex justify-center items-center">
+                    <img
+                      src="/story-resting-heart.png"
+                      className="rounded-[2rem] w-[60%]"
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
-                    Get weekly AI coaching.
-                  </h2>
                 </div>
-                <div className="flex justify-center items-center w-[100%] md:w-[80%] bg-transparent rounded-2xl">
-                  <img
-                    src="/story-rose.png"
-                    className="rounded-[20px] md:rounded-[48px]"
-                  />
-                </div>
-                <div className="flex justify-center items-center w-[100%] md:w-[80%] bg-transparent rounded-2xl">
-                  <img
-                    src="/story-disease-scores.png"
-                    className="rounded-[20px] md:rounded-[48px]"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
-                    <p className="text-xl md:text-2xl font-bold text-primaryGreen">
-                      3
-                    </p>
+                <div className="flex justify-center items-center">
+                  <div className="w-[50%] flex justify-center items-center">
+                    <img
+                      src="/story-rose.png"
+                      className="rounded-[2rem] w-[60%]"
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
-                    Live longer.
-                  </h2>
+                  <div className="rose-2 w-[50%] justify-center items-center">
+                    <div className="flex flex-col gap-4 md:gap-8 justify-center items-center p-4">
+                      <div className="flex w-full justify-center items-center">
+                        <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
+                          <p className="text-xl md:text-2xl font-bold text-primaryGreen">
+                            2
+                          </p>
+                        </div>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                        Then she{"'"}ll coach you weekly.
+                      </h2>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div
+                ref={confettiRef}
+                className="relative overflow-hidden rose-result flex flex-col justify-center items-center gap-8 bg-primary w-full rounded-[4rem] md:rounded-[5rem] lg:rounded-[6rem] mt-12 md:mt-24 pt-12 pb-12 md:pt-24 md:pb-24"
+              >
+                {isExploding && (
+                  <Confetti
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    confettiSource={{
+                      x: 0,
+                      y: 0,
+                      w: dimensions.width,
+                      h: dimensions.height,
+                    }}
+                    initialVelocityX={10}
+                    initialVelocityY={10}
+                    onConfettiComplete={() => setIsExploding(false)}
+                    recycle={false}
+                  />
+                )}
+                <h1 className="rose-result-header text-2xl lg:text-5xl font-semibold text-center">
+                  The result?
+                </h1>
+                <h1 className="rose-result-live-longer text-4xl lg:text-6xl font-semibold text-center">
+                  You live longer.
+                </h1>
               </div>
             </div>
           </div>
@@ -518,7 +639,7 @@ export default function Home() {
             ></img>
             <img
               className="z-[3] glucose-sensor bg-white absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[24px] shadow-2xl"
-              src="/Designer.png"
+              src="/sensor-rose.png"
             ></img>
             <img
               className="z-[2] smart-ring-sensor absolute w-[100px] h-[100px] md:w-[200px] md:h-[200px] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-[24px] shadow-2xl"
