@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import NavBar from "@/components/NavBar";
+import Link from "next/link";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -538,10 +539,11 @@ export default function Home() {
                 Get 5 sensors, 20+ measurements and Rose AI,
                 {"\n"} all in one monthly subscription.
               </h3>
-
-              <button className="text-md md:text-2xl font-bold bg-white p-2 md:p-4 rounded-[32px] font-semibold text-primary w-[120px] md:w-[180px]">
-                <a href="/sign-up">Start Now</a>
-              </button>
+              <Link href="/sign-up">
+                <button className="text-md md:text-2xl font-bold bg-white p-2 md:p-4 rounded-[32px] font-semibold text-primary w-[120px] md:w-[180px]">
+                  Start Now
+                </button>
+              </Link>
             </div>
           </div>
           <div className="relative min-h-screen w-full z-0"></div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NavBar() {
   return (
     <nav className="navbar fixed flex justify-between items-center w-[90%] lg:w-[80%] h-[64px] bg-white shadow-2xl rounded-[32px] p-4 z-[1000] mt-4">
@@ -33,10 +35,11 @@ export default function NavBar() {
           <div className="w-[8px] h-[8px] rounded-full"></div>
         </div>
       </div>
-
-      <button className="text-xl font-bold bg-primary p-2 rounded-[32px] font-semibold text-white w-[160px]">
-        <a href="/sign-up"> Start Now</a>
-      </button>
+      <Link href="/sign-up">
+        <button className="text-xl font-bold bg-primary p-2 rounded-[32px] font-semibold text-white w-[160px]">
+          Start Now
+        </button>
+      </Link>
     </nav>
   );
 }

@@ -1,5 +1,6 @@
 import NavBar from "@/components/NavBar";
 import { FaCheck } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Pricing() {
   return (
@@ -46,12 +47,11 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-
-          <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold text-white w-[160px]">
-            <a href="/contact" className="text-primaryGreen">
+          <Link href="/contact">
+            <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold w-[160px] text-primaryGreen">
               Get Started
-            </a>
-          </button>
+            </button>
+          </Link>
         </div>
         <div className="flex flex-col justify-center gap-20 w-[360px] bg-primary rounded-[32px] p-12 h-[560px]">
           <div className="flex flex-col">
@@ -86,11 +86,11 @@ export default function Pricing() {
             </div>
           </div>
 
-          <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold text-white w-[160px]">
-            <a href="/sign-up" className="text-primary">
+          <Link href="/sign-up">
+            <button className="text-xl font-bold bg-white p-2 w-full self-center rounded-[32px] font-semibold w-[160px] text-primary">
               Get Started
-            </a>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </main>
