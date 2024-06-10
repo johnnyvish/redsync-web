@@ -253,10 +253,12 @@ export default function Home() {
                     className="rounded-[20px] md:rounded-[48px]"
                   />
                 </div>
-                <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
+                <div className="flex flex-col gap-4 md:gap-8 justify-center items-center w-[100%] bg-transparent rounded-2xl">
                   <div className="flex w-full justify-center items-center">
-                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-primaryGreen">1</p>
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
+                      <p className="text-xl md:text-2xl font-bold text-primaryGreen">
+                        1
+                      </p>
                     </div>
                   </div>
                   <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
@@ -264,10 +266,10 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
-                  <div className="flex w-full justify-center items-center">
-                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-primaryGreen">2</p>
-                    </div>
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
+                    <p className="text-xl md:text-2xl font-bold text-primaryGreen">
+                      2
+                    </p>
                   </div>
                   <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
                     Get weekly AI coaching.
@@ -286,10 +288,10 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col gap-4 justify-center items-center w-[100%] bg-transparent rounded-2xl">
-                  <div className="flex w-full justify-center items-center">
-                    <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
-                      <p className="text-xl font-bold text-primaryGreen">3</p>
-                    </div>
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
+                    <p className="text-xl md:text-2xl font-bold text-primaryGreen">
+                      3
+                    </p>
                   </div>
                   <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
                     Live longer.

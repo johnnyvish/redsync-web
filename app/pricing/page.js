@@ -28,7 +28,7 @@ export default function Pricing() {
                   <FaCheck color="#063A35" />
                 </div>
                 <h2 className="text-white text-2xl font-semibold">
-                  Risk scores.
+                  Get risk scores
                 </h2>
               </div>
               <div className="flex gap-4 items-center w-full">
@@ -53,7 +53,7 @@ export default function Pricing() {
             </a>
           </button>
         </div>
-        <div className="flex flex-col justify-center gap-16 w-[360px] bg-primary rounded-[32px] p-12 h-[560px]">
+        <div className="flex flex-col justify-center gap-20 w-[360px] bg-primary rounded-[32px] p-12 h-[560px]">
           <div className="flex flex-col">
             <h2 className="text-2xl font-semibold text-white">Subscription</h2>
             <div className="flex justify-start items-end mt-8 gap-2">
