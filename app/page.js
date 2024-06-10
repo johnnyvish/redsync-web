@@ -166,13 +166,31 @@ export default function Home() {
         .timeline({
           scrollTrigger: {
             trigger: ".rose-section",
-            start: "top+=100 bottom",
+            start: "top center",
             end: "center center",
             scrub: 1,
           },
         })
-        .from(".rose-1", { y: 100, opacity: 0 })
-        .from(".rose-2", { y: 100, opacity: 0 });
+        .from(".rose-1", { y: 200, opacity: 0 })
+        .from(".rose-2", { y: 200, opacity: 0 });
+    }, app.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      tl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".rose-section",
+            start: "top center",
+            end: "center center",
+            scrub: 1,
+          },
+        })
+        .from(".story-resting-heart", { x: 200, opacity: 0 })
+        .from(".story-rose", { x: -200, opacity: 0 });
     }, app.current);
 
     return () => ctx.revert();
@@ -341,7 +359,7 @@ export default function Home() {
 
             {/* Rose section */}
 
-            <div className="rose-section flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
+            <div className="rose-section overflow-hidden flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 Too much data?
               </h2>
@@ -365,7 +383,7 @@ export default function Home() {
                   <div className="w-[50%] flex justify-center items-center">
                     <img
                       src="/story-resting-heart.png"
-                      className="rounded-[1.5rem] w-[60%]"
+                      className="story-resting-heart rounded-[1.5rem] w-[60%]"
                     />
                   </div>
                 </div>
@@ -373,7 +391,7 @@ export default function Home() {
                   <div className="w-[50%] flex justify-center items-center">
                     <img
                       src="/story-rose.png"
-                      className="rounded-[1.5rem] w-[60%]"
+                      className="story-rose rounded-[1.5rem] w-[60%]"
                     />
                   </div>
                   <div className="rose-2 w-[50%] justify-center items-center">
