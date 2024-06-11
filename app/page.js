@@ -328,9 +328,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="what-sensors flex flex-col justify-center self-center items-center bg-transparent h-screen w-[90%]">
+            <div className="what-sensors flex flex-col justify-center self-center items-center bg-white  h-screen w-[90%]">
               <div className="flex flex-col justify-center items-center gap-4 mt-8 w-full">
-                <div className="flex flex-col justify-center gap-12">
+                <div className="flex flex-col justify-center gap-4">
                   <h1 className="sensor-heading text-5xl lg:text-8xl font-bold text-primary">
                     What Sensors?
                   </h1>
