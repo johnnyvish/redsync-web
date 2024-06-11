@@ -2,13 +2,15 @@ import NavBar from "@/components/NavBar";
 
 export default function About() {
   return (
-    <main className="flex h-screen flex-col items-center overflow-hidden bg-red">
+    <main className="flex min-h-screen flex-col items-center overflow-hidden bg-red">
       <NavBar />
-      <section className="flex flex-col justify-center items-center min-h-screen">
-        <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-black mt-24 text-center">
-          Interested? <br />{" "}
-          <span className="text-3xl md:text-4xl">Contact Akshaj.</span>
-        </h1>
+      <section className="flex flex-col justify-center items-center min-h-screen pb-24">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-black mt-24 text-center">
+            Interested?
+          </h1>
+          <span className="text-3xl md:text-4xl mt-8">Contact Akshaj.</span>
+        </div>
         <div className="flex flex-col items-center">
           <div className="flex flex-col lg:flex-row bg-primary mt-[32px] p-[28px] md:p-[40px] rounded-[48px] justify-center items-center">
             <div className="h-[400px] w-[300px] bg-gray-100 rounded-[32px] flex flex-col justify-center">
