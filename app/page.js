@@ -285,7 +285,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center w-full -mt-40 bg-[url('/noise.svg')]">
+          <div className="flex justify-center items-center w-full -mt-44 bg-[url('/noise.svg')]">
             <div className="how-it-works flex flex-col items-center w-[90%] md:w-[50%] bg-primary rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 How it works
