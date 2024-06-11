@@ -52,8 +52,8 @@ export default function Settings() {
         <button
           className={`py-2 px-4 font-semibold transition-colors text-xl ${
             activeTab === "profile"
-              ? "text-[#FF2D55] border-b-2 border-[#FF2D55]"
-              : "hover:text-[#FF2D55]"
+              ? "text-primary border-b-2 border-primary"
+              : "hover:text-primary"
           }`}
           onClick={() => setActiveTab("profile")}
         >
@@ -62,8 +62,8 @@ export default function Settings() {
         <button
           className={`py-2 px-4 font-semibold transition-colors text-xl ${
             activeTab === "billing"
-              ? "text-[#FF2D55] border-b-2 border-[#FF2D55]"
-              : "hover:text-[#FF2D55]"
+              ? "text-primary border-b-2 border-primary"
+              : "hover:text-primary"
           }`}
           onClick={() => setActiveTab("billing")}
         >
@@ -115,7 +115,7 @@ export default function Settings() {
                       </div>
                     </label>
                   </div>
-                  <button class="mt-4 rounded-lg bg-[#FF2D55] w-full py-2 text-white">
+                  <button class="mt-4 rounded-lg bg-primary w-full py-2 text-white">
                     Save Password
                   </button>
                 </div>
@@ -124,7 +124,7 @@ export default function Settings() {
               {/* <p class="mt-4 flex flex-col justify-center items-center">
                 Can't remember your current password?
                 <a
-                  class="text-sm font-semibold text-[#FF2D55] underline decoration-2"
+                  class="text-sm font-semibold text-primary underline decoration-2"
                   href="#"
                 >
                   Recover Account
@@ -141,7 +141,7 @@ export default function Settings() {
                     callbackUrl: "/",
                   })
                 }
-                className="text-md font-semibold text-[#FF2D55]  underline decoration-2"
+                className="text-md font-semibold text-primary  underline decoration-2"
               >
                 Sign out
               </button>
@@ -177,7 +177,7 @@ export default function Settings() {
               <div className="flex items-center">
                 <span
                   className={`h-4 w-4 rounded-full ${
-                    subscriptionActive ? "bg-green-500" : "bg-[#FF2D55]"
+                    subscriptionActive ? "bg-green-500" : "bg-primary"
                   } mr-2`}
                 ></span>
                 <p className="py-2 text-lg">
@@ -189,7 +189,7 @@ export default function Settings() {
                 onClick={() => {
                   router.push("/payment");
                 }}
-                className="mt-4 mb-8 w-full py-2 bg-[#FF2D55] text-white rounded-[32px] hover:bg-[#FF2D55]"
+                className="mt-4 mb-8 w-full py-2 bg-primary text-white rounded-[32px] hover:bg-primary"
               >
                 Subscribe
               </button>

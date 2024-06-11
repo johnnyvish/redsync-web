@@ -19,18 +19,7 @@ export default function SignUp() {
 
   const validatePassword = (password) => {
     const minLength = 8;
-    // const hasNumber = /\d/;
-    // const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-    // const hasUpperCase = /[A-Z]/;
-    // const hasLowerCase = /[a-z]/;
-
-    return (
-      password.length >= minLength
-      // hasNumber.test(password) &&
-      // hasSpecialChar.test(password) &&
-      // hasUpperCase.test(password) &&
-      // hasLowerCase.test(password)
-    );
+    return password.length >= minLength;
   };
 
   const handleSubmit = async (e) => {
@@ -65,7 +54,7 @@ export default function SignUp() {
     <main className="flex justify-center items-center h-screen bg-primary overflow-hidden">
       <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] bg-white rounded-2xl">
         <div className="hidden md:flex justify-center items-center w-[40%] h-full">
-          <img src="/EllieBody.png" className="w-[80%] ml-12"></img>
+          <img src="/Rose.png" className="w-[80%] ml-12"></img>
         </div>
 
         <div className="flex flex-col justify-center items-center w-full md:w-[60%] h-full">
@@ -73,7 +62,7 @@ export default function SignUp() {
             onSubmit={handleSubmit}
             className="flex flex-col items-center w-full"
           >
-            <h1 className="text-4xl font-bold mt-12">Sign Up</h1>
+            <h1 className="text-4xl font-bold mt-12">Create account</h1>
             <div className="flex flex-col mt-8 space-y-2 w-[80%]">
               <label
                 className="block text-gray-700 text-sm font-bold"
@@ -147,16 +136,16 @@ export default function SignUp() {
               type="submit"
               className="mt-8 px-4 w-[80%] py-2 bg-primary text-white font-bold rounded-lg"
             >
-              Sign Up
+              Create account
             </button>
           </form>
           <h2 className="text-xl font-semibold mt-4">or</h2>
           <div className="flex flex-col justify-center items-center w-full">
             <button
               onClick={() => signIn("google", { callbackUrl: "/settings" })}
-              className="mt-4 mb-8 px-4 w-[80%] py-2 border-2 border-primary text-black font-bold rounded-lg"
+              className="mt-4 mb-8 px-4 w-[80%] py-2 border-2 border-primary text-black font-semibold rounded-lg"
             >
-              Sign Up with <span className="text-[#4285F4]">G</span>
+              Sign up with <span className="text-[#4285F4]">G</span>
               <span className="font-bold text-[#EA4335]">o</span>
               <span className="font-bold text-[#FBBC05]">o</span>
               <span className="font-bold text-[#4285F4]">g</span>

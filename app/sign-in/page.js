@@ -33,10 +33,10 @@ export default function SignUp() {
   };
 
   return (
-    <main className="flex justify-center items-center h-screen bg-red-200 overflow-hidden">
+    <main className="flex justify-center items-center h-screen bg-primary overflow-hidden">
       <div className="flex justify-center items-center shadow-2xl w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] bg-white rounded-2xl">
         <div className="hidden md:flex justify-center items-center w-[40%] h-full">
-          <img src="/EllieBody.png" className="w-[80%] ml-12"></img>
+          <img src="/Rose.png" className="w-[80%] ml-12"></img>
         </div>
 
         <div className="flex flex-col justify-center items-center w-full md:w-[60%] h-full">
@@ -92,23 +92,28 @@ export default function SignUp() {
             </div>
             <button
               type="submit"
-              className="mt-8 px-4 w-[80%] py-2 bg-[#FF2D55] text-white font-bold rounded-lg"
+              className="mt-8 px-4 w-[80%] py-2 bg-primary text-white font-bold rounded-lg"
             >
-              Sign In
+              Sign in
             </button>
           </form>
           <h2 className="text-xl font-semibold mt-4">or</h2>
           <div className="flex flex-col justify-center items-center w-full">
             <button
               onClick={() => signIn("google", { callbackUrl: "/settings" })}
-              className="mt-4 mb-8 px-4 w-[80%] py-2 border-2 border-[#FF2D55] text-[#FF2D55] font-bold rounded-lg "
+              className="mt-4 mb-8 px-4 w-[80%] py-2 border-2 border-primary text-primary font-bold rounded-lg "
             >
-              Sign In with Google
+              Sign in with <span className="text-[#4285F4]">G</span>
+              <span className="font-bold text-[#EA4335]">o</span>
+              <span className="font-bold text-[#FBBC05]">o</span>
+              <span className="font-bold text-[#4285F4]">g</span>
+              <span className="font-bold text-[#34A853]">l</span>
+              <span className="font-bold text-[#EA4335]">e</span>
             </button>
             <div className="mt-4 mb-8 flex justify-center items-center space-x-2">
               <h2 className="text-md ">Don&apos;t have an account?</h2>
               <Link href="/sign-up">
-                <span className="font-bold text-[#FF2D55]">Sign Up</span>
+                <span className="font-bold text-primary">Create account</span>
               </Link>
             </div>
           </div>

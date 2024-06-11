@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Payment() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#ff2d55]">
+    <div className="flex justify-center items-center min-h-screen bg-primary">
       <div className="flex flex-col justify-center items-center text-white space-y-8">
         <div className="flex flex-col justify-center items-center space-y-4">
           <h2 className="text-5xl font-bold">RedSync</h2>

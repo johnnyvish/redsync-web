@@ -328,25 +328,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="what-sensors flex flex-col justify-center items-center bg-transparent h-screen w-full">
+            <div className="what-sensors flex flex-col justify-center self-center items-center bg-transparent h-screen w-[90%]">
               <div className="flex flex-col justify-center items-center gap-4 mt-8 w-full">
                 <div className="flex flex-col justify-center gap-12">
                   <h1 className="sensor-heading text-5xl lg:text-8xl font-bold text-primary">
                     What Sensors?
                   </h1>
-                  <h2 className="sensor-1 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                  <h2 className="sensor-1 text-3xl lg:text-6xl font-bold text-primaryGreen">
                     💍 Bio-Ring
                   </h2>
-                  <h2 className="sensor-2 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                  <h2 className="sensor-2 text-3xl lg:text-6xl font-bold text-primaryGreen">
                     🥗 Food Scale
                   </h2>
-                  <h2 className="sensor-3 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                  <h2 className="sensor-3 text-3xl lg:text-6xl font-bold text-primaryGreen">
                     ⚖️ Weight Scale
                   </h2>
-                  <h2 className="sensor-4 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                  <h2 className="sensor-4 text-3xl lg:text-6xl font-bold text-primaryGreen">
                     🩸 Blood Pressure
                   </h2>
-                  <h2 className="sensor-5 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                  <h2 className="sensor-5 text-3xl lg:text-6xl font-bold text-primaryGreen">
                     📏 Waist Circumference
                   </h2>
                 </div>
