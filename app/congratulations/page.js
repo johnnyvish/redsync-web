@@ -5,9 +5,10 @@ import Confetti from "react-confetti";
 
 export default function Congratulations() {
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
+  const [isClient, setClient] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -15,6 +16,7 @@ export default function Congratulations() {
         width: window.innerWidth,
         height: window.innerHeight,
       });
+      setClient(true);
     };
 
     window.addEventListener("resize", handleResize);
@@ -50,21 +52,23 @@ export default function Congratulations() {
 
   return (
     <main className="flex justify-center items-center min-h-screen relative">
-      <Confetti
-        width={dimensions.width}
-        height={dimensions.height}
-        confettiSource={{
-          x: dimensions.width / 2 - 50,
-          y: dimensions.height / 2 - 50,
-          w: 100,
-          h: 100,
-        }}
-        initialVelocityX={10}
-        initialVelocityY={10}
-        recycle={false}
-        numberOfPieces={400}
-        colors={["#D02F53"]}
-      />
+      {isClient && (
+        <Confetti
+          width={dimensions.width}
+          height={dimensions.height}
+          confettiSource={{
+            x: dimensions.width / 2 - 50,
+            y: dimensions.height / 2 - 50,
+            w: 100,
+            h: 100,
+          }}
+          initialVelocityX={10}
+          initialVelocityY={10}
+          recycle={false}
+          numberOfPieces={400}
+          colors={["#D02F53"]}
+        />
+      )}
 
       <div className="flex flex-col justify-center items-center w-[320px] sm:w-[400px] md:w-[640px] lg:w-[800px] h-[520px] rounded-2xl relative z-10">
         <div className="flex flex-col justify-center items-center space-y-20">
