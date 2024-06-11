@@ -275,7 +275,7 @@ export default function Home() {
       >
         <NavBar />
         <div className="landing-page flex flex-col justify-center items-center w-full bg-white">
-          <div className="hero-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')] pt-80 pb-24">
+          <div className="hero-section flex flex-col items-center min-h-screen w-full bg-[url('/noise.svg')] pt-80">
             <h1 className="text-6xl lg:text-8xl font-bold text-black text-center">
               Don&apos;t Die Early.
             </h1>
@@ -362,7 +362,7 @@ export default function Home() {
 
             <div className="rose-section overflow-hidden flex flex-col items-center w-[90%] md:w-[80%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
-                Too much data?
+                Got data anxiety?
               </h2>
 
               <div className="flex flex-col w-full h-full mt-12 gap-16">
@@ -376,7 +376,7 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
-                      <h2 className="text-xl md:text-3xl lg:text-5xl w-full font-semibold text-center">
+                      <h2 className="text-2xl md:text-3xl lg:text-5xl w-full font-semibold text-center">
                         Rose AI analyzes your data.
                       </h2>
                     </div>
@@ -398,8 +398,8 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
-                      <h2 className="text-xl md:text-3xl lg:text-5xl font-semibold text-center">
-                        And coaches you weekly.
+                      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
+                        Then calls and coaches you weekly.
                       </h2>
                     </div>
                   </div>
@@ -411,34 +411,35 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div
-                ref={confettiRef}
-                className="relative overflow-hidden rose-result flex flex-col justify-center items-center gap-8 bg-white w-full rounded-[2rem] md:rounded-[4rem] mt-12 md:mt-24 pt-12 pb-12 md:pt-24 md:pb-24"
-              >
-                {isExploding && (
-                  <Confetti
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    confettiSource={{
-                      x: 0,
-                      y: 0,
-                      w: dimensions.width,
-                      h: dimensions.height,
-                    }}
-                    initialVelocityX={10}
-                    initialVelocityY={10}
-                    onConfettiComplete={() => setIsExploding(false)}
-                    recycle={false}
-                    colors={["#D02F53"]}
-                  />
-                )}
-                <h1 className="rose-result-header text-2xl lg:text-5xl text-center text-primaryGreen">
-                  The result?
-                </h1>
-                <h1 className="rose-result-live-longer text-4xl lg:text-8xl font-semibold text-center text-primaryGreen">
-                  You live longer.
-                </h1>
-              </div>
+            </div>
+
+            <div
+              ref={confettiRef}
+              className="relative overflow-hidden rose-result flex flex-col justify-center items-center w-full h-screen rounded-[2rem] md:rounded-[4rem]"
+            >
+              {isExploding && (
+                <Confetti
+                  width={dimensions.width}
+                  height={dimensions.height}
+                  confettiSource={{
+                    x: 0,
+                    y: 0,
+                    w: dimensions.width,
+                    h: dimensions.height,
+                  }}
+                  initialVelocityX={10}
+                  initialVelocityY={10}
+                  onConfettiComplete={() => setIsExploding(false)}
+                  recycle={false}
+                  colors={["#D02F53"]}
+                />
+              )}
+              <h1 className="rose-result-header text-2xl lg:text-5xl text-center text-primaryGreen">
+                The result?
+              </h1>
+              <h1 className="rose-result-live-longer text-[2.5rem] lg:text-8xl font-semibold text-center text-primaryGreen">
+                You live longer.
+              </h1>
             </div>
           </div>
 
