@@ -128,7 +128,7 @@ export default function Home() {
           scrollTrigger: {
             trigger: ".what-sensors",
             start: "top center",
-            end: "bottom bottom",
+            end: "center center",
             scrub: 1,
           },
         })
@@ -190,7 +190,7 @@ export default function Home() {
           },
         })
         .from(".story-resting-heart", { x: 200, opacity: 0 })
-        .from(".story-rose", { x: -200, opacity: 0 });
+        .from(".story-rose", { x: 200, opacity: 0 });
     }, app.current);
 
     return () => ctx.revert();
@@ -208,7 +208,7 @@ export default function Home() {
           },
         })
         .from(".rose-result-header", {
-          y: 100,
+          y: -100,
           opacity: 0,
           onComplete: () => setIsExploding(true),
         })
@@ -329,26 +329,27 @@ export default function Home() {
             </div>
 
             <div className="what-sensors flex flex-col justify-center items-center bg-transparent h-screen w-full">
-              <h1 className="sensor-heading text-5xl lg:text-[6rem] font-bold text-center text-primary">
-                What Sensors?
-              </h1>
-
-              <div className="sensor-1 flex flex-col justify-center items-center gap-4 mt-8 w-full">
-                <h2 className="text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Bio-Ring
-                </h2>
-                <h2 className="sensor-2 text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Food Scale
-                </h2>
-                <h2 className="sensor-3 text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Weight Scale
-                </h2>
-                <h2 className="sensor-4 text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Blood Pressure
-                </h2>
-                <h2 className="sensor-5 text-4xl lg:text-8xl font-bold text-primaryGreen">
-                  Waist Circumference
-                </h2>
+              <div className="flex flex-col justify-center items-center gap-4 mt-8 w-full">
+                <div className="flex flex-col justify-center gap-12">
+                  <h1 className="sensor-heading text-5xl lg:text-8xl font-bold text-primary">
+                    What Sensors?
+                  </h1>
+                  <h2 className="sensor-1 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                    💍 Bio-Ring
+                  </h2>
+                  <h2 className="sensor-2 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                    🥗 Food Scale
+                  </h2>
+                  <h2 className="sensor-3 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                    ⚖️ Weight Scale
+                  </h2>
+                  <h2 className="sensor-4 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                    🩸 Blood Pressure
+                  </h2>
+                  <h2 className="sensor-5 text-4xl lg:text-6xl font-bold text-primaryGreen">
+                    📏 Waist Circumference
+                  </h2>
+                </div>
               </div>
             </div>
 
@@ -359,14 +360,14 @@ export default function Home() {
 
             {/* Rose section */}
 
-            <div className="rose-section overflow-hidden flex flex-col items-center w-[90%] md:w-[50%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
+            <div className="rose-section overflow-hidden flex flex-col items-center w-[90%] md:w-[80%] bg-[#063A35] rounded-[32px] p-8 md:pl-12 md:pr-12 md:pt-12 md:pb-16 text-white">
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
                 Too much data?
               </h2>
 
-              <div className="flex flex-col w-full h-full mt-12 gap-8">
+              <div className="flex flex-col w-full h-full mt-12 gap-16">
                 <div className="flex justify-center items-center">
-                  <div className="rose-1 w-[50%] justify-center items-center">
+                  <div className="rose-1 w-[60%] justify-center items-center">
                     <div className="flex flex-col gap-4 md:gap-8 justify-center items-center p-4">
                       <div className="flex w-full justify-center items-center">
                         <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
@@ -375,26 +376,20 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
-                      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
-                        Our AI will analyze your data.
+                      <h2 className="text-xl md:text-3xl lg:text-5xl w-full font-semibold text-center">
+                        Rose AI analyzes your data.
                       </h2>
                     </div>
                   </div>
-                  <div className="w-[50%] flex justify-center items-center">
+                  <div className="w-[40%] flex justify-center items-center">
                     <img
                       src="/story-resting-heart.png"
-                      className="story-resting-heart rounded-[1.5rem] w-[60%]"
+                      className="story-resting-heart rounded-[1.5rem] w-[70%] lg:w-[60%]"
                     />
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
-                  <div className="w-[50%] flex justify-center items-center">
-                    <img
-                      src="/story-rose.png"
-                      className="story-rose rounded-[1.5rem] w-[60%]"
-                    />
-                  </div>
-                  <div className="rose-2 w-[50%] justify-center items-center">
+                  <div className="rose-2 w-[60%] justify-center items-center">
                     <div className="flex flex-col gap-4 md:gap-8 justify-center items-center p-4">
                       <div className="flex w-full justify-center items-center">
                         <div className="w-8 h-8 md:w-12 md:h-12 bg-white rounded-full flex justify-center items-center">
@@ -403,16 +398,22 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
-                      <h2 className="text-2xl md:text-3xl lg:text-5xl font-semibold text-center">
-                        Then she{"'"}ll coach you weekly.
+                      <h2 className="text-xl md:text-3xl lg:text-5xl font-semibold text-center">
+                        And coaches you weekly.
                       </h2>
                     </div>
+                  </div>
+                  <div className="w-[40%] flex justify-center items-center">
+                    <img
+                      src="/story-rose.png"
+                      className="story-rose rounded-[1.5rem] w-[70%] lg:w-[60%]"
+                    />
                   </div>
                 </div>
               </div>
               <div
                 ref={confettiRef}
-                className="relative overflow-hidden rose-result flex flex-col justify-center items-center gap-8 bg-primary w-full rounded-[4rem] md:rounded-[5rem] lg:rounded-[6rem] mt-12 md:mt-24 pt-12 pb-12 md:pt-24 md:pb-24"
+                className="relative overflow-hidden rose-result flex flex-col justify-center items-center gap-8 bg-white w-full rounded-[2rem] md:rounded-[4rem] mt-12 md:mt-24 pt-12 pb-12 md:pt-24 md:pb-24"
               >
                 {isExploding && (
                   <Confetti
@@ -428,12 +429,13 @@ export default function Home() {
                     initialVelocityY={10}
                     onConfettiComplete={() => setIsExploding(false)}
                     recycle={false}
+                    colors={["#D02F53"]}
                   />
                 )}
-                <h1 className="rose-result-header text-2xl lg:text-5xl font-semibold text-center">
+                <h1 className="rose-result-header text-2xl lg:text-5xl text-center text-primaryGreen">
                   The result?
                 </h1>
-                <h1 className="rose-result-live-longer text-4xl lg:text-6xl font-semibold text-center">
+                <h1 className="rose-result-live-longer text-4xl lg:text-8xl font-semibold text-center text-primaryGreen">
                   You live longer.
                 </h1>
               </div>
