@@ -78,11 +78,11 @@ function SurveyContent() {
         </Link>
       </nav>
       <div className="flex flex-col items-left justify-center w-full pt-4">
-        <div className="flex items-center justify-center w-40">
+        <div className="flex items-center justify-center w-40 h-24">
           <img
             ref={imageRef}
             src={`/SurveyRose.gif?t=${timestamp}`}
-            className="w-full"
+            className="w-full h-full object-contain"
             alt="Loading animation"
           />
         </div>

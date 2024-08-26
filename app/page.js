@@ -10,27 +10,27 @@ export default function Home() {
   const CardsFunctions = [
     {
       title: "Sex",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Category/category-tile-sex-d",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp4dHpiNDFyYW5qcjA3eGQ4aWlkN2RoNmdiM3Q4bnJ0eXFyd2c4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vRe6zG5KjgAtAXe/giphy.gif",
       description: "Bring out your best in the bedroom",
     },
     {
       title: "Weight",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Category/category-tile-wl-d",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG1obTdnN2o3NWIzdXJwM3QzNThiamc3cGtmZ2NmbDFuZ29sNzg4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EpmwLl2tOctSqfDMBU/giphy-downsized-large.gif",
       description: "Curve cravings, and control your appetite",
     },
     {
       title: "Hair",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Category/category-tile-hair-d",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjQydnJpcHdtbjZmbjY1MzA0Z2JuMXZqbnB4ZGV3Zng0ZW5sNng4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o8doWe0rL5vBUv0bK/giphy.gif",
       description: "Regrow thicker, fuller hair",
     },
     {
       title: "Mental Health",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Category/category-tile-mh-d",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXZjeGx1OXV6eTEwbGt3aGZrdW10MTVldGIwYWg1aml6ZmRsMHZxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SklfP8y3V40ycCzVjW/giphy.gif",
       description: "Relief for anxiety and depression is in reach",
     },
     {
       title: "Skin",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Category/category-tile-skin-d",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExajk5aWZ0Y2IyaWZkc3Zkdmd1amgwMnMwOGpyY3pqeWhna2Fva2hkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MlORWCGld7QaFLIryX/giphy-downsized-large.gif",
       description: "Treatments developed with dermatologists",
     },
   ];
@@ -153,7 +153,7 @@ export default function Home() {
           <h1 className="text-2xl md:text-3xl font-bold">biorose</h1>
         </Link>
       </nav>
-      <section className="w-[90%] flex flex-col items-left bg-white min-h-screen">
+      <section className="w-[90%] flex flex-col items-left bg-white pb-16 md:pb-32">
         <h2 className="text-4xl md:text-6xl font-semibold mt-20 mb-12">
           <span className="bg-gradient-to-r from-[#D88C6C] via-[#C17262] to-[#A65355] inline-block text-transparent bg-clip-text">
             Convenient,
@@ -175,7 +175,7 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full flex flex-col justify-center items-start bg-[#FAF8F2]">
-        <h2 className="text-3xl md:text-6xl font-semibold text-black pl-[4vw] md:pl-[16vw] pt-20">
+        <h2 className="text-3xl md:text-6xl font-semibold text-black pl-[4vw] md:pl-[16vw] pt-8 md:pt-16">
           A simple way to feel great
           <br />
         </h2>
@@ -218,7 +218,7 @@ export default function Home() {
           effectiveness of compounded drugs.
         </p>
       </section>
-      <section className="w-full flex flex-col justify-center items-start bg-[#FAF8F2] py-8 gap-4">
+      <section className="w-full flex flex-col justify-center items-start bg-[#FAF8F2] pt-8 pb-16 gap-4">
         <div className="flex justify-center items-start pl-[4vw] md:pl-[16vw] pb-8">
           <h2 className="text-4xl md:text-6xl font-semibold leading-[3rem] md:leading-[4rem]">
             Have questions?

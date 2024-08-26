@@ -26,10 +26,13 @@ export default function CardFunctions({ url, title, description }) {
       <h1 className="absolute top-4 left-4 md:top-8 md:left-8 text-xl md:text-6xl font-semibold text-white z-[1]">
         {title}
       </h1>
-      <img
-        className="w-[240px] md:w-[520px] rounded-2xl brightness-[80%]"
-        src={url}
-      />
+      <div className="w-[240px] h-[320px] md:w-[520px] md:h-[640px] rounded-2xl overflow-hidden">
+        <img
+          className="w-full h-full object-cover brightness-[80%]"
+          src={url}
+          alt={title}
+        />
+      </div>
       <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 flex flex-col gap-4">
         <h2 className="text-white text-md md:text-3xl font-semibold w-[80%]">
           {description}
