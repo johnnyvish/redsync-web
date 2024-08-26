@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -61,6 +61,14 @@ const descriptionData = {
 };
 
 export default function Description() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DescriptionContent />
+    </Suspense>
+  );
+}
+
+function DescriptionContent() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title") || "";
   const data = descriptionData[title] || {};
