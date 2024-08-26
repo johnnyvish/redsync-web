@@ -19,9 +19,9 @@ export default function Home() {
       description: "Treatments developed with dermatologists",
     },
     {
-      title: "Sex",
-      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp4dHpiNDFyYW5qcjA3eGQ4aWlkN2RoNmdiM3Q4bnJ0eXFyd2c4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vRe6zG5KjgAtAXe/giphy.gif",
-      description: "Bring out your best in the bedroom",
+      title: "Hair",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjQydnJpcHdtbjZmbjY1MzA0Z2JuMXZqbnB4ZGV3Zng0ZW5sNng4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o8doWe0rL5vBUv0bK/giphy.gif",
+      description: "Regrow thicker, fuller hair",
     },
     {
       title: "Weight",
@@ -29,110 +29,96 @@ export default function Home() {
       description: "Curve cravings, and control your appetite",
     },
     {
-      title: "Hair",
-      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjQydnJpcHdtbjZmbjY1MzA0Z2JuMXZqbnB4ZGV3Zng0ZW5sNng4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o8doWe0rL5vBUv0bK/giphy.gif",
-      description: "Regrow thicker, fuller hair",
+      title: "Sex",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp4dHpiNDFyYW5qcjA3eGQ4aWlkN2RoNmdiM3Q4bnJ0eXFyd2c4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vRe6zG5KjgAtAXe/giphy.gif",
+      description: "Bring out your best in the bedroom",
     },
   ];
 
   const CardsTreatments = [
     {
-      title: "Hair",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Product/product-tile-hair-d",
-      description: "Hair Hybrids",
+      title: "Sleep",
+      url: "/TreatmentSleep.jpg",
+      description: "Night Mint",
     },
     {
-      title: "Sex",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Product/product-tile-sex-d",
-      description: "Hard Mints",
+      title: "Heart",
+      url: "TreatmentHair.jpg",
+      description: "Longetivity Mint",
     },
+
     {
-      title: "Weight",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Product/product-tile-wl-d",
-      description: "GLP-1 Injections",
-    },
-    {
-      title: "Anxiety",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Product/product-tile-mh-d",
-      description: "Generic for Lexapro",
+      title: "Stress",
+      url: "TreatmentAnxiety.jpg",
+      description: "Relaxation pills",
     },
     {
       title: "Skin",
-      url: "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco/Hims/homepage/STOR-5134/Product/product-tile-skin-d",
-      description: "Custom Anti-aging Cream",
+      url: "TreatmentSkin.jpg",
+      description: "Custom Sunscreen",
     },
   ];
 
   const questionsAndAnswers = [
     {
-      question: "How does telehealth work?",
+      question: "What does Biorose offer?",
       answer:
-        "Telehealth allows you to consult with healthcare professionals remotely using video calls, phone calls, or messaging platforms. It's convenient and accessible from the comfort of your home.",
+        "Biorose offers personalized health packages that include smart tools like rings and monitors, along with clinically proven supplements to help you improve your sleep, heart health, and overall well-being.",
     },
     {
-      question: "Are online prescriptions safe?",
+      question: "How do the Biorose packages work?",
       answer:
-        "Yes, online prescriptions from licensed healthcare providers are safe. They follow the same regulations and standards as in-person prescriptions, ensuring your safety and proper medical care.",
+        "Each package includes easy-to-use health tools and supplements. You receive everything you need at home, and our smart devices track your health while the supplements support your long-term wellness.",
     },
     {
-      question: "What conditions can be treated through telehealth?",
+      question: "What are the different Biorose packages?",
       answer:
-        "Many conditions can be treated via telehealth, including minor illnesses, mental health issues, skin conditions, and chronic disease management. However, some conditions may require in-person visits.",
-    },
-    {
-      question: "WHat's up dawg?",
-      answer:
-        "Telehealth platforms use secure, encrypted connections to protect your privacy. Healthcare providers are also bound by HIPAA regulations to maintain the confidentiality of your medical information.",
-    },
-    {
-      question: "Can I get a refill for my prescription through telehealth?",
-      answer:
-        "In many cases, yes. Depending on the medication and your medical history, healthcare providers can often authorize prescription refills through telehealth consultations.",
+        "We offer Sleep, Heart, and Core Body packages, each designed for specific health needs, as well as an Ultra package that includes advanced health tests for comprehensive health management.",
     },
   ];
 
   const ButtonsFunctions = [
     {
-      title: "Have great sex",
+      title: "Have great sleep",
       color: "#5C8CB5",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/updated-atf-tiles/tiles-sex-d",
-      introText: "You're on your way to better sex.",
+      introText: "You're on your way to better sleep.",
     },
     {
-      title: "Regrow hair",
+      title: "Prevent heart disease",
       color: "#8A3A34",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/atf-tiles/tiles-hair-d",
-      introText: "You're on your way to regrow hair.",
+      introText: "You're on your way to prevent heart disease.",
     },
     {
-      title: "Lose weight",
+      title: "Live longer",
       color: "#CF9457",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/atf-tiles/tiles-wl-d",
-      introText: "You're on your way to lose weight.",
+      introText: "You're on your way to live longer.",
     },
     {
-      title: "Tackle anxiety",
+      title: "Tackle stress",
       color: "#01A76F",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/atf-tiles/tiles-mh-d",
-      introText: "You're on your way to tackle anxiety.",
+      introText: "You're on your way to tackle stress.",
     },
     {
-      title: "Have longer sex",
+      title: "Slow down aging",
       color: "#7441B1",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/atf-tiles/tiles-pe-d",
-      introText: "You're on your way to longer sex.",
+      introText: "You're on your way to slow down aging.",
     },
     {
-      title: "Get smooth skin",
+      title: "Improve everyday health",
       color: "#AC7758",
       imageUrl:
         "https://www.hims.com/forhims/image/upload/q_auto,f_auto,fl_lossy,c_limit,q_auto:eco,b_rgb:fff/Hims/homepage/STOR-5134/atf-tiles/tiles-skin-d",
-      introText: "You're on your way to smooth skin.",
+      introText: "You're on your way to improving your everyday health.",
     },
   ];
 
@@ -156,11 +142,10 @@ export default function Home() {
       <section className="w-[90%] flex flex-col items-left bg-white pb-16 md:pb-32">
         <h2 className="text-4xl md:text-6xl font-semibold mt-20 mb-12">
           <span className="bg-gradient-to-r from-[#D88C6C] via-[#C17262] to-[#A65355] inline-block text-transparent bg-clip-text">
-            Convenient,
+            Smart tools,
           </span>{" "}
-          quality
           <br />
-          care 100% online
+          to help you live longer
         </h2>
         <div className="w-full flex flex-col justify-center items-center gap-4">
           {ButtonsFunctions.map((card, index) => (
@@ -196,10 +181,11 @@ export default function Home() {
       <section className="w-full flex flex-col justify-center items-start bg-[#FAF8F2] py-8">
         <div className="flex justify-center items-start pl-[4vw] md:pl-[16vw]">
           <h2 className="text-3xl md:text-6xl font-semibold">
-            Popular{" "}
             <span className="bg-gradient-to-r from-[#D88C6C] via-[#C17262] to-[#A65355] inline-block text-transparent bg-clip-text">
-              treatments
+              Supplements
             </span>
+            <br />
+            that are clinically proven
           </h2>
         </div>
         <ScrollableCardContainer>
@@ -213,9 +199,9 @@ export default function Home() {
           ))}
         </ScrollableCardContainer>
         <p className="text-left text-[0.7rem] md:text-sm text-gray-500 pl-[4vw] md:pl-[16vw]">
-          *Hard Mints and Hard Hybrids are compounded products and have not been
-          approved by the FDA. The FDA does not verify the safety or
-          effectiveness of compounded drugs.
+          *These statements have not been evaluated by the Food and Drug
+          Adminstration. This product is not intended to diagnose, treat, cure,
+          or prevent any disease.
         </p>
       </section>
       <section className="w-full flex flex-col justify-center items-start bg-[#FAF8F2] pt-8 pb-16 gap-4">

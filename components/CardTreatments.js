@@ -29,7 +29,6 @@ export default function CardTreatments({ url, title, description }) {
           {description}
         </h2>
       </div>
-
       <img className="w-[240px] md:w-[360px] rounded-2xl" src={url}></img>
       <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 flex flex-col justify-center items-center gap-4">
         <p className="text-[0.7rem] text-white hover:no-underline underline">

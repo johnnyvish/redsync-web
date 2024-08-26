@@ -15,6 +15,7 @@ export default function ButtonFunctions({ title, imageUrl, color, introText }) {
         pathname: "/survey",
         query: {
           introText: introText,
+          title: title,
         },
       }}
       className="h-20 border-[1px] border-gray-200 rounded-2xl w-full self-center hover:border-gray-600 hover:border-2 p-6 flex justify-between items-center"
@@ -35,7 +36,7 @@ export default function ButtonFunctions({ title, imageUrl, color, introText }) {
         {restOfTitle} <span style={{ color: color }}>{lastWord}</span>
       </h1>
       <div className="flex justify-center items-center gap-2">
-        <img className="w-24 rounded-2xl" src={imageUrl} />
+        {/* <img className="w-24 rounded-2xl" src={imageUrl} /> */}
         <div
           className="rounded-2xl px-3 py-2"
           style={{ backgroundColor: color }}

@@ -19,12 +19,16 @@ function SurveyContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [introText, setIntroText] = useState("");
+  const [title, setTitle] = useState("");
   const [key, setKey] = useState(0);
   const [timestamp, setTimestamp] = useState(Date.now());
 
   useEffect(() => {
-    const params = searchParams.get("introText") || "";
-    setIntroText(params);
+    const paramsIntroText = searchParams.get("introText") || "";
+    const paramsTitle = searchParams.get("title") || "";
+    setIntroText(paramsIntroText);
+    setTitle(paramsTitle);
+
     setKey((prevKey) => prevKey + 1);
   }, [searchParams]);
 
@@ -42,7 +46,7 @@ function SurveyContent() {
       .call(() => {
         if (textContainerRef.current) {
           textContainerRef.current.textContent =
-            "First up, answer these questions so we can help.";
+            "Here's how you can improve...";
         }
       })
       .fromTo(
@@ -53,7 +57,7 @@ function SurveyContent() {
       )
       .to(textContainerRef.current, { opacity: 0, duration: 1, delay: 1.5 })
       .call(() => {
-        router.push("/");
+        router.push(`/description?title=${encodeURIComponent(title)}`);
       });
 
     gsap.to(imageRef.current, {
