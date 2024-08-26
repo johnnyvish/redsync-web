@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.receipt-container {
-  background-image: url("/receipt.svg"); /* Path to your SVG */
-  background-size: cover; /* Ensure the SVG covers the div completely */
-  background-repeat: no-repeat;
-  border-radius: 12px; /* Optional: If your SVG doesn’t have rounded corners */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
