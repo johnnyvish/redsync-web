@@ -4,7 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function GreatSexSurvey() {
+export default function Survey() {
   const textContainerRef = useRef(null);
   const imageRef = useRef(null);
   const router = useRouter();
