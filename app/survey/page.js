@@ -74,7 +74,9 @@ function SurveyContent() {
     >
       <nav className="w-full flex justify-start items-center z-[999]">
         <Link href="/">
-          <h1 className="text-3xl md:text-5xl font-bold pt-16 pl-8">biorose</h1>
+          <h1 className="text-3xl md:text-5xl font-bold pt-8 md:pt-16 pl-8">
+            biorose
+          </h1>
         </Link>
       </nav>
       <div className="flex flex-col items-left justify-center w-full pt-4">

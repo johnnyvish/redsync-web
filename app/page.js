@@ -9,6 +9,16 @@ import Link from "next/link";
 export default function Home() {
   const CardsFunctions = [
     {
+      title: "Mental Health",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXZjeGx1OXV6eTEwbGt3aGZrdW10MTVldGIwYWg1aml6ZmRsMHZxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SklfP8y3V40ycCzVjW/giphy.gif",
+      description: "Relief for anxiety and depression is in reach",
+    },
+    {
+      title: "Skin",
+      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExajk5aWZ0Y2IyaWZkc3Zkdmd1amgwMnMwOGpyY3pqeWhna2Fva2hkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MlORWCGld7QaFLIryX/giphy-downsized-large.gif",
+      description: "Treatments developed with dermatologists",
+    },
+    {
       title: "Sex",
       url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp4dHpiNDFyYW5qcjA3eGQ4aWlkN2RoNmdiM3Q4bnJ0eXFyd2c4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vRe6zG5KjgAtAXe/giphy.gif",
       description: "Bring out your best in the bedroom",
@@ -22,16 +32,6 @@ export default function Home() {
       title: "Hair",
       url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjQydnJpcHdtbjZmbjY1MzA0Z2JuMXZqbnB4ZGV3Zng0ZW5sNng4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o8doWe0rL5vBUv0bK/giphy.gif",
       description: "Regrow thicker, fuller hair",
-    },
-    {
-      title: "Mental Health",
-      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXZjeGx1OXV6eTEwbGt3aGZrdW10MTVldGIwYWg1aml6ZmRsMHZxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SklfP8y3V40ycCzVjW/giphy.gif",
-      description: "Relief for anxiety and depression is in reach",
-    },
-    {
-      title: "Skin",
-      url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExajk5aWZ0Y2IyaWZkc3Zkdmd1amgwMnMwOGpyY3pqeWhna2Fva2hkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MlORWCGld7QaFLIryX/giphy-downsized-large.gif",
-      description: "Treatments developed with dermatologists",
     },
   ];
 

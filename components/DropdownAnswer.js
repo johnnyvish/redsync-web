@@ -48,7 +48,7 @@ export default function DropdownAnswer({ question, answer }) {
       }}
     >
       <div className="flex justify-between items-center w-full">
-        <h2 className="text-2xl md:text-4xl font-semibold text-left w-[90%]">
+        <h2 className="text-2xl md:text-4xl font-semibold text-left w-[80%]">
           {question}
         </h2>
         <div
