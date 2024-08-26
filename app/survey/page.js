@@ -1,10 +1,19 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Survey() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SurveyContent />
+    </Suspense>
+  );
+}
+
+function SurveyContent() {
   const textContainerRef = useRef(null);
   const imageRef = useRef(null);
   const router = useRouter();
