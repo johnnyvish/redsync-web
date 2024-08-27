@@ -61,17 +61,17 @@ export default function Home() {
 
   const questionsAndAnswers = [
     {
-      question: "What does Biorose offer?",
+      question: "What does Smart Rose offer?",
       answer:
-        "Biorose offers personalized health packages that include smart tools like rings and monitors, along with clinically proven supplements to help you improve your sleep, heart health, and overall well-being.",
+        "Smart Rose offers personalized health packages that include smart tools like rings and monitors, along with clinically proven supplements to help you improve your sleep, heart health, and overall well-being.",
     },
     {
-      question: "How do the Biorose packages work?",
+      question: "How do the Smart Rose packages work?",
       answer:
         "Each package includes easy-to-use health tools and supplements. You receive everything you need at home, and our smart devices track your health while the supplements support your long-term wellness.",
     },
     {
-      question: "What are the different Biorose packages?",
+      question: "What are the different Smart Rose packages?",
       answer:
         "We offer Sleep, Heart, and Core Body packages, each designed for specific health needs, as well as an Ultra package that includes advanced health tests for comprehensive health management.",
     },

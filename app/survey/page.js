@@ -77,9 +77,9 @@ function SurveyContent() {
       className="bg-[#FAF8F2] min-h-screen w-full flex items-center flex-col"
     >
       <nav className="w-full flex justify-start items-center z-[999]">
-        <Link href="/">
+        <Link href="/" className="flex items-center">
           <h1 className="text-3xl md:text-5xl font-bold pt-8 md:pt-16 pl-8">
-            biorose
+            Smart Rose
           </h1>
         </Link>
       </nav>

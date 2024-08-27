@@ -78,7 +78,7 @@ function DescriptionContent() {
       <nav className="w-full flex justify-start items-center z-[999]">
         <Link href="/">
           <h1 className="text-3xl md:text-5xl font-bold pt-8 md:pt-16 pl-8">
-            biorose
+            Smart Rose
           </h1>
         </Link>
       </nav>
