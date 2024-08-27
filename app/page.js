@@ -29,7 +29,7 @@ export default function Home() {
       description: "Curve cravings, and control your appetite",
     },
     {
-      title: "Sex",
+      title: "Sleep",
       url: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp4dHpiNDFyYW5qcjA3eGQ4aWlkN2RoNmdiM3Q4bnJ0eXFyd2c4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vRe6zG5KjgAtAXe/giphy.gif",
       description: "Bring out your best in the bedroom",
     },
