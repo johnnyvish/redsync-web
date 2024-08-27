@@ -64,7 +64,7 @@ export default function DropdownAnswer({ question, answer }) {
         ref={answerRef}
         className="overflow-hidden w-full h-0 flex justify-end items-center"
       >
-        <p className="text-lg md:text-xl text-start w-[50%]">{answer}</p>
+        <p className="text-lg md:text-xl text-start w-[50%] mt-4">{answer}</p>
       </div>
       <div className="w-full h-[1px] md:h-[2px] bg-gray-300" />
     </button>

@@ -135,14 +135,15 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-white">
       <nav className="w-full flex justify-start items-center p-4 fixed bg-white z-[999]">
-        <Link href="/">
-          <h1 className="text-2xl md:text-3xl font-bold">biorose</h1>
+        <Link href="/" className="flex justify-center items-center gap-2">
+          <img src="/Rose.png" className="w-6 h-6" />
+          <h1 className="text-2xl md:text-3xl font-bold">Smart Rose</h1>
         </Link>
       </nav>
       <section className="w-[90%] flex flex-col items-left bg-white pb-16 md:pb-32">
         <h2 className="text-4xl md:text-6xl font-semibold mt-20 mb-12">
           <span className="bg-gradient-to-r from-[#D88C6C] via-[#C17262] to-[#A65355] inline-block text-transparent bg-clip-text">
-            Smart tools,
+            Smart health tools,
           </span>{" "}
           <br />
           to help you live longer
