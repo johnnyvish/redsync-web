@@ -140,15 +140,15 @@ export default function Home() {
           <h1 className="text-2xl md:text-3xl font-bold">Smart Rose</h1>
         </Link>
       </nav>
-      <section className="w-[90%] flex flex-col items-left bg-white pb-16 md:pb-32">
-        <h2 className="text-4xl md:text-6xl font-semibold mt-20 mb-12">
+      <section className="w-full flex flex-col bg-white pb-16 md:pb-32 pl-[4vw] md:pl-[16vw] md:pt-12">
+        <h2 className="text-4xl md:text-7xl font-semibold mt-20 mb-12">
           <span className="bg-gradient-to-r from-[#D88C6C] via-[#C17262] to-[#A65355] inline-block text-transparent bg-clip-text">
             Smart health tools,
           </span>{" "}
           <br />
           to help you live longer
         </h2>
-        <div className="w-full flex flex-col justify-center items-center gap-4">
+        <div className="w-[90%] grid grid-cols-1 lg:grid-cols-3 gap-4">
           {ButtonsFunctions.map((card, index) => (
             <ButtonFunctions
               key={index}
